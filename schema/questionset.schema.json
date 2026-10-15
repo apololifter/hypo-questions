@@ -33,6 +33,61 @@
     },
     "subfamilies": { "type": "array", "items": { "type": "string" } },
     "techniques": { "type": "array", "items": { "type": "string" } },
+    "standard_version": { "type": "string", "description": "Version del estandar de autoria (AUTHORING.md) aplicada." },
+    "authored": { "type": "boolean", "description": "true si el nodo fue revisado/escrito segun el estandar (no es un seed generado)." },
+    "reviewed": { "type": "boolean" },
+    "mechanism": {
+      "type": "object",
+      "description": "Descomposicion del mecanismo (Paso 1 del estandar).",
+      "additionalProperties": false,
+      "properties": {
+        "invariant": { "type": "string", "description": "Propiedad de seguridad que debe cumplirse." },
+        "preconditions": { "type": "array", "items": { "type": "string" } },
+        "components": { "type": "array", "items": { "type": "string" } },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "transformations": { "type": "array", "items": { "type": "string" } },
+        "controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "check": { "type": "string" },
+              "applies_to": { "type": "array", "items": { "type": "string" } },
+              "bypass_candidates": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "discriminating_test": {
+      "type": "object",
+      "description": "Prueba discriminante minima (Paso 6 del estandar).",
+      "additionalProperties": false,
+      "properties": {
+        "baseline": { "type": "string" },
+        "change": { "type": "string" },
+        "constant": { "type": "array", "items": { "type": "string" } },
+        "expected_secure": { "type": "string" },
+        "anomalous": { "type": "string" },
+        "signal": { "type": "string" },
+        "confirmation_criteria": { "type": "string" },
+        "falsation": { "type": "string" }
+      }
+    },
+    "alternative_paths": {
+      "type": "array",
+      "description": "Caminos alternativos considerados (Paso 3) y la pregunta que los cubre.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dimension": { "type": "string" },
+          "variation": { "type": "string" },
+          "question_id": { "type": "string" }
+        }
+      }
+    },
     "wpta": {
       "type": "object",
       "required": ["repo", "commit"],

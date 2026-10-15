@@ -43231,12 +43231,12 @@
   {
     "id": "Q-TEC-0033-01",
     "type": "context",
-    "question": "¿Esta aplicacion presenta el contexto que activa la tecnica 'Salto de pasos en un flujo de negocio'? Contexto canonico WPTA: Saltar el pago y confirmar el pedido.",
-    "purpose": "Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.",
+    "question": "¿La aplicacion tiene un flujo de negocio multipaso con efectos dependientes (pago -> confirmacion, registro -> activacion, carrito -> pedido) donde el paso final produce un efecto persistente?",
+    "purpose": "Determinar si la tecnica es aplicable antes de descomponer el flujo.",
     "required_evidence": [
-      "endpoint_or_route",
-      "resource_model",
-      "operation"
+      "flow_map",
+      "endpoint_inventory",
+      "resource_model"
     ],
     "answer_type": "structured",
     "possible_outcomes": [
@@ -43250,7 +43250,7 @@
       "unknown": "request_missing_evidence"
     },
     "applicability_conditions": [
-      "Saltar el pago y confirmar el pedido."
+      "Existe un flujo con pasos ordenados y un paso final con efecto."
     ],
     "source_fields": [
       "objective.contexts",
@@ -43266,12 +43266,12 @@
   {
     "id": "Q-TEC-0033-02",
     "type": "preconditions",
-    "question": "¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad? Requisitos WPTA: Cuenta/sesion valida con el rol adecuado; entorno de pruebas; respetar rate-limit. No aplica si: (el WPTA no declara condicion de no aplicabilidad)",
-    "purpose": "Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la tecnica.",
+    "question": "¿Puedo ejecutar el paso final con una sesion valida, observar el estado del flujo (token de flujo, estado del recurso) y NO se cumple la no-aplicabilidad (backend que exige el orden en todos los caminos)?",
+    "purpose": "Verificar recursos y la condicion que descartaria la tecnica.",
     "required_evidence": [
       "accounts_or_roles",
-      "environment",
-      "concurrency_if_any"
+      "observable_flow_state",
+      "environment"
     ],
     "answer_type": "structured",
     "possible_outcomes": [
@@ -43288,11 +43288,11 @@
       "Q-TEC-0033-01"
     ],
     "attacker_state_requirements": [
-      "Cuenta/sesion valida con el rol adecuado; entorno de pruebas; respetar rate-limit."
+      "Cuenta/sesion valida con el rol del flujo."
     ],
     "source_fields": [
       "replication.requirements",
-      "objective.not_applicable"
+      "objective.contexts"
     ],
     "node_type": "technique",
     "node_id": "TEC-0033",
@@ -43304,12 +43304,12 @@
   {
     "id": "Q-TEC-0033-03",
     "type": "structure",
-    "question": "¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado? Hipotesis a falsar: El backend no valida el orden de los pasos.",
-    "purpose": "Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.",
+    "question": "¿Cuales son los pasos del flujo, el orden obligatorio, el endpoint de cada paso y como representa el backend el estado (sesion, token de flujo o estado del recurso)?",
+    "purpose": "Reconstruir el flujo real y su maquina de estados para localizar los controles.",
     "required_evidence": [
+      "state_transitions",
       "call_graph",
-      "state_or_flow",
-      "component_inventory"
+      "endpoint_inventory"
     ],
     "answer_type": "structured",
     "possible_outcomes": [
@@ -43339,21 +43339,23 @@
   {
     "id": "Q-TEC-0033-04",
     "type": "controls",
-    "question": "¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento a revisar: Comprobar si se puede alcanzar el paso final sin completar los previos.",
-    "purpose": "Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.",
+    "question": "¿Donde valida el backend server-side que el estado del flujo permite ejecutar el paso final, y esa comprobacion se aplica a TODOS los caminos que alcanzan la operacion (todos los endpoints/verbos/roles) o solo al camino del cliente?",
+    "purpose": "Localizar la guarda de orden y comprobar si cubre todos los caminos.",
     "required_evidence": [
       "middleware_or_policy",
-      "alternative_routes",
-      "effective_guard"
+      "effective_guard",
+      "alternative_routes"
     ],
     "answer_type": "structured",
     "possible_outcomes": [
-      "located",
+      "located_all_paths",
+      "located_some_paths",
       "not_located",
       "unknown"
     ],
     "next": {
-      "located": "Q-TEC-0033-05",
+      "located_all_paths": "Q-TEC-0033-06",
+      "located_some_paths": "Q-TEC-0033-05",
       "not_located": "Q-TEC-0033-05",
       "unknown": "request_missing_evidence"
     },
@@ -43372,13 +43374,45 @@
   },
   {
     "id": "Q-TEC-0033-05",
+    "type": "paths",
+    "question": "¿Que caminos alternativos alcanzan la operacion final evitando la comprobacion de orden: endpoint equivalente (v2/movil/legacy), otro verbo HTTP, reutilizar un estado/token propio ya completado, o mass assignment de campos de estado (step/paid/status)?",
+    "purpose": "Cubrir las rutas que evitan el control antes de disenar la prueba.",
+    "required_evidence": [
+      "route_inventory",
+      "equivalent_endpoints",
+      "accepted_state_fields"
+    ],
+    "answer_type": "structured",
+    "possible_outcomes": [
+      "found",
+      "none",
+      "unknown"
+    ],
+    "next": {
+      "found": "Q-TEC-0033-06",
+      "none": "Q-TEC-0033-06",
+      "unknown": "request_missing_evidence"
+    },
+    "depends_on": [
+      "Q-TEC-0033-04"
+    ],
+    "source_fields": [],
+    "node_type": "technique",
+    "node_id": "TEC-0033",
+    "area": "G",
+    "family_id": "F-G01",
+    "technique_id": "TEC-0033",
+    "file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml"
+  },
+  {
+    "id": "Q-TEC-0033-06",
     "type": "differentiation",
-    "question": "¿Qué observacion distingue una implementacion segura de una insegura? Seguro: El backend exige el orden de pasos. Anomalo: El paso final se ejecuta. Senal: El paso final se ejecuta.",
-    "purpose": "Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.",
+    "question": "¿Que observacion distingue un backend que exige el orden de uno que no? Seguro: rechazo explicito (409/422) o redireccion al paso pendiente, sin efecto. Anomalo: efecto final persistido (pedido confirmado) sin completar los pasos previos.",
+    "purpose": "Definir el discriminante observable antes de ejecutar.",
     "required_evidence": [
       "expected_response",
       "anomalous_response",
-      "signal_with_reference"
+      "persisted_state_reference"
     ],
     "answer_type": "structured",
     "possible_outcomes": [
@@ -43387,16 +43421,15 @@
       "unknown"
     ],
     "next": {
-      "discriminates": "Q-TEC-0033-06",
-      "ambiguous": "Q-TEC-0033-07",
+      "discriminates": "Q-TEC-0033-07",
+      "ambiguous": "Q-TEC-0033-08",
       "unknown": "request_missing_evidence"
     },
     "depends_on": [
-      "Q-TEC-0033-04"
+      "Q-TEC-0033-05"
     ],
     "source_fields": [
       "procedure.expected_secure_result",
-      "procedure.anomalous_result",
       "replication.signal"
     ],
     "node_type": "technique",
@@ -43407,14 +43440,14 @@
     "file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml"
   },
   {
-    "id": "Q-TEC-0033-06",
+    "id": "Q-TEC-0033-07",
     "type": "validation",
-    "question": "¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Cambia SOLO: Constante: Criterio: Confirmada si el flujo se completa fuera de orden.",
-    "purpose": "Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento minimo.",
+    "question": "¿Que prueba minima confirma/refuta la hipotesis? Baseline: recorrer el flujo completo. Cambia SOLO: invocar el paso final en un flujo nuevo sin el previo. Constante: sesion, cabeceras e identificador del recurso.",
+    "purpose": "Producir evidencia reproducible con una sola variable.",
     "required_evidence": [
+      "baseline_request",
       "reproducible_request",
-      "baseline",
-      "differential_response"
+      "differential_state"
     ],
     "answer_type": "evidence_ref",
     "possible_outcomes": [
@@ -43424,52 +43457,19 @@
       "blocked"
     ],
     "next": {
-      "confirmed": "Q-TEC-0033-08",
-      "refuted": "Q-TEC-0033-08",
-      "inconclusive": "Q-TEC-0033-07",
+      "confirmed": "Q-TEC-0033-09",
+      "refuted": "Q-TEC-0033-09",
+      "inconclusive": "Q-TEC-0033-08",
       "blocked": "request_missing_evidence"
     },
     "depends_on": [
-      "Q-TEC-0033-05"
+      "Q-TEC-0033-06"
     ],
     "source_fields": [
-      "procedure.action",
-      "procedure.confirmation_criteria"
+      "procedure.confirmation_criteria",
+      "procedure.expected_secure_result"
     ],
-    "notes": "La ejecucion requiere aprobacion del CEO por ser accion intrusiva.",
-    "node_type": "technique",
-    "node_id": "TEC-0033",
-    "area": "G",
-    "family_id": "F-G01",
-    "technique_id": "TEC-0033",
-    "file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml"
-  },
-  {
-    "id": "Q-TEC-0033-07",
-    "type": "interpretation",
-    "question": "¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir el mismo resultado y como se descartan?",
-    "purpose": "Separar violacion real de falso positivo antes de concluir.",
-    "required_evidence": [
-      "alternative_hypotheses",
-      "control_comparison"
-    ],
-    "answer_type": "structured",
-    "possible_outcomes": [
-      "explained",
-      "unresolved",
-      "unknown"
-    ],
-    "next": {
-      "explained": "stop_false_positive",
-      "unresolved": "Q-TEC-0033-06",
-      "unknown": "request_missing_evidence"
-    },
-    "depends_on": [
-      "Q-TEC-0033-05"
-    ],
-    "source_fields": [
-      "relations.detects_pattern"
-    ],
+    "notes": "Ejecucion intrusiva (crea estado): requiere aprobacion del CEO y entorno controlado.",
     "node_type": "technique",
     "node_id": "TEC-0033",
     "area": "G",
@@ -43479,9 +43479,41 @@
   },
   {
     "id": "Q-TEC-0033-08",
+    "type": "interpretation",
+    "question": "¿Que otras explicaciones producen el mismo efecto y como se descartan: el efecto ya existia antes de la peticion, idempotencia, estado precargado por otra via, cache, o un rol/tenant distinto? ¿Se reproduce en un flujo realmente nuevo?",
+    "purpose": "Separar una violacion real de un falso positivo antes de concluir.",
+    "required_evidence": [
+      "pre_request_state",
+      "control_replay",
+      "alternative_hypotheses"
+    ],
+    "answer_type": "structured",
+    "possible_outcomes": [
+      "explained",
+      "unresolved",
+      "unknown"
+    ],
+    "next": {
+      "explained": "stop_false_positive",
+      "unresolved": "Q-TEC-0033-07",
+      "unknown": "request_missing_evidence"
+    },
+    "depends_on": [
+      "Q-TEC-0033-06"
+    ],
+    "source_fields": [],
+    "node_type": "technique",
+    "node_id": "TEC-0033",
+    "area": "G",
+    "family_id": "F-G01",
+    "technique_id": "TEC-0033",
+    "file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml"
+  },
+  {
+    "id": "Q-TEC-0033-09",
     "type": "next",
-    "question": "¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-841. Tecnicas relacionadas: (sin tecnicas relacionadas).",
-    "purpose": "Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.",
+    "question": "¿Que corresponde tras la evidencia? Patron: CWE-841. Relacionadas: TEC-0034 (manipulacion de parametros de negocio), TEC-0156 (manipulacion de estado de pedido).",
+    "purpose": "Decidir el siguiente paso preservando trazabilidad.",
     "required_evidence": [
       "confirmed_or_refuted_evidence",
       "finding_ref"
@@ -43498,7 +43530,7 @@
       "follow_related": "goto_technique_questions"
     },
     "depends_on": [
-      "Q-TEC-0033-06"
+      "Q-TEC-0033-07"
     ],
     "source_fields": [
       "relations.detects_pattern",

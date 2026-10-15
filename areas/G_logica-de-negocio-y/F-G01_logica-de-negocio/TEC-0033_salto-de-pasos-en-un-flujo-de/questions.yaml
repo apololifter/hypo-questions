@@ -1,218 +1,247 @@
-schema_version: '1.0'
+schema_version: "1.0"
+standard_version: "1.0"
 node_type: technique
+generated: false
+authored: true
+reviewed: true
 id: TEC-0033
 title: Salto de pasos en un flujo de negocio
-description: El backend no valida el orden de los pasos.
+description: >-
+  El backend ejecuta la operacion final de un flujo multipaso sin exigir que se hayan
+  completado y verificado los pasos previos obligatorios.
 area: G
 area_title: Logica de negocio y flujos
 family_id: F-G01
 family_name: Logica de negocio
 technique_id: TEC-0033
 variant_of: null
-hypothesis: El backend no valida el orden de los pasos.
+hypothesis: >-
+  El endpoint que ejecuta el paso final de un flujo multipaso (p. ej. /checkout/confirm) no
+  revalida server-side que el estado del flujo haya alcanzado las fases obligatorias previas
+  (p. ej. pago verificado), por lo que una peticion directa al paso final produce el efecto
+  persistente incumpliendo el invariante de orden del flujo.
 behavior: Comprobar si se puede alcanzar el paso final sin completar los previos.
 patterns:
-- CWE-841
-related_techniques: []
+  - CWE-841
+related_techniques:
+  - TEC-0034
+  - TEC-0156
 attacker_state_requirements:
-- Cuenta/sesion valida con el rol adecuado; entorno de pruebas; respetar rate-limit.
+  - Cuenta/sesion valida con el rol adecuado para el flujo.
+  - Entorno de pruebas; respetar rate-limit.
 missing_catalog_fields:
-- objective.not_applicable
-- procedure.action
-- procedure.variable_to_change
-- procedure.variables_to_hold_constant
+  - procedure.action
+  - procedure.variable_to_change
+  - procedure.variables_to_hold_constant
+  - procedure.anomalous_result
+  - procedure.evidence_to_record
 wpta:
   repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
   commit: d6f986e9f97c9046aa721512210aef4158be9fff
   source: atlas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/tecnica.json
-generated: true
+
+mechanism:
+  invariant: >-
+    Una operacion con efectos persistentes (confirmar un pedido, activar una cuenta, emitir un
+    reembolso) solo se ejecuta si el estado del flujo ha alcanzado y verificado las fases
+    obligatorias previas definidas por las reglas de negocio.
+  preconditions:
+    - El flujo tiene pasos ordenados con efectos dependientes (p. ej. pago -> confirmacion).
+    - Existe un endpoint/accion que ejecuta el paso final con efecto persistente.
+    - El backend conoce el estado del flujo (sesion, token de flujo o estado del recurso).
+  components:
+    - frontend router / wizard de pasos
+    - endpoints de cada paso del flujo
+    - almacen de estado del flujo (sesion o registro del recurso)
+    - servicio de pago / servicio de negocio afectado
+  sources:
+    - peticion directa al endpoint del paso final
+    - identificador del recurso/orden
+    - campos ocultos del formulario (paso, estado, importe)
+    - parametros de query/cuerpo que fijan el estado
+  transformations:
+    - enrutado y deserializacion de la peticion
+    - recuperacion del estado del flujo
+    - aplicacion de la transicion de estado
+  controls:
+    - check: Verificacion server-side de que el estado permite avanzar al paso final.
+      applies_to:
+        - endpoint del paso final
+        - operaciones que mutan el estado
+      bypass_candidates:
+        - llamar directamente al paso final sin los previos
+        - forzar el estado con otro endpoint (mass assignment)
+        - reutilizar un token de flujo propio ya completado
+        - invocar un endpoint equivalente (movil/legacy/v2) que no valida
+    - check: Verificacion del pago antes de confirmar.
+      applies_to:
+        - paso de confirmacion
+      bypass_candidates:
+        - confirmar una orden sin transaccion de pago asociada
+        - reutilizar el pago de otra orden propia
+
+alternative_paths:
+  - { dimension: "ruta", variation: "endpoint equivalente (v2/movil/legacy) que ejecuta el mismo efecto sin validar el orden", question_id: Q-TEC-0033-05 }
+  - { dimension: "metodo", variation: "otro verbo HTTP sobre el recurso del paso final (PUT/PATCH)", question_id: Q-TEC-0033-05 }
+  - { dimension: "estado", variation: "reutilizar un token/estado de flujo propio ya completado", question_id: Q-TEC-0033-05 }
+  - { dimension: "entrada", variation: "mass assignment de campos de estado (step/paid/status) en el cuerpo", question_id: Q-TEC-0033-05 }
+  - { dimension: "capa", variation: "logica de orden solo en el cliente; el backend no la revalida", question_id: Q-TEC-0033-04 }
+  - { dimension: "rol", variation: "otro rol/tenant con menos privilegios sobre el mismo paso final", question_id: Q-TEC-0033-04 }
+
+discriminating_test:
+  baseline: >-
+    Recorrer el flujo completo de forma legitima (paso 1 -> ... -> paso final) y capturar la
+    peticion exacta del paso final con su estado valido.
+  change: >-
+    Invocar SOLO el paso final, en un flujo nuevo cuyo paso previo no se completo.
+  constant:
+    - Sesion / token del usuario de pruebas.
+    - Cabeceras (metodo, Content-Type, cookies).
+    - Identificador del recurso/orden.
+  expected_secure: >-
+    El backend rechaza la peticion (409/422) o redirige al paso pendiente; no se produce el efecto.
+  anomalous: >-
+    El efecto final persiste (p. ej. el pedido queda confirmado) sin haber completado el paso previo.
+  signal: >-
+    Estado persistido del recurso tras la peticion fuera de orden, comparado con el estado antes.
+  confirmation_criteria: >-
+    Confirmada si el efecto final ocurre sin las precondiciones del flujo.
+  falsation: >-
+    El backend exige el orden (rechazo explicito o redireccion al paso pendiente) => refutada.
+
 questions:
-- id: Q-TEC-0033-01
-  type: context
-  question: '¿Esta aplicacion presenta el contexto que activa la tecnica ''Salto de pasos en un flujo
-    de negocio''? Contexto canonico WPTA: Saltar el pago y confirmar el pedido.'
-  purpose: Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.
-  required_evidence:
-  - endpoint_or_route
-  - resource_model
-  - operation
-  answer_type: structured
-  possible_outcomes:
-  - applicable
-  - not_applicable
-  - unknown
-  next:
-    applicable: Q-TEC-0033-02
-    not_applicable: stop_not_applicable
-    unknown: request_missing_evidence
-  applicability_conditions:
-  - Saltar el pago y confirmar el pedido.
-  source_fields:
-  - objective.contexts
-  - objective.behavior
-- id: Q-TEC-0033-02
-  type: preconditions
-  question: '¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad?
-    Requisitos WPTA: Cuenta/sesion valida con el rol adecuado; entorno de pruebas; respetar rate-limit.
-    No aplica si: (el WPTA no declara condicion de no aplicabilidad)'
-  purpose: Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la
-    tecnica.
-  required_evidence:
-  - accounts_or_roles
-  - environment
-  - concurrency_if_any
-  answer_type: structured
-  possible_outcomes:
-  - satisfied
-  - not_satisfied
-  - unknown
-  next:
-    satisfied: Q-TEC-0033-03
-    not_satisfied: stop_precondition_unmet
-    unknown: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-01
-  attacker_state_requirements:
-  - Cuenta/sesion valida con el rol adecuado; entorno de pruebas; respetar rate-limit.
-  source_fields:
-  - replication.requirements
-  - objective.not_applicable
-- id: Q-TEC-0033-03
-  type: structure
-  question: '¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado?
-    Hipotesis a falsar: El backend no valida el orden de los pasos.'
-  purpose: Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.
-  required_evidence:
-  - call_graph
-  - state_or_flow
-  - component_inventory
-  answer_type: structured
-  possible_outcomes:
-  - identified
-  - partial
-  - unknown
-  next:
-    identified: Q-TEC-0033-04
-    partial: request_missing_evidence
-    unknown: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-02
-  source_fields:
-  - objective.hypothesis
-  - procedure.steps
-- id: Q-TEC-0033-04
-  type: controls
-  question: '¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento
-    a revisar: Comprobar si se puede alcanzar el paso final sin completar los previos.'
-  purpose: Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.
-  required_evidence:
-  - middleware_or_policy
-  - alternative_routes
-  - effective_guard
-  answer_type: structured
-  possible_outcomes:
-  - located
-  - not_located
-  - unknown
-  next:
-    located: Q-TEC-0033-05
-    not_located: Q-TEC-0033-05
-    unknown: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-03
-  source_fields:
-  - objective.behavior
-- id: Q-TEC-0033-05
-  type: differentiation
-  question: '¿Qué observacion distingue una implementacion segura de una insegura? Seguro: El backend
-    exige el orden de pasos. Anomalo: El paso final se ejecuta. Senal: El paso final se ejecuta.'
-  purpose: Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.
-  required_evidence:
-  - expected_response
-  - anomalous_response
-  - signal_with_reference
-  answer_type: structured
-  possible_outcomes:
-  - discriminates
-  - ambiguous
-  - unknown
-  next:
-    discriminates: Q-TEC-0033-06
-    ambiguous: Q-TEC-0033-07
-    unknown: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-04
-  source_fields:
-  - procedure.expected_secure_result
-  - procedure.anomalous_result
-  - replication.signal
-- id: Q-TEC-0033-06
-  type: validation
-  question: '¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Cambia SOLO: Constante:
-    Criterio: Confirmada si el flujo se completa fuera de orden.'
-  purpose: Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento
-    minimo.
-  required_evidence:
-  - reproducible_request
-  - baseline
-  - differential_response
-  answer_type: evidence_ref
-  possible_outcomes:
-  - confirmed
-  - refuted
-  - inconclusive
-  - blocked
-  next:
-    confirmed: Q-TEC-0033-08
-    refuted: Q-TEC-0033-08
-    inconclusive: Q-TEC-0033-07
-    blocked: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-05
-  source_fields:
-  - procedure.action
-  - procedure.confirmation_criteria
-  notes: La ejecucion requiere aprobacion del CEO por ser accion intrusiva.
-- id: Q-TEC-0033-07
-  type: interpretation
-  question: ¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir
-    el mismo resultado y como se descartan?
-  purpose: Separar violacion real de falso positivo antes de concluir.
-  required_evidence:
-  - alternative_hypotheses
-  - control_comparison
-  answer_type: structured
-  possible_outcomes:
-  - explained
-  - unresolved
-  - unknown
-  next:
-    explained: stop_false_positive
-    unresolved: Q-TEC-0033-06
-    unknown: request_missing_evidence
-  depends_on:
-  - Q-TEC-0033-05
-  source_fields:
-  - relations.detects_pattern
-- id: Q-TEC-0033-08
-  type: next
-  question: '¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-841. Tecnicas
-    relacionadas: (sin tecnicas relacionadas).'
-  purpose: Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.
-  required_evidence:
-  - confirmed_or_refuted_evidence
-  - finding_ref
-  answer_type: structured
-  possible_outcomes:
-  - confirmed_finding
-  - refuted_close
-  - follow_related
-  next:
-    confirmed_finding: report
-    refuted_close: done
-    follow_related: goto_technique_questions
-  depends_on:
-  - Q-TEC-0033-06
-  source_fields:
-  - relations.detects_pattern
-  - relations.related_to
+  - id: Q-TEC-0033-01
+    type: context
+    question: >-
+      ¿La aplicacion tiene un flujo de negocio multipaso con efectos dependientes (pago ->
+      confirmacion, registro -> activacion, carrito -> pedido) donde el paso final produce un
+      efecto persistente?
+    purpose: Determinar si la tecnica es aplicable antes de descomponer el flujo.
+    required_evidence: [flow_map, endpoint_inventory, resource_model]
+    answer_type: structured
+    possible_outcomes: [applicable, not_applicable, unknown]
+    next: { applicable: Q-TEC-0033-02, not_applicable: stop_not_applicable, unknown: request_missing_evidence }
+    applicability_conditions:
+      - Existe un flujo con pasos ordenados y un paso final con efecto.
+    source_fields: ["objective.contexts", "objective.behavior"]
+
+  - id: Q-TEC-0033-02
+    type: preconditions
+    question: >-
+      ¿Puedo ejecutar el paso final con una sesion valida, observar el estado del flujo (token de
+      flujo, estado del recurso) y NO se cumple la no-aplicabilidad (backend que exige el orden en
+      todos los caminos)?
+    purpose: Verificar recursos y la condicion que descartaria la tecnica.
+    required_evidence: [accounts_or_roles, observable_flow_state, environment]
+    answer_type: structured
+    possible_outcomes: [satisfied, not_satisfied, unknown]
+    next: { satisfied: Q-TEC-0033-03, not_satisfied: stop_precondition_unmet, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-0033-01]
+    attacker_state_requirements:
+      - Cuenta/sesion valida con el rol del flujo.
+    source_fields: ["replication.requirements", "objective.contexts"]
+
+  - id: Q-TEC-0033-03
+    type: structure
+    question: >-
+      ¿Cuales son los pasos del flujo, el orden obligatorio, el endpoint de cada paso y como
+      representa el backend el estado (sesion, token de flujo o estado del recurso)?
+    purpose: Reconstruir el flujo real y su maquina de estados para localizar los controles.
+    required_evidence: [state_transitions, call_graph, endpoint_inventory]
+    answer_type: structured
+    possible_outcomes: [identified, partial, unknown]
+    next: { identified: Q-TEC-0033-04, partial: request_missing_evidence, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-0033-02]
+    source_fields: ["objective.hypothesis", "procedure.steps"]
+
+  - id: Q-TEC-0033-04
+    type: controls
+    question: >-
+      ¿Donde valida el backend server-side que el estado del flujo permite ejecutar el paso final,
+      y esa comprobacion se aplica a TODOS los caminos que alcanzan la operacion (todos los
+      endpoints/verbos/roles) o solo al camino del cliente?
+    purpose: Localizar la guarda de orden y comprobar si cubre todos los caminos.
+    required_evidence: [middleware_or_policy, effective_guard, alternative_routes]
+    answer_type: structured
+    possible_outcomes: [located_all_paths, located_some_paths, not_located, unknown]
+    next:
+      located_all_paths: Q-TEC-0033-06
+      located_some_paths: Q-TEC-0033-05
+      not_located: Q-TEC-0033-05
+      unknown: request_missing_evidence
+    depends_on: [Q-TEC-0033-03]
+    source_fields: ["objective.behavior"]
+
+  - id: Q-TEC-0033-05
+    type: paths
+    question: >-
+      ¿Que caminos alternativos alcanzan la operacion final evitando la comprobacion de orden:
+      endpoint equivalente (v2/movil/legacy), otro verbo HTTP, reutilizar un estado/token propio ya
+      completado, o mass assignment de campos de estado (step/paid/status)?
+    purpose: Cubrir las rutas que evitan el control antes de disenar la prueba.
+    required_evidence: [route_inventory, equivalent_endpoints, accepted_state_fields]
+    answer_type: structured
+    possible_outcomes: [found, none, unknown]
+    next: { found: Q-TEC-0033-06, none: Q-TEC-0033-06, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-0033-04]
+    source_fields: []
+
+  - id: Q-TEC-0033-06
+    type: differentiation
+    question: >-
+      ¿Que observacion distingue un backend que exige el orden de uno que no? Seguro: rechazo
+      explicito (409/422) o redireccion al paso pendiente, sin efecto. Anomalo: efecto final
+      persistido (pedido confirmado) sin completar los pasos previos.
+    purpose: Definir el discriminante observable antes de ejecutar.
+    required_evidence: [expected_response, anomalous_response, persisted_state_reference]
+    answer_type: structured
+    possible_outcomes: [discriminates, ambiguous, unknown]
+    next: { discriminates: Q-TEC-0033-07, ambiguous: Q-TEC-0033-08, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-0033-05]
+    source_fields: ["procedure.expected_secure_result", "replication.signal"]
+
+  - id: Q-TEC-0033-07
+    type: validation
+    question: >-
+      ¿Que prueba minima confirma/refuta la hipotesis? Baseline: recorrer el flujo completo.
+      Cambia SOLO: invocar el paso final en un flujo nuevo sin el previo. Constante: sesion,
+      cabeceras e identificador del recurso.
+    purpose: Producir evidencia reproducible con una sola variable.
+    required_evidence: [baseline_request, reproducible_request, differential_state]
+    answer_type: evidence_ref
+    possible_outcomes: [confirmed, refuted, inconclusive, blocked]
+    next:
+      confirmed: Q-TEC-0033-09
+      refuted: Q-TEC-0033-09
+      inconclusive: Q-TEC-0033-08
+      blocked: request_missing_evidence
+    depends_on: [Q-TEC-0033-06]
+    source_fields: ["procedure.confirmation_criteria", "procedure.expected_secure_result"]
+    notes: "Ejecucion intrusiva (crea estado): requiere aprobacion del CEO y entorno controlado."
+
+  - id: Q-TEC-0033-08
+    type: interpretation
+    question: >-
+      ¿Que otras explicaciones producen el mismo efecto y como se descartan: el efecto ya existia
+      antes de la peticion, idempotencia, estado precargado por otra via, cache, o un rol/tenant
+      distinto? ¿Se reproduce en un flujo realmente nuevo?
+    purpose: Separar una violacion real de un falso positivo antes de concluir.
+    required_evidence: [pre_request_state, control_replay, alternative_hypotheses]
+    answer_type: structured
+    possible_outcomes: [explained, unresolved, unknown]
+    next: { explained: stop_false_positive, unresolved: Q-TEC-0033-07, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-0033-06]
+    source_fields: []
+
+  - id: Q-TEC-0033-09
+    type: next
+    question: >-
+      ¿Que corresponde tras la evidencia? Patron: CWE-841. Relacionadas: TEC-0034 (manipulacion de
+      parametros de negocio), TEC-0156 (manipulacion de estado de pedido).
+    purpose: Decidir el siguiente paso preservando trazabilidad.
+    required_evidence: [confirmed_or_refuted_evidence, finding_ref]
+    answer_type: structured
+    possible_outcomes: [confirmed_finding, refuted_close, follow_related]
+    next: { confirmed_finding: report, refuted_close: done, follow_related: goto_technique_questions }
+    depends_on: [Q-TEC-0033-07]
+    source_fields: ["relations.detects_pattern", "relations.related_to"]

@@ -103,3 +103,5 @@ questions:
   - Q-F-J03-01
   source_fields:
   - objective.not_applicable
+standard_version: '1.0'
+authored: false

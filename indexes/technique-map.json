@@ -11,6 +11,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A01_reconocimiento-de/TEC-0029_descubrimiento-de-rutas-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -30,6 +31,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A01_reconocimiento-de/TEC-0030_fingerprinting-de-tecnologia/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -49,6 +51,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0078_enumeracion-de-subdominios/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -69,6 +72,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0079_secretos-en-javascript-y-source/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -88,6 +92,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0157_descubrimiento-de-parametros/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -107,6 +112,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0158_documentacion-de-api-expuesta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -126,6 +132,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0180_fingerprint-por-favicon-hash/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -145,6 +152,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0181_enumeracion-de-well-known/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -164,6 +172,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0269_enumeracion-de-subdominios-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -183,6 +192,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0270_descubrimiento-de-urls/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -202,6 +212,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0271_enumeracion-de-virtual-hosts/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -221,6 +232,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0302_revision-de-metafiles-del/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -240,6 +252,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0303_recoleccion-de-empleados/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -260,6 +273,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0304_secretos-en-repositorios/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -279,6 +293,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0404_dorks-de-buscador-para/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -298,6 +313,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0405_reconstruir-endpoints-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -317,6 +333,7 @@
     ],
     "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/TEC-0416_fuerza-bruta-de-modulos-shares/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -337,6 +354,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0031_segundo-factor-no-obligatorio/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -356,6 +374,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0032_reutilizacion-de-token-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -376,6 +395,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0099_account-takeover-por-cambio-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -396,6 +416,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0100_otp-predecible-o-reutilizable/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -416,6 +437,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0150_preguntas-de-seguridad-debiles/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -436,6 +458,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0173_bloqueo-de-cuenta-como-dos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -456,6 +479,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0174_token-de-reset-expuesto-en-la/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -476,6 +500,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0259_bypass-de-2fa-por-manipulacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -496,6 +521,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0266_account-takeover-via-reset/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -516,6 +542,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0285_password-reset-poisoning-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -536,6 +563,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0287_login-con-credenciales-vacias-o/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -555,6 +583,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0393_bypass-de-2fa-saltando/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -574,6 +603,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0394_reset-de-contrasena-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -593,6 +623,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0425_evasion-de-bloqueo-de-cuenta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -612,6 +643,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0426_account-takeover-via-endpoint/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -631,6 +663,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/TEC-0427_authentication-bypass-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -651,6 +684,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0056_bypass-de-redirect-uri-robo-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -671,6 +705,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0057_ausencia-de-limite-de-intentos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -691,6 +726,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0103_escalada-de-scope-en-oauth/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -710,6 +746,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0127_fuga-de-token-oauth-en-flujo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -730,6 +767,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0233_over-posting-en-peticion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -750,6 +788,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0242_over-posting-en-registro-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -770,6 +809,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0258_bypass-de-rate-limit-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -790,6 +830,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0265_reuso-de-authorization-code/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -810,6 +851,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0317_abuso-del-grant-de-password/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -829,6 +871,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0428_fuerza-bruta-de-codigos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -848,6 +891,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0429_oauth-bypass-de-redirect-uri/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -867,6 +911,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0430_oauth-bypass-de-redirect-uri/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -886,6 +931,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/TEC-0431_oauth-robo-de-token-via-open/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -906,6 +952,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0075_falta-de-parametro-state-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -926,6 +973,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0151_vinculacion-de-cuentas-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -945,6 +993,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0175_abuso-del-device-flow-de-oauth/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -964,6 +1013,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0243_ataque-mix-up-de-oauth/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -983,6 +1033,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0244_downgrade-de-pkce-en-oauth/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1003,6 +1054,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0314_oidc-reuso-prediccion-de-nonce/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1022,6 +1074,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0406_confusion-de-identidad-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1041,6 +1094,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/TEC-0432_oauth-oidc-robo-de-nonce-o/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1060,6 +1114,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0104_saml-xml-signature-wrapping-xsw/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1080,6 +1135,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0105_inyeccion-en-assertion-saml/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1099,6 +1155,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0245_saml-eliminacion-alteracion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1118,6 +1175,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0315_saml-confusion-de-audience/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1137,6 +1195,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0433_saml-abuso-de-relaystate-como/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1156,6 +1215,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/TEC-0434_saml-assertion-sin-firma-idp/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1176,6 +1236,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0322_mfa-fatigue-push-bombing-sin/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1196,6 +1257,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0323_phishing-en-tiempo-real-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1215,6 +1277,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0324_sim-swap-takeover-del-numero/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1235,6 +1298,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0325_bypass-de-device-binding-token/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1254,6 +1318,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0326_mfa-downgrade-factor/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1274,6 +1339,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0327_abuso-de-codigos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1293,6 +1359,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0328_alta-o-cambio-de-factor-mfa-sin/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1313,6 +1380,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0329_reset-de-mfa-sin-verificar/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1333,6 +1401,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0330_bypass-de-step-up-auth-accion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1353,6 +1422,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0331_otp-sin-ttl-reutilizable-tras/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1373,6 +1443,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0332_fuga-de-otp-por-logs/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1392,6 +1463,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0333_passkey-webauthn-sin-validar/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1411,6 +1483,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0420_bypass-de-2fa-mediante-cabecera/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1430,6 +1503,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0421_bypass-de-2fa-por-limite-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1449,6 +1523,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0422_2fa-no-invalidada-tras-cambio/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1468,6 +1543,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0423_enumeracion-de-cuentas-con-2fa/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1487,6 +1563,7 @@
     ],
     "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/TEC-0424_acceso-reactivacion-de-cuenta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1507,6 +1584,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0005_confusion-de-alcance-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0005_confusion-de-alcance-y/tecnica.json"
   },
@@ -1522,6 +1600,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0011_sondeo-de-fallos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0011_sondeo-de-fallos-de/tecnica.json"
   },
@@ -1537,6 +1616,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0020_inyectar-una-cookie-de-sesion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -1556,6 +1636,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0026_presentar-un-jwt-con-firma/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -1575,6 +1656,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0027_modificar-una-claim-rol-sub-exp/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -1594,6 +1676,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0101_secreto-debil-en-jwt-hs256/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1614,6 +1697,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0126_jwt-sin-validacion-de-claims/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1633,6 +1717,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0246_confusion-de-algoritmo-en-jwt/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1653,6 +1738,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0316_jwt-kid-injection-path-sqli/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1672,6 +1758,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C02_csrf-y-estado-de/TEC-0050_cross-site-request-forgery-csrf/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1691,6 +1778,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C02_csrf-y-estado-de/TEC-0149_login-csrf/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1710,6 +1798,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C02_csrf-y-estado-de/TEC-0284_bypass-de-token-csrf-debil-fijo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1729,6 +1818,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0073_fijacion-de-sesion-no-rotacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1749,6 +1839,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0074_inyeccion-en-cabeceras-jwt-jku/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1768,6 +1859,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0121_cookie-bomb-agotamiento-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1787,6 +1879,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0122_bypass-de-samesite-top-level-get/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1806,6 +1899,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0130_session-puzzling-reutilizacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1825,6 +1919,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0131_fuga-de-token-por-url-o-referer/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1844,6 +1939,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0139_sesion-no-invalidada-en-logout/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1864,6 +1960,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0152_remember-me-token-predecible/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1883,6 +1980,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0171_bypass-de-prefijos-de-cookie/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1902,6 +2000,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0172_reuso-de-token-de-un-solo-uso/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1922,6 +2021,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0267_cookie-sin-httponly-secure/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1941,6 +2041,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0286_entropia-predecible-del-token/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1961,6 +2062,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0299_token-de-reset-debil-entropia/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1980,6 +2082,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0318_ausencia-de-expiracion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -1999,6 +2102,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0319_sesiones-concurrentes-no/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2018,6 +2122,7 @@
     ],
     "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/TEC-0439_robo-de-token-via-postmessage/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2038,6 +2143,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0002_acceso-directo-a-ruta-funcion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0002_acceso-directo-a-ruta-funcion/tecnica.json"
   },
@@ -2053,6 +2159,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0003_sustitucion-de-referencia-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0003_sustitucion-de-referencia-de/tecnica.json"
   },
@@ -2068,6 +2175,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0015_solicitar-directamente-una-ruta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2087,6 +2195,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0016_leer-un-objeto-ajeno-cambiando/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2106,6 +2215,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0017_mantener-el-id-y-cambiar-su/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2124,6 +2234,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0128_parametro-magico-debug-auth/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2143,6 +2254,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0129_fail-open-en-control-de-acceso/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2163,6 +2275,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0140_control-de-acceso-basado-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2183,6 +2296,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0197_escalada-de-privilegios-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2203,6 +2317,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0260_bypass-de-autenticacion-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2223,6 +2338,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0300_referencias-predecibles-id-uuid/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2242,6 +2358,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0389_control-de-acceso-por-valor/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2261,6 +2378,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0436_idor-via-canal-websocket-sin/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2280,6 +2398,7 @@
     ],
     "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0437_idor-autorizacion-en-api/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2300,6 +2419,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0001_differential-de-precedencia-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0001_differential-de-precedencia-de/tecnica.json"
   },
@@ -2315,6 +2435,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0013_invertir-el-orden-de-un/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2334,6 +2455,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0014_enviar-la-misma-clave-en-query/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2353,6 +2475,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0282_confusion-de-tipos-magic-hash/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2372,6 +2495,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0306_bypass-por-normalizacion-unicode/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2391,6 +2515,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0390_confusion-de-tipo-de-parametro/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2410,6 +2535,7 @@
     ],
     "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/TEC-0417_array-injection-en-php-claves/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2430,6 +2556,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0004_prueba-de-control-de-acceso/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0004_prueba-de-control-de-acceso/tecnica.json"
   },
@@ -2445,6 +2572,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0007_inyeccion-abuso-de-cabecera/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0007_inyeccion-abuso-de-cabecera/tecnica.json"
   },
@@ -2460,6 +2588,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0018_alcanzar-una-operacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2479,6 +2608,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0019_usar-x-http-method-override-o/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2498,6 +2628,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0022_disparar-un-flujo-con-enlace/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -2516,6 +2647,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0123_redireccion-abierta-open/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2535,6 +2667,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0146_cross-site-tracing-xst-via-trace/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2554,6 +2687,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0176_metodos-webdav-habilitados-put/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2573,6 +2707,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0274_abuso-de-cabeceras-hop-by-hop/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2593,6 +2728,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/TEC-0345_abuso-del-metodo-connect-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2612,6 +2748,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F02_inyeccion-en-cabeceras/TEC-0059_inyeccion-de-cabeceras-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2631,6 +2768,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F02_inyeccion-en-cabeceras/TEC-0378_crlf-con-codificaciones-para/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2650,6 +2788,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F03_desincronizacion-http/TEC-0068_contrabando-de-peticiones-http/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2669,6 +2808,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F03_desincronizacion-http/TEC-0102_contrabando-http-2-downgrade-h2/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2688,6 +2828,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F03_desincronizacion-http/TEC-0177_desincronizacion-de-lado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2707,6 +2848,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F03_desincronizacion-http/TEC-0346_http-0-9-y-request-line-para/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2726,6 +2868,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F04_negociacion-de/TEC-0109_confusion-de-content-type/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2745,6 +2888,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F04_negociacion-de/TEC-0110_abuso-de-cabecera-range/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2764,6 +2908,7 @@
     ],
     "questions_file": "areas/F_http-routing-y/F-F04_negociacion-de/TEC-0410_bypass-de-autorizacion-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2782,12 +2927,14 @@
       "CWE-841"
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml",
-    "question_count": 8,
+    "question_count": 9,
+    "authored": true,
     "missing_catalog_fields": [
-      "objective.not_applicable",
       "procedure.action",
       "procedure.variable_to_change",
-      "procedure.variables_to_hold_constant"
+      "procedure.variables_to_hold_constant",
+      "procedure.anomalous_result",
+      "procedure.evidence_to_record"
     ],
     "wpta_source": "atlas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/tecnica.json"
   },
@@ -2803,6 +2950,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0034_manipulacion-de-parametros-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2823,6 +2971,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0106_abuso-de-cupones-y-descuentos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2842,6 +2991,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0107_abuso-de-redondeo-y-moneda/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2862,6 +3012,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0108_cantidad-negativa-o-envio-sin/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2881,6 +3032,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0155_abuso-de-prueba-gratuita/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2901,6 +3053,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0156_manipulacion-de-estado-de-pedido/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2921,6 +3074,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0211_over-posting-de-campos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2941,6 +3095,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0239_over-posting-de-plan/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2960,6 +3115,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0257_idempotencia-ausente-doble/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -2980,6 +3136,7 @@
     ],
     "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/TEC-0298_overflow-limites-de-enteros-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3000,6 +3157,7 @@
     ],
     "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0009_race-condition-de-paquete-unico/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0009_race-condition-de-paquete-unico/tecnica.json"
   },
@@ -3015,6 +3173,7 @@
     ],
     "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0024_enviar-n-operaciones-identicas/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -3034,6 +3193,7 @@
     ],
     "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0292_race-condition-en-carga-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3053,6 +3213,7 @@
     ],
     "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0301_race-multi-endpoint-pasos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3072,6 +3233,7 @@
     ],
     "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/TEC-0392_sincronizacion-de-ultimo-byte/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3092,6 +3254,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0010_explotacion-de-autorizacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0010_explotacion-de-autorizacion/tecnica.json"
   },
@@ -3107,6 +3270,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0025_repetir-un-campo-graphql-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -3126,6 +3290,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0134_exposicion-excesiva-de-datos-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3146,6 +3311,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0262_graphql-injection-argumentos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3165,6 +3331,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0268_bypass-por-version-de-api/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3184,6 +3351,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0293_abuso-de-batching-en-graphql/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3204,6 +3372,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0294_abuso-de-paginacion-extraccion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3224,6 +3393,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0305_enumeracion-y-ataque-de-wsdl/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3243,6 +3413,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0341_grpc-reflection-habilitada/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3262,6 +3433,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/TEC-0413_graphql-inferir-permisos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3281,6 +3453,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0076_introspeccion-graphql-habilitada/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3300,6 +3473,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0077_asignacion-masiva-mass/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3319,6 +3493,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0183_mass-assignment-por-form/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3338,6 +3513,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0184_mass-assignment-por-multipart/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3357,6 +3533,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0185_mass-assignment-en-graphql/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3376,6 +3553,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0186_mass-assignment-anidado-segundo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3396,6 +3574,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0187_bypass-de-allowlist-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3415,6 +3594,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0188_over-posting-via-patch-parcial/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3435,6 +3615,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0189_over-posting-para-cambiar-owner/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3455,6 +3636,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0190_mass-assignment-en-registro-rol/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3474,6 +3656,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0198_mass-assignment-via-json-merge/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3493,6 +3676,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0199_mass-assignment-via-parametros/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3512,6 +3696,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0200_mass-assignment-via-notacion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3532,6 +3717,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0201_bypass-por-claves-duplicadas-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3552,6 +3738,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0202_over-posting-de-claves/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3571,6 +3758,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0203_over-posting-de-flags-de-estado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3590,6 +3778,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0204_over-posting-de-asociaciones/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3609,6 +3798,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0205_over-posting-en-endpoints-bulk/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3628,6 +3818,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0206_over-posting-en-importacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3648,6 +3839,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0207_bypass-de-allowlist-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3667,6 +3859,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0210_over-posting-via-put-reemplazo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3686,6 +3879,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0213_mass-assignment-via-cuerpo-xml/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3705,6 +3899,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0214_mass-assignment-en-graphql-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3724,6 +3919,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0215_mass-assignment-via-json-api/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3743,6 +3939,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0216_mass-assignment-por-campo-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3762,6 +3959,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0217_mass-assignment-via-json-ld/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3781,6 +3979,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0218_mass-assignment-en-settings/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3800,6 +3999,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0219_mass-assignment-via-mapa-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3819,6 +4019,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0220_over-posting-via-arrays-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3838,6 +4039,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0221_mass-assignment-via-notacion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3858,6 +4060,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0222_mass-assignment-por-mismatch-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3877,6 +4080,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0225_over-posting-de-campos-auto/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3896,6 +4100,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0226_mass-assignment-en-endpoints-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3916,6 +4121,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0227_mass-assignment-en-endpoint-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3936,6 +4142,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0229_over-posting-via-clave-alterna/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3956,6 +4163,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0230_reuso-de-endpoint-admin-binding/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3975,6 +4183,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0232_over-posting-via-endpoint-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -3994,6 +4203,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0234_over-posting-en-endpoints-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4013,6 +4223,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0235_over-posting-en-custom-fields/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4033,6 +4244,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0236_over-posting-en-permisos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4053,6 +4265,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0240_over-posting-en-endpoint-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4073,6 +4286,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0241_over-posting-en-endpoints-bulk/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4093,6 +4307,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0344_graphql-sobre-get-csrf-cache/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4112,6 +4327,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/TEC-0391_enumeracion-de-mutaciones/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4131,6 +4347,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0191_mass-assignment-en-ruby-on/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4150,6 +4367,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0192_mass-assignment-en-django-rest/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4169,6 +4387,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0193_mass-assignment-en-spring-mvc/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4188,6 +4407,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0194_over-posting-en-asp-net-model/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4207,6 +4427,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0195_mass-assignment-en-laravel/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4226,6 +4447,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0196_mass-assignment-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4245,6 +4467,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0208_mass-assignment-en-flask/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4264,6 +4487,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0209_mass-assignment-en-symfony/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4284,6 +4508,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0212_mass-assignment-via-cabeceras/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4303,6 +4528,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0223_mass-assignment-via-cuerpo-yaml/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4322,6 +4548,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0224_mass-assignment-via-campos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4342,6 +4569,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0228_mass-assignment-en-rails-nested/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4361,6 +4589,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0231_mass-assignment-via-sesion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4380,6 +4609,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0237_over-posting-en-creacion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4400,6 +4630,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0238_over-posting-en-creacion-de-api/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4420,6 +4651,7 @@
     ],
     "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/TEC-0339_bypass-replay-de-firma-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4439,6 +4671,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J01_navegador-y-dom/TEC-0035_dom-xss-a-traves-del-fragmento/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4458,6 +4691,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J01_navegador-y-dom/TEC-0036_postmessage-sin-validacion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4477,6 +4711,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0049_cross-site-scripting-reflejado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4496,6 +4731,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0051_clickjacking-falta-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4515,6 +4751,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0058_cross-site-script-inclusion-xssi/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4534,6 +4771,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0092_blind-xss-almacenado-se-dispara/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4553,6 +4791,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0093_mutation-xss-mxss/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4572,6 +4811,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0124_bypass-de-filtros-xss-ofuscacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4591,6 +4831,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0132_inyeccion-de-html-content/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4610,6 +4851,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0144_xss-via-svg/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4629,6 +4871,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0168_dangling-markup-injection/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4648,6 +4891,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0170_xss-via-drag-and-drop/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4667,6 +4911,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0288_html-injection-en-correos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4686,6 +4931,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0297_self-xss-autoinyeccion-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4705,6 +4951,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0342_bypass-de-frame-busting-double/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4724,6 +4971,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0359_xss-en-la-etiqueta-link-rel/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4743,6 +4991,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0360_xss-por-escape-inconsistente-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4762,6 +5011,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0361_xss-por-interpolacion-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4781,6 +5031,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0362_xss-via-esquema-javascript/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4800,6 +5051,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0363_xss-via-iframe-con-evento/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4819,6 +5071,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/TEC-0364_exfiltracion-de-datos-via-xss/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4839,6 +5092,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0065_client-side-template-injection/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4858,6 +5112,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0066_prototype-pollution/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4877,6 +5132,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0067_dom-clobbering/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4896,6 +5152,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0094_inyeccion-css-para-exfiltracion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4915,6 +5172,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0095_secuestro-de-jsonp-callback/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4934,6 +5192,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0096_reverse-tabnabbing-window-opener/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4953,6 +5212,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0133_relative-path-overwrite-rpo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4972,6 +5232,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0145_csp-bypass-via-jsonp-script/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -4991,6 +5252,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0147_envenenamiento-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5010,6 +5272,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0160_politica-cross-domain-permisiva/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5030,6 +5293,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0169_redireccion-abierta-de-lado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5050,6 +5314,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0252_prototype-pollution-de-cliente/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5069,6 +5334,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0307_bypass-de-sanitizador-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5088,6 +5354,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0308_bypass-de-trusted-types/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5107,6 +5374,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0343_postmessage-con-origen-null/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5126,6 +5394,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/TEC-0365_dom-xss-via-sink-de-selector/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5146,6 +5415,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J04_service-workers-y-cache/TEC-0148_abuso-de-service-worker/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5166,6 +5436,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J04_service-workers-y-cache/TEC-0289_dns-rebinding-de-lado-cliente/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5185,6 +5456,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J04_service-workers-y-cache/TEC-0309_envenenamiento-de-cache-del/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5204,6 +5476,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J04_service-workers-y-cache/TEC-0320_xss-via-mensajes-websocket-ws/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5223,6 +5496,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J05_xs-leaks-y-fugas-entre/TEC-0334_xs-leaks-fuga-entre-sitios-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5242,6 +5516,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0350_xss-via-api-de-render-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5261,6 +5536,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0351_xss-via-sink-de-react/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5280,6 +5556,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0352_xss-via-sink-de-vue-directiva-v/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5299,6 +5576,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0353_xss-via-sink-de-angular/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5318,6 +5596,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0354_xss-via-sink-de-jquery-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5337,6 +5616,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0355_xss-via-sink-de-angularjs-ng/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5356,6 +5636,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0356_xss-via-sink-de-django-mark/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5375,6 +5656,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0357_xss-via-sink-de-rails-raw-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5394,6 +5676,7 @@
     ],
     "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/TEC-0358_xss-via-sink-de-asp-net-html-raw/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5413,6 +5696,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0037_inyeccion-sql-por-concatenacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5433,6 +5717,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0038_server-side-template-injection/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5452,6 +5737,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0039_xxe-en-carga-de-xml/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5471,6 +5757,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0087_sql-injection-ciega-booleana/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5490,6 +5777,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0088_sql-injection-de-segundo-orden/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5509,6 +5797,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0089_xxe-ciega-out-of-band/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5528,6 +5817,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0125_bypass-de-waf-en-sqli/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5547,6 +5837,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0143_xxe-a-traves-de-carga-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5567,6 +5858,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0163_inyeccion-orm-hql/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5586,6 +5878,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0254_ssti-en-motor-especifico/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5605,6 +5898,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0255_ssti-en-plantillas-de-correo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5624,6 +5918,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0261_xxe-via-saml-soap/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5643,6 +5938,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0311_sql-injection-out-of-band-dns/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5662,6 +5958,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0312_inyeccion-latex-procesadores-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5681,6 +5978,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0369_ssti-en-motor-mako-python/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5700,6 +5998,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/TEC-0419_sqli-con-sentencias-apiladas/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5720,6 +6019,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0053_ejecucion-remota-de-codigo-rce/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5739,6 +6039,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0054_deserializacion-insegura/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5758,6 +6059,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0055_rce-en-procesamiento-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5777,6 +6079,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0136_billion-laughs-xml-bomb/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5796,6 +6099,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0247_deserializacion-insegura-en-java/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5815,6 +6119,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0248_deserializacion-php-object/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5834,6 +6139,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0249_deserializacion-insegura-en-net/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5854,6 +6160,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0250_deserializacion-eval-insegura/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5873,6 +6180,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0253_command-injection-ciega-tiempo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5893,6 +6201,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0263_inyeccion-jndi-log4shell-lookups/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5912,6 +6221,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0264_spring4shell-manipulacion-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5931,6 +6241,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0296_inyeccion-ejecucion-de-js-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5950,6 +6261,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0366_inyeccion-de-codigo-via-eval-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5969,6 +6281,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0367_inyeccion-de-codigo-via-eval/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -5988,6 +6301,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0368_inyeccion-de-codigo-via-eval-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6007,6 +6321,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0376_deteccion-de-deserializacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6026,6 +6341,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0377_php-object-injection-con-magic/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6045,6 +6361,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0418_deserializacion-en-runtimes-go/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6064,6 +6381,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0063_inyeccion-nosql-por-operadores/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6083,6 +6401,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0064_inyeccion-server-side-includes/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6102,6 +6421,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0083_inyeccion-ldap/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6121,6 +6441,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0084_inyeccion-xpath/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6140,6 +6461,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0085_inyeccion-en-expression/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6160,6 +6482,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0340_inyeccion-odata-filter-orderby/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6179,6 +6502,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/TEC-0411_deserializacion-insegura-de-yaml/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6198,6 +6522,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K04_inyeccion-en/TEC-0086_inyeccion-de-formula-en-csv/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6217,6 +6542,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K05_inyeccion-en/TEC-0164_inyeccion-xslt/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6236,6 +6562,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K05_inyeccion-en/TEC-0165_inyeccion-forjado-en-logs/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6256,6 +6583,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K05_inyeccion-en/TEC-0166_inyeccion-de-expresiones/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6275,6 +6603,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K05_inyeccion-en/TEC-0251_prototype-pollution-de-lado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6294,6 +6623,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0370_generacion-de-caracteres-para/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6313,6 +6643,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0371_linux-expansion-de-parametros-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6332,6 +6663,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0372_windows-cmd-substring-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6351,6 +6683,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0373_powershell-char-n-y/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6370,6 +6703,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0414_ofuscacion-de-comandos-palabras/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6389,6 +6723,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/TEC-0415_bypass-de-espacios-en-command/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6408,6 +6743,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0395_sqli-enumeracion-y-extraccion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6427,6 +6763,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0396_sqli-en-postgresql-pg-sleep/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6446,6 +6783,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0397_sqli-en-mysql-mariadb-sleep/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6465,6 +6803,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0398_sqli-en-oracle-dbms-lock-sleep/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6484,6 +6823,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0399_sqli-en-sql-server-mssql/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6503,6 +6843,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0400_sqli-en-sqlite-sqlite-master/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6522,6 +6863,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0401_sqli-union-select-segun-motor/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6541,6 +6883,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0402_sqli-error-based-condicional/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6560,6 +6903,7 @@
     ],
     "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/TEC-0403_sqli-evasion-de-filtros-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6581,6 +6925,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L01_resolucion-de-rutas-y/TEC-0008_bypass-de-controles-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/L_archivos-rutas-y/F-L01_resolucion-de-rutas-y/TEC-0008_bypass-de-controles-por/tecnica.json"
   },
@@ -6597,6 +6942,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L01_resolucion-de-rutas-y/TEC-0023_alcanzar-un-recurso-protegido/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -6616,6 +6962,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0052_inclusion-local-de-archivos-lfi/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6635,6 +6982,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0090_inclusion-remota-de-archivos-rfi/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6654,6 +7002,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0167_uso-de-wrappers-de-php-via-lfi/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6673,6 +7022,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0283_inyeccion-de-byte-nulo-null-byte/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6692,6 +7042,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0375_escalada-de-inclusion-local-a/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6711,6 +7062,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/TEC-0412_wrappers-php-data-expect-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6730,6 +7082,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0060_carga-de-archivos-sin/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6749,6 +7102,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0313_archivo-polyglot-en-la-subida/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6768,6 +7122,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0383_upload-de-htaccess-para-forzar/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6787,6 +7142,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0384_spoof-de-magic-bytes-firma-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6806,6 +7162,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0385_upload-con-extensiones/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6825,6 +7182,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0386_upload-con-doble-extension-case/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6844,6 +7202,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0387_upload-con-mime-spoof-content/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6863,6 +7222,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/TEC-0388_upload-con-path-traversal-en-el/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6882,6 +7242,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L04_archivos-y-compresion/TEC-0091_zip-slip-escritura-via-archivo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6901,6 +7262,7 @@
     ],
     "questions_file": "areas/L_archivos-rutas-y/F-L04_archivos-y-compresion/TEC-0291_ataque-por-enlaces-simbolicos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6920,6 +7282,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0040_ssrf-por-url-controlada-por-el/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6939,6 +7302,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0070_ssrf-ciega-out-of-band/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6959,6 +7323,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0071_ssrf-via-redireccion-abierta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6978,6 +7343,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0097_ssrf-a-metadata-de-nube/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -6997,6 +7363,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0154_ssrf-via-cabecera-referer/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7016,6 +7383,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/TEC-0272_ssrf-via-render-de-pdf-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7036,6 +7404,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0072_ssrf-via-dns-rebinding/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7056,6 +7425,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0098_ssrf-via-confusion-de-parser-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7075,6 +7445,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0153_ssrf-via-esquemas-de-url/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7094,6 +7465,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0290_ssrf-a-sockets-locales-unix/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7114,6 +7486,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0348_lectura-local-via-render-html/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7133,6 +7506,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0374_ssrf-bypass-de-allowlist-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7152,6 +7526,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0408_ssrf-evadir-filtros-de-host-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7171,6 +7546,7 @@
     ],
     "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/TEC-0409_ssrf-via-gopher-para/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7191,6 +7567,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N01_caches-y-consistencia/TEC-0006_cache-deception-por-divergencia/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/N_caches-y/F-N01_caches-y-consistencia/TEC-0006_cache-deception-por-divergencia/tecnica.json"
   },
@@ -7206,6 +7583,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N01_caches-y-consistencia/TEC-0021_anadir-una-extension-estatica-a/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -7224,6 +7602,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N01_caches-y-consistencia/TEC-0407_forzar-respuesta-fresca/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7244,6 +7623,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0069_envenenamiento-de-cache-cache/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7264,6 +7644,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0120_bypass-de-cache-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7283,6 +7664,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0256_envenenamiento-de-cache-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7302,6 +7684,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0273_cache-poisoning-via-host-header/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7321,6 +7704,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0295_inyeccion-en-la-clave-de-cache/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7340,6 +7724,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0321_cache-poisoning-via-x-forwarded/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7359,6 +7744,7 @@
     ],
     "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/TEC-0347_envenenamiento-de-cache-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7379,6 +7765,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O01_configuracion-e/TEC-0041_exposicion-de-archivos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7398,6 +7785,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O01_configuracion-e/TEC-0042_cors-permisivo-con-origen/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7417,6 +7805,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O01_configuracion-e/TEC-0142_cors-con-origen-null/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7437,6 +7826,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O02_codigo-y-secretos/TEC-0080_codigo-fuente-metadatos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7456,6 +7846,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O02_codigo-y-secretos/TEC-0159_almacenamiento-de-objetos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7476,6 +7867,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0117_credenciales-por-defecto/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7495,6 +7887,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0118_errores-verbosos-y-stack-traces/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7514,6 +7907,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0119_listado-de-directorios/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7533,6 +7927,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0135_endpoints-de-gestion-expuestos/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7552,6 +7947,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0141_cabeceras-de-seguridad-ausentes/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7571,6 +7967,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0182_protocolos-tls-debiles/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7590,6 +7987,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/TEC-0310_bypass-de-hsts-primer-contacto/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7609,6 +8007,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O04_bypass-de-codigos-de/TEC-0379_bypass-de-bloqueos-http-403-401/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7628,6 +8027,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O04_bypass-de-codigos-de/TEC-0380_bypass-de-403-401-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7647,6 +8047,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O04_bypass-de-codigos-de/TEC-0381_bypass-de-403-401-por-metodo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7666,6 +8067,7 @@
     ],
     "questions_file": "areas/O_configuracion/F-O04_bypass-de-codigos-de/TEC-0382_bypass-de-403-por-codificacion/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7685,6 +8087,7 @@
     ],
     "questions_file": "areas/P_confianza/F-P01_confianza-entre/TEC-0043_suplantacion-de-identidad-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7704,6 +8107,7 @@
     ],
     "questions_file": "areas/P_confianza/F-P01_confianza-entre/TEC-0435_sso-bypass-via-subdomain/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7723,6 +8127,7 @@
     ],
     "questions_file": "areas/P_confianza/F-P01_confianza-entre/TEC-0438_response-to-request-injection/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7743,6 +8148,7 @@
     ],
     "questions_file": "areas/Q_errores-canales/F-Q01_canales-laterales-y/TEC-0012_inferencia-de-existencia-estado/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [],
     "wpta_source": "atlas/Q_errores-canales/F-Q01_canales-laterales-y/TEC-0012_inferencia-de-existencia-estado/tecnica.json"
   },
@@ -7758,6 +8164,7 @@
     ],
     "questions_file": "areas/Q_errores-canales/F-Q01_canales-laterales-y/TEC-0028_comparar-respuestas-para-cuenta/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.hypothesis",
       "objective.not_applicable",
@@ -7777,6 +8184,7 @@
     ],
     "questions_file": "areas/Q_errores-canales/F-Q02_criptografia-y-oraculos/TEC-0138_padding-oracle/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7797,6 +8205,7 @@
     ],
     "questions_file": "areas/Q_errores-canales/F-Q02_criptografia-y-oraculos/TEC-0335_ataque-de-compresion-breach/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7814,6 +8223,7 @@
     "patterns": [],
     "questions_file": "areas/R_tecnicas/F-R01_tecnicas-transversales/TEC-0044_differential-testing-entre/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7833,6 +8243,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S01_ia-y-llm/TEC-0045_prompt-injection-indirecta-via/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7852,6 +8263,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S01_ia-y-llm/TEC-0161_prompt-injection-directa/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7872,6 +8284,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0081_fuga-del-system-prompt/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7891,6 +8304,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0111_capacidad-excesiva-de-agente/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7911,6 +8325,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0112_tratamiento-inseguro-de-la/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7930,6 +8345,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0113_envenenamiento-de-contexto-rag/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7949,6 +8365,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0179_denial-of-wallet-agotamiento-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7968,6 +8385,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0277_bypass-de-guardrails-del-llm/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -7988,6 +8406,7 @@
     ],
     "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/TEC-0278_extraccion-de-datos-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8008,6 +8427,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T01_dependencias-con/TEC-0046_dependencias-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8028,6 +8448,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/TEC-0114_confusion-de-dependencias/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8048,6 +8469,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/TEC-0115_secretos-en-artefactos-de-ci-cd/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8068,6 +8490,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/TEC-0275_typosquatting-paquete-malicioso/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8087,6 +8510,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/TEC-0276_componente-desactualizado-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8107,6 +8531,7 @@
     ],
     "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/TEC-0338_paquete-malicioso-con/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8126,6 +8551,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U01_dns-y-dominio/TEC-0047_subdomain-takeover-por-registro/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8145,6 +8571,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U02_correo-y-verificacion/TEC-0062_registro-de-dominio-correo/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8164,6 +8591,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U02_correo-y-verificacion/TEC-0137_inyeccion-de-cabeceras-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8184,6 +8612,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U03_autenticacion-de-correo/TEC-0082_suplantacion-de-correo-spf-dkim/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8203,6 +8632,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U04_dns-operacional/TEC-0116_transferencia-de-zona-dns-axfr/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8222,6 +8652,7 @@
     ],
     "questions_file": "areas/U_dns-correo-y/F-U04_dns-operacional/TEC-0279_zone-walking-dns-nsec-nsec3/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8242,6 +8673,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0061_agotamiento-de-recursos-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8261,6 +8693,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0162_bomba-zip-agotamiento-por/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8280,6 +8713,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0178_slowloris-agotamiento-de/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8300,6 +8734,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0280_dos-por-consulta-graphql/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8319,6 +8754,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0281_dos-por-colision-de-hash-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8339,6 +8775,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0336_http-2-rapid-reset-cve-2023/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8358,6 +8795,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0337_http-2-continuation-flood/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8377,6 +8815,7 @@
     ],
     "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/TEC-0349_slow-http-post-slow-read/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",
@@ -8396,6 +8835,7 @@
     ],
     "questions_file": "areas/W_webassembly-y/F-W01_webassembly/TEC-0048_analisis-de-imports-exports-en/questions.yaml",
     "question_count": 8,
+    "authored": false,
     "missing_catalog_fields": [
       "objective.not_applicable",
       "procedure.action",

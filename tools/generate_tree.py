@@ -34,6 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 WPTA_REPO = "https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-"
 SCHEMA_VERSION = "1.0"
+STANDARD_VERSION = "1.0"
 
 TERMINALS = [
     "stop_not_applicable",
@@ -67,6 +68,30 @@ def dump_json(path, obj):
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+
+def emit(path, obj, stats=None):
+    """Escribe obj salvo que ya exista un nodo AUTORADO (generated: false), que se preserva."""
+    existing = None
+    if os.path.isfile(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                existing = yaml.safe_load(f)
+        except Exception as e:
+            print(f"[!] YAML invalido en {path}: {e}", file=sys.stderr)
+            print("[!] Abortado para no destruir contenido (corrige el YAML o el autorado).", file=sys.stderr)
+            sys.exit(2)
+    if isinstance(existing, dict) and existing.get("generated") is False:
+        if stats is not None:
+            stats["authored"] = stats.get("authored", 0) + 1
+        return existing
+    obj = dict(obj)
+    obj["standard_version"] = STANDARD_VERSION
+    obj["authored"] = False
+    dump_yaml(path, obj)
+    if stats is not None:
+        stats["generated"] = stats.get("generated", 0) + 1
+    return obj
 
 
 def clean(s):
@@ -423,6 +448,7 @@ def main():
     for f in families_json:
         fam_by_id_area[f["id"]] = f
 
+    stats = {}
     all_questions = []
     area_index = []
     family_index = []
@@ -444,14 +470,14 @@ def main():
 
         aset = area_questionset(area_code, titles.get(area_code, ""), subs.get(area_code, []), fam_objs, commit)
         out_area = os.path.join(args.out, area_dir)
-        dump_yaml(os.path.join(out_area, "questions.yaml"), aset)
+        aset = emit(os.path.join(out_area, "questions.yaml"), aset, stats)
         area_index.append({
             "area": area_code, "title": titles.get(area_code, ""), "dir": f"areas/{area_dir}",
             "questions_file": f"areas/{area_dir}/questions.yaml",
             "families": fam_ids, "techniques": [t["json"]["id"] for t in fams_here],
-            "question_count": len(aset["questions"]),
+            "question_count": len(aset.get("questions", [])),
         })
-        for item in aset["questions"]:
+        for item in aset.get("questions", []):
             all_questions.append({**item, "node_type": "area", "node_id": area_code,
                                    "area": area_code, "file": f"areas/{area_dir}/questions.yaml"})
 
@@ -464,14 +490,14 @@ def main():
             tecs_sorted = sorted(tecs_here, key=lambda x: x["json"]["id"])
             fset = family_questionset(area_code, fam, [x["json"] for x in tecs_sorted], commit)
             out_fam = os.path.join(out_area, fam_dir_name)
-            dump_yaml(os.path.join(out_fam, "questions.yaml"), fset)
+            fset = emit(os.path.join(out_fam, "questions.yaml"), fset, stats)
             family_index.append({
                 "family_id": fid, "name": fam.get("name", ""), "area": area_code,
                 "questions_file": f"areas/{area_dir}/{fam_dir_name}/questions.yaml",
                 "techniques": [x["json"]["id"] for x in tecs_sorted],
-                "question_count": len(fset["questions"]),
+                "question_count": len(fset.get("questions", [])),
             })
-            for item in fset["questions"]:
+            for item in fset.get("questions", []):
                 all_questions.append({**item, "node_type": "family", "node_id": fid,
                                        "area": area_code, "family_id": fid,
                                        "file": f"areas/{area_dir}/{fam_dir_name}/questions.yaml"})
@@ -481,17 +507,18 @@ def main():
                 tset = technique_questionset(tec, area_code, titles.get(area_code, ""), fam, commit, t["rel"])
                 tec_dir_name = os.path.basename(os.path.dirname(t["rel"]))
                 out_tec = os.path.join(out_fam, tec_dir_name)
-                dump_yaml(os.path.join(out_tec, "questions.yaml"), tset)
+                tset = emit(os.path.join(out_tec, "questions.yaml"), tset, stats)
                 qfile = f"areas/{area_dir}/{fam_dir_name}/{tec_dir_name}/questions.yaml"
                 tech_index[tec["id"]] = {
                     "technique_id": tec["id"], "name": clean(tec.get("name", "")),
                     "area": area_code, "family_id": fid, "variant_of": tec.get("variant_of", None),
                     "patterns": (tec.get("relations", {}) or {}).get("detects_pattern", []),
-                    "questions_file": qfile, "question_count": len(tset["questions"]),
-                    "missing_catalog_fields": tset["missing_catalog_fields"],
+                    "questions_file": qfile, "question_count": len(tset.get("questions", [])),
+                    "authored": bool(tset.get("authored")),
+                    "missing_catalog_fields": tset.get("missing_catalog_fields", []),
                     "wpta_source": t["rel"],
                 }
-                for item in tset["questions"]:
+                for item in tset.get("questions", []):
                     all_questions.append({**item, "node_type": "technique", "node_id": tec["id"],
                                            "area": area_code, "family_id": fid, "technique_id": tec["id"],
                                            "file": qfile})
@@ -515,6 +542,14 @@ def main():
         "counts": {
             "areas": len(area_index), "families": len(family_index),
             "techniques": len(tech_index), "questions": len(all_questions),
+            "nodes_generated": stats.get("generated", 0), "nodes_authored": stats.get("authored", 0),
+        },
+        "authoring": {
+            "standard_version": STANDARD_VERSION,
+            "standard_doc": "AUTHORING.md",
+            "template": "templates/technique.questions.template.yaml",
+            "checklist": "templates/AUTHORING_CHECKLIST.md",
+            "linter": "tools/lint_authoring.py",
         },
         "layout": {
             "areas": "areas/<area_dir>/[<family_dir>/[<tec_dir>/]]questions.yaml",

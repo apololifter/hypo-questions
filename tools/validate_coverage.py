@@ -35,7 +35,7 @@ ROOT = os.path.dirname(HERE)
 REQ_NODE = ["schema_version", "node_type", "id", "questions"]
 REQ_Q = ["id", "type", "question", "purpose", "required_evidence", "answer_type", "possible_outcomes", "next"]
 ID_RE = re.compile(r"^Q-(AREA-[A-Z]|F-[A-Z][0-9]{2}|TEC-[0-9]{4})-[0-9]{2}$")
-TYPES = {"context", "preconditions", "structure", "controls", "differentiation", "validation", "interpretation", "next"}
+TYPES = {"context", "preconditions", "structure", "paths", "controls", "differentiation", "validation", "interpretation", "next"}
 ANSWER_TYPES = {"structured", "boolean", "enum", "free_text", "evidence_ref"}
 FORBIDDEN_KEYS = {"answer", "answers", "observed", "observation", "result", "status", "response", "finding"}
 

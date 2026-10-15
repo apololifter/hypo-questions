@@ -31,6 +31,9 @@ jobs:
       - name: Validate coverage + traceability
         run: python tools/validate_coverage.py
 
+      - name: Lint authoring standard (AUTHORING.md)
+        run: python tools/lint_authoring.py
+
       - name: Verify generated tree is up to date with WPTA
         run: |
           python tools/generate_tree.py

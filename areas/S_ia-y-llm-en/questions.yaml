@@ -93,3 +93,5 @@ questions:
   - Q-AREA-S-02
   source_fields:
   - coverage.json
+standard_version: '1.0'
+authored: false

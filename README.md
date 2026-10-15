@@ -37,13 +37,18 @@ los campos reales** de la ficha `tecnica.json` del WPTA (`objective.contexts`, `
 ```
 hypo-questions/
 ├── README.md
+├── AUTHORING.md                   # ESTANDAR de autoria (como se construyen las preguntas)
 ├── manifest.json                  # commit WPTA fijado + conteos + tokens terminales
 ├── schema/
 │   ├── question.schema.json       # una pregunta
 │   └── questionset.schema.json    # un questions.yaml (nodo area/familia/tecnica)
+├── templates/
+│   ├── technique.questions.template.yaml   # plantilla de una tecnica
+│   └── AUTHORING_CHECKLIST.md              # checklist de aceptacion
 ├── tools/
-│   ├── generate_tree.py           # WPTA -> arbol de preguntas
-│   └── validate_coverage.py       # trazabilidad + cobertura + reglas de navegacion
+│   ├── generate_tree.py           # WPTA -> arbol de preguntas (preserva lo autorado)
+│   ├── validate_coverage.py       # trazabilidad + cobertura + reglas de navegacion
+│   └── lint_authoring.py          # GATES de autoria (T1-T7) + anti-patrones
 ├── indexes/                       # GENERADO: lookup rapido por agente
 │   ├── questions.json             # todas las preguntas (plano)
 │   ├── technique-map.json         # TEC -> {area, familia, patrones, archivo, #preguntas}
@@ -61,20 +66,33 @@ hypo-questions/
 `<area_dir>` / `<family_dir>` / `<TEC-xxxx_dir>` replican **exactamente** los nombres de carpeta del
 `atlas/` del WPTA (p. ej. `D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0003_sustitucion-de-referencia-de/`).
 
+## Autoría: seed vs. authored
+
+Cada `questions.yaml` nace como **seed** (borrador generado del WPTA: `generated: true`, `authored: false`).
+Un nodo se promueve a **authored** cuando se reescribe siguiendo [`AUTHORING.md`](AUTHORING.md):
+`generated: false`, `authored: true`, con `mechanism`, `discriminating_test` y `alternative_paths`.
+**La regeneración preserva los nodos autorados**; los seeds son el backlog visible.
+
+El estándar exige 7 pasos por técnica: (1) descomponer el mecanismo, (2) derivar preguntas, (3) cubrir
+caminos alternativos, (4) construir ramas, (5) llegar a hipótesis comprobable, (6) derivar la prueba
+discriminante, (7) validar cobertura. Ejemplo completo y autorado:
+[`TEC-0033` (workflow bypass)](areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/TEC-0033_salto-de-pasos-en-un-flujo-de/questions.yaml).
+
 ## El modelo de pregunta
 
-Cada técnica genera una secuencia de 8 preguntas por tipo:
+Cada técnica despliega preguntas de estos `type` (la secuencia base, ampliable por ramas):
 
 | # | `type` | Qué reduce |
 |---|--------|-----------|
 | 01 | `context` | ¿La app presenta el contexto que activa la técnica? |
 | 02 | `preconditions` | ¿Se cumplen cuentas/roles/entorno y **no** la condición de no-aplicabilidad? |
 | 03 | `structure` | ¿Qué rutas, funciones, estados o componentes intervienen? |
-| 04 | `controls` | ¿Dónde se valida la condición y cubre **todos** los caminos? |
-| 05 | `differentiation` | ¿Qué observación distingue implementación segura de insegura? |
-| 06 | `validation` | ¿Qué prueba **mínima** (una variable) confirma/refuta? |
-| 07 | `interpretation` | ¿Qué otras explicaciones producen el mismo resultado? |
-| 08 | `next` | ¿Qué corresponde después: reportar, cerrar, o abrir una técnica relacionada? |
+| 04 | `paths` | ¿Qué caminos alternativos alcanzan la operación evitando el control? |
+| 05 | `controls` | ¿Dónde se valida la condición y cubre **todos** los caminos? |
+| 06 | `differentiation` | ¿Qué observación distingue implementación segura de insegura? |
+| 07 | `validation` | ¿Qué prueba **mínima** (una variable) confirma/refuta? |
+| 08 | `interpretation` | ¿Qué otras explicaciones producen el mismo resultado? |
+| 09 | `next` | ¿Qué corresponde después: reportar, cerrar, o abrir una técnica relacionada? |
 
 Ejemplo (`TEC-0003`, IDOR horizontal):
 
@@ -118,8 +136,10 @@ Requiere un checkout del WPTA (build input, **no** se versiona aquí):
 git clone --depth 1 --branch main \
   https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-.git third_party/wpta
 
-python tools/generate_tree.py          # regenera areas/ + indexes/ + manifest.json
-python tools/validate_coverage.py      # valida (exit != 0 si falla)
+python tools/generate_tree.py          # regenera areas/ + indexes/ + manifest.json (preserva authored)
+python tools/validate_coverage.py      # estructura + trazabilidad + cobertura + ramas
+python tools/lint_authoring.py         # GATES de autoria sobre los nodos authored
+python tools/lint_authoring.py --list-seeds   # backlog de tecnicas pendientes de autoria
 ```
 
 `manifest.json` registra el commit exacto del WPTA usado. Para actualizar el catálogo: `git -C third_party/wpta pull`
@@ -127,8 +147,9 @@ y volver a generar; el diff del árbol es la revisión.
 
 ## Estado actual
 
-- **23** áreas · **61** familias · **439** técnicas (310 base + 129 variantes) · **3764** preguntas.
+- **23** áreas · **61** familias · **439** técnicas (310 base + 129 variantes) · **3765** preguntas.
 - Cobertura de técnicas: **100%**.
+- Autoría: **1** técnica `authored` (TEC-0033) · **522** seeds pendientes de autoría según `AUTHORING.md`.
 
 ## Uso responsable
 

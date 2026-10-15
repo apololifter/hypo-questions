@@ -14,7 +14,7 @@
     },
     "type": {
       "type": "string",
-      "enum": ["context", "preconditions", "structure", "controls", "differentiation", "validation", "interpretation", "next"]
+      "enum": ["context", "preconditions", "structure", "paths", "controls", "differentiation", "validation", "interpretation", "next"]
     },
     "question": { "type": "string", "minLength": 8 },
     "purpose": { "type": "string", "minLength": 3 },

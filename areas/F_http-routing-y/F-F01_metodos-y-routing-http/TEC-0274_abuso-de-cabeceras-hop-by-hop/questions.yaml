@@ -216,3 +216,5 @@ questions:
   source_fields:
   - relations.detects_pattern
   - relations.related_to
+standard_version: '1.0'
+authored: false

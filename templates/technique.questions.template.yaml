@@ -1,0 +1,162 @@
+# Plantilla de autoría — questionset de una TÉCNICA
+# Copia sobre areas/<area>/<familia>/<TEC-xxxx>/questions.yaml y completa según AUTHORING.md.
+# Al terminar: generated: false, authored: true, reviewed: true, standard_version: "1.0".
+schema_version: "1.0"
+standard_version: "1.0"
+node_type: technique
+generated: false
+authored: true
+reviewed: false            # ponlo a true tras revisar con AUTHORING_CHECKLIST.md
+
+id: TEC-XXXX
+title: "<nombre canónico del WPTA>"
+description: "<hipótesis en una línea>"
+area: "<A-W>"
+area_title: "<título del área>"
+family_id: "<F-...>"
+family_name: "<nombre de familia>"
+technique_id: TEC-XXXX
+variant_of: null
+hypothesis: "<mecanismo causal: [componente] no aplica [control] en [camino] => [efecto] incumpliendo [invariante]>"
+behavior: "<comportamiento canónico o null>"
+patterns: ["CWE-..."]
+related_techniques: []
+attacker_state_requirements: ["<cuentas/roles/entorno>"]
+missing_catalog_fields: ["<campos ausentes en la ficha WPTA>"]
+
+wpta:
+  repo: "https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-"
+  commit: "<hash>"
+  source: "atlas/<...>/tecnica.json"
+
+# --- Paso 1: descomposición del mecanismo ---
+mechanism:
+  invariant: "<propiedad de seguridad que debe cumplirse>"
+  preconditions:
+    - "<condición necesaria 1>"
+    - "<condición necesaria 2>"
+  components: ["<router>", "<servicio>", "<capa de auth>"]
+  sources: ["<entrada controlada por el atacante>"]
+  transformations: ["<procesamiento entre fuente y sink>"]
+  controls:
+    - check: "<comprobación que debería impedir el fallo>"
+      applies_to: ["<dónde se aplica>"]
+      bypass_candidates: ["<forma de esquivarla>"]
+
+# --- Paso 3: caminos alternativos ---
+alternative_paths:
+  - { dimension: "ruta", variation: "<endpoint equivalente>", question_id: "Q-TEC-XXXX-05" }
+  - { dimension: "estado", variation: "<reusar flujo propio>", question_id: "Q-TEC-XXXX-05" }
+
+# --- Paso 6: prueba discriminante ---
+discriminating_test:
+  baseline: "<petición/flujo legítimo de referencia>"
+  change: "<el ÚNICO cambio>"
+  constant: ["<sesión>", "<cabeceras>", "<id del recurso>"]
+  expected_secure: "<qué haría un backend seguro>"
+  anomalous: "<el efecto indicador de fallo>"
+  signal: "<observación concreta>"
+  confirmation_criteria: "<qué confirma>"
+  falsation: "<qué refutaría>"
+
+questions:
+  - id: Q-TEC-XXXX-01
+    type: context
+    question: "¿<contexto específico del mecanismo>?"
+    purpose: "<decisión que habilita>"
+    required_evidence: [endpoint_or_route, resource_model, operation]
+    answer_type: structured
+    possible_outcomes: [applicable, not_applicable, unknown]
+    next: { applicable: Q-TEC-XXXX-02, not_applicable: stop_not_applicable, unknown: request_missing_evidence }
+    applicability_conditions: ["<condición>"]
+    source_fields: ["objective.contexts"]
+
+  - id: Q-TEC-XXXX-02
+    type: preconditions
+    question: "¿<precondición A> y <precondición B> se cumplen y NO se cumple <no aplicable>?"
+    purpose: "<qué habilita>"
+    required_evidence: [accounts_or_roles, environment]
+    answer_type: structured
+    possible_outcomes: [satisfied, not_satisfied, unknown]
+    next: { satisfied: Q-TEC-XXXX-03, not_satisfied: stop_precondition_unmet, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-01]
+    attacker_state_requirements: ["<cuentas>"]
+    source_fields: ["replication.requirements", "objective.not_applicable"]
+
+  - id: Q-TEC-XXXX-03
+    type: structure
+    question: "¿Qué rutas, funciones, estados o componentes intervienen? Hipótesis: <...>?"
+    purpose: "<qué habilita>"
+    required_evidence: [call_graph, state_or_flow, component_inventory]
+    answer_type: structured
+    possible_outcomes: [identified, partial, unknown]
+    next: { identified: Q-TEC-XXXX-04, partial: request_missing_evidence, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-02]
+    source_fields: ["objective.hypothesis"]
+
+  - id: Q-TEC-XXXX-04
+    type: controls
+    question: "¿Dónde se valida <control> y se aplica a TODOS los caminos que alcanzan <operación>?"
+    purpose: "<qué habilita>"
+    required_evidence: [middleware_or_policy, alternative_routes, effective_guard]
+    answer_type: structured
+    possible_outcomes: [located, not_located, unknown]
+    next: { located: Q-TEC-XXXX-05, not_located: Q-TEC-XXXX-05, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-03]
+    source_fields: ["objective.behavior"]
+
+  - id: Q-TEC-XXXX-05
+    type: paths
+    question: "¿Qué caminos alternativos alcanzan <operación> evitando <control> (otro verbo, endpoint equivalente, estado reusado, mass-assignment…)?"
+    purpose: "Cubrir rutas que evitan la comprobación (Paso 3)."
+    required_evidence: [route_inventory, equivalent_endpoints, state_transitions]
+    answer_type: structured
+    possible_outcomes: [found, none, unknown]
+    next: { found: Q-TEC-XXXX-06, none: Q-TEC-XXXX-06, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-04]
+    source_fields: []
+
+  - id: Q-TEC-XXXX-06
+    type: differentiation
+    question: "¿Qué observación distingue una implementación segura de una insegura? Seguro: <...> Anómalo: <...>"
+    purpose: "Definir el discriminante antes de ejecutar."
+    required_evidence: [expected_response, anomalous_response, signal_with_reference]
+    answer_type: structured
+    possible_outcomes: [discriminates, ambiguous, unknown]
+    next: { discriminates: Q-TEC-XXXX-07, ambiguous: Q-TEC-XXXX-08, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-05]
+    source_fields: ["procedure.expected_secure_result", "replication.signal"]
+
+  - id: Q-TEC-XXXX-07
+    type: validation
+    question: "¿Qué prueba mínima confirma/refuta? Acción: <...> Cambia SOLO: <...> Constante: <...>"
+    purpose: "Producir evidencia reproducible con una variable."
+    required_evidence: [reproducible_request, baseline, differential_response]
+    answer_type: evidence_ref
+    possible_outcomes: [confirmed, refuted, inconclusive, blocked]
+    next: { confirmed: Q-TEC-XXXX-09, refuted: Q-TEC-XXXX-09, inconclusive: Q-TEC-XXXX-08, blocked: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-06]
+    source_fields: ["procedure.confirmation_criteria"]
+    notes: "Ejecución intrusiva: requiere aprobación del CEO."
+
+  - id: Q-TEC-XXXX-08
+    type: interpretation
+    question: "¿Qué otras explicaciones producen el mismo resultado y cómo se descartan?"
+    purpose: "Separar violación real de falso positivo."
+    required_evidence: [alternative_hypotheses, control_comparison]
+    answer_type: structured
+    possible_outcomes: [explained, unresolved, unknown]
+    next: { explained: stop_false_positive, unresolved: Q-TEC-XXXX-07, unknown: request_missing_evidence }
+    depends_on: [Q-TEC-XXXX-06]
+    source_fields: []
+
+  - id: Q-TEC-XXXX-09
+    type: next
+    question: "¿Qué corresponde tras la evidencia? Patrones: <CWE/OWASP>. Relacionadas: <TEC>."
+    purpose: "Decidir el siguiente paso preservando trazabilidad."
+    required_evidence: [confirmed_or_refuted_evidence, finding_ref]
+    answer_type: structured
+    possible_outcomes: [confirmed_finding, refuted_close, follow_related]
+    next: { confirmed_finding: report, refuted_close: done, follow_related: goto_technique_questions }
+    depends_on: [Q-TEC-XXXX-07]
+    source_fields: ["relations.detects_pattern"]

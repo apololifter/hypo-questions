@@ -15,7 +15,16 @@
     "areas": 23,
     "families": 61,
     "techniques": 439,
-    "questions": 3764
+    "questions": 3765,
+    "nodes_generated": 522,
+    "nodes_authored": 1
+  },
+  "authoring": {
+    "standard_version": "1.0",
+    "standard_doc": "AUTHORING.md",
+    "template": "templates/technique.questions.template.yaml",
+    "checklist": "templates/AUTHORING_CHECKLIST.md",
+    "linter": "tools/lint_authoring.py"
   },
   "layout": {
     "areas": "areas/<area_dir>/[<family_dir>/[<tec_dir>/]]questions.yaml",

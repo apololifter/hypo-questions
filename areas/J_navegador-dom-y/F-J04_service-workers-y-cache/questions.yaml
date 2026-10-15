@@ -85,3 +85,5 @@ questions:
   - Q-F-J04-01
   source_fields:
   - objective.not_applicable
+standard_version: '1.0'
+authored: false
