@@ -28,8 +28,9 @@ Regla de oro: **la pregunta correcta se deriva del mecanismo, no del nombre de l
    `unknown` → `request_missing_evidence`, nunca una conclusión.
 5. **Trazabilidad.** Cada nodo enlaza al `TEC-xxxx` real y al commit del WPTA (`wpta.commit`).
 6. **Separación conocimiento / ejecución.** Aquí viven preguntas, dependencias y ramas. Las
-   respuestas, observaciones y resultados viven en la **memoria del engagement**, nunca en el repo.
-7. **Cobertura explícita.** Los caminos alternativos (§3, Paso 3) y las precondiciones (§3, Paso 1)
+   respuestas, observaciones y resultados viven **fuera del repo** (en el registro de cada análisis),
+   nunca aquí.
+7. **Cobertura explícita.** Los caminos alternativos (§3, Paso 4) y las precondiciones (§3, Paso 1)
    deben estar cubiertos por preguntas o marcados como fuera de alcance con razón.
 
 ## 2. Material de entrada (leer, no inventar)

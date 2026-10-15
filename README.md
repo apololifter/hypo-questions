@@ -4,9 +4,8 @@
 
 Este repositorio **no contiene vulnerabilidades ni checklist**: contiene **preguntas** organizadas en el
 mismo árbol que el WPTA (área → familia → técnica). Cada técnica tiene una secuencia de preguntas que lleva
-de una observación a una **decisión técnica** o a un **experimento discriminante**, y que un agente
-(por ejemplo `generador-instrumentos`) puede recorrer para saber **qué preguntar, qué evidencia falta y
-qué prueba mínima la resuelve**.
+de una observación a una **decisión técnica** o a un **experimento discriminante**, y que puede recorrerse
+para saber **qué preguntar, qué evidencia falta y qué prueba mínima la resuelve**.
 
 > Es una **base de conocimiento interrogativa**, no un catálogo de ataques. Documentar una pregunta no
 > autoriza a ejecutarla. Solo pruebas autorizadas / lab / bug bounty en scope.
@@ -148,8 +147,8 @@ los campos reales** de la ficha `tecnica.json` del WPTA (`objective.contexts`, `
 ## Principios
 
 1. **Separación conocimiento / ejecución.** El repo guarda *preguntas, dependencias, condiciones de
-   aplicabilidad y reglas de navegación*. Las **respuestas, observaciones y resultados viven en la memoria
-   del engagement** (nunca aquí). El validador rechaza cualquier nodo que contenga campos de respuesta.
+   aplicabilidad y reglas de navegación*. Las **respuestas, observaciones y resultados** viven **fuera del
+   repo** (en el registro de cada análisis, nunca aquí). El validador rechaza cualquier nodo con campos de respuesta.
 2. **Trazabilidad al WPTA.** Cada nodo enlaza al `TEC-xxxx` / `F-…` real y al **commit fijado** del WPTA del
    que se generó. Si el WPTA cambia, el validador lo detecta.
 3. **No se inventa.** Si un campo del WPTA falta, la pregunta lo declara (`[SIN DATO EN WPTA: …]`) y se
@@ -174,7 +173,7 @@ hypo-questions/
 │   ├── generate_tree.py           # WPTA -> arbol de preguntas (preserva lo autorado)
 │   ├── validate_coverage.py       # trazabilidad + cobertura + reglas de navegacion
 │   └── lint_authoring.py          # GATES de autoria (T1-T7) + anti-patrones
-├── indexes/                       # GENERADO: lookup rapido por agente
+├── indexes/                       # GENERADO: lookup rapido
 │   ├── questions.json             # todas las preguntas (plano)
 │   ├── technique-map.json         # TEC -> {area, familia, patrones, archivo, #preguntas}
 │   ├── areas.json
@@ -235,23 +234,16 @@ Campos de una pregunta: `id`, `type`, `question`, `purpose`, `required_evidence`
 `possible_outcomes`, `next`, `depends_on`, `applicability_conditions`, `attacker_state_requirements`,
 `source_fields` (trazabilidad al WPTA). Esquema completo en [`schema/question.schema.json`](schema/question.schema.json).
 
-## Cómo lo consume un agente
+## Consumo programático
 
-```
-1. Lee el contexto real de la app (evidence.json, api_map, infra_model.md).
-2. indexa: indexes/technique-map.json  +  indexes/questions.json
-3. Selecciona nodos aplicables (area -> familia -> tecnica).
-4. Recorre questions.yaml: responde con evidencia las que puede; marca 'unknown' las que no.
-5. Elige la pregunta pendiente de mayor valor informativo y genera el instrumento minimo
-   (agente generador-instrumentos).
-6. Registra respuestas/observaciones/experimentos en la MEMORIA DEL ENGAGEMENT, no aqui.
-7. Sigue las reglas 'next' para la siguiente pregunta.
-```
+El repositorio es autónomo: solo contiene el árbol de preguntas y sus índices, sin enlazar con ningún
+sistema externo. Expone datos estables para cualquier consumidor:
 
-Contrato estable para el integrador (`bin/route_techniques.py`, agentes `atlas-tecnicas` /
-`generador-instrumentos`): el campo clave es `technique_id` (une con el WPTA) y `indexes/questions.json`
-da el lookup plano. Los `next` que valen `goto_technique_questions` se resuelven abriendo el
-`questions.yaml` de la técnica destino y entrando por su pregunta `Q-<TEC>-01`.
+- `indexes/questions.json` — lista plana de todas las preguntas (`file`, `type`, `node_type`, `technique_id`).
+- `indexes/technique-map.json` — `TEC-xxxx` → `{area, familia, patrones, archivo, #preguntas, authored}`.
+- El campo clave de enlace es `technique_id` (une cada pregunta con el WPTA).
+- Los `next` con valor `goto_technique_questions` se resuelven abriendo el `questions.yaml` de la técnica
+  de destino y entrando por su pregunta `Q-<TEC>-01`.
 
 ## Regenerar
 
