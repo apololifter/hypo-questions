@@ -13,6 +13,46 @@ qué prueba mínima la resuelve**.
 
 ---
 
+## Prompt principal — cómo construir las preguntas
+
+> Este es el **prompt principal** del repositorio: la metodología que gobierna a quien autora las
+> preguntas, técnica por técnica. El desarrollo operativo (GATES T1-T7, taxonomía de preguntas, checklist)
+> está en [`AUTHORING.md`](AUTHORING.md).
+
+Tu tarea es construir una metodología para las preguntas de `hypo-questions` que permita a un agente
+investigar una **aplicación web real**, técnica por técnica del WPTA, y llegar a **hipótesis de
+vulnerabilidad con pruebas formuladas**. No otra lista de dimensiones genéricas.
+
+Para **cada técnica del WPTA** debes:
+
+1. **Descomponer el mecanismo.** Identificar qué condiciones, componentes, controles y comportamientos
+   deben existir para que pueda producirse el fallo.
+2. **Derivar las preguntas necesarias.** Determinar qué necesita averiguar el agente sobre la aplicación
+   para saber si cada condición se cumple. Las preguntas deben ser específicas del mecanismo, no variantes
+   de «¿es vulnerable?».
+3. **Cubrir caminos alternativos.** Investigar las distintas rutas, estados, roles, entradas, validaciones
+   y operaciones que pueden cambiar el resultado de seguridad.
+4. **Construir ramas de investigación.** Cada respuesta debe determinar qué pregunta corresponde después,
+   qué evidencia falta o si una línea de investigación puede descartarse justificadamente.
+5. **Llegar a una hipótesis comprobable.** Las respuestas deben permitir establecer un mecanismo causal
+   concreto, sus precondiciones y el comportamiento de seguridad que podría incumplirse.
+6. **Derivar una prueba discriminante.** Definir la modificación mínima, el estado inicial, las variables
+   constantes, los resultados esperados y los criterios para confirmar, refutar o dejar inconclusa la
+   hipótesis.
+7. **Validar la cobertura.** Comprobar que las preguntas contemplan las condiciones relevantes de la
+   técnica —incluidas variantes de implementación— y que no son redundantes ni dejan ramas sin resolver.
+
+**Ejemplo — elusión de workflows.** No basta con preguntar si se puede saltar un paso. Hay que identificar
+las precondiciones de cada transición, dónde se aplican, qué caminos alcanzan la operación final, cuáles
+evitan esas comprobaciones, y qué prueba permite distinguir una ruta legítima de una que viola las reglas
+del proceso.
+
+**El entregable es el estándar de autoría**: un documento que indica cómo analizar cada técnica del WPTA,
+cómo derivar sus preguntas, cómo organizarlas en ramas y cómo verificar que permiten llegar a hipótesis y
+pruebas. Ese estándar es el que debes usar para construir `hypo-questions` de forma sistemática.
+
+---
+
 ## Por qué existe
 
 Sin esto, un agente parte de cero cada vez e improvisa las preguntas. Aquí cada pregunta está **derivada de
