@@ -1,0 +1,107 @@
+schema_version: '1.0'
+node_type: area
+id: O
+title: Configuracion, despliegue e infraestructura web
+description: Preguntas de encuadre para el area O (Configuracion, despliegue e infraestructura web).
+area: O
+area_title: Configuracion, despliegue e infraestructura web
+subfamilies:
+- Entornos dev/test/prod
+- Directorios/archivos/endpoints expuestos
+- Config por defecto
+- Paneles admin
+- Errores detallados/trazas
+- CORS/TLS/headers
+- Reverse proxies/balanceadores
+- Hostnames/subdominios
+- Config declarada vs efectiva
+- Secretos/artefactos
+- Controles ausentes en rutas alternativas
+attacker_state_requirements: []
+techniques:
+- TEC-0041
+- TEC-0042
+- TEC-0142
+- TEC-0080
+- TEC-0159
+- TEC-0117
+- TEC-0118
+- TEC-0119
+- TEC-0135
+- TEC-0141
+- TEC-0182
+- TEC-0310
+- TEC-0379
+- TEC-0380
+- TEC-0381
+- TEC-0382
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/O
+generated: true
+questions:
+- id: Q-AREA-O-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Configuracion, despliegue e infraestructura
+    web''? Subfamilias consideradas por el WPTA: Entornos dev/test/prod; Directorios/archivos/endpoints
+    expuestos; Config por defecto; Paneles admin; Errores detallados/trazas; CORS/TLS/headers; Reverse
+    proxies/balanceadores; Hostnames/subdominios; Config declarada vs efectiva; Secretos/artefactos; Controles
+    ausentes en rutas alternativas.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-O-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-O-02
+  type: structure
+  question: '¿Cuales de las familias del area O aplican al contexto observado y por que? Familias: F-O01
+    (Configuracion e infraestructura), F-O02 (Codigo y secretos expuestos), F-O03 (Endurecimiento por
+    defecto), F-O04 (Bypass de codigos de error HTTP (403/401)).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-O-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-O-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-O-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-O-02
+  source_fields:
+  - coverage.json

@@ -1,0 +1,36 @@
+{
+  "name": "hypo-questions",
+  "version": "0.1.0",
+  "schema_version": "1.0",
+  "description": "Biblioteca de preguntas de investigacion ancladas al WPTA, consumible por agentes de pentesting.",
+  "wpta": {
+    "repo": "https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-",
+    "commit": "d6f986e9f97c9046aa721512210aef4158be9fff",
+    "techniques": 439,
+    "variants": 129,
+    "families": 61,
+    "areas": 23
+  },
+  "counts": {
+    "areas": 23,
+    "families": 61,
+    "techniques": 439,
+    "questions": 3764
+  },
+  "layout": {
+    "areas": "areas/<area_dir>/[<family_dir>/[<tec_dir>/]]questions.yaml",
+    "indexes": "indexes/{questions,technique-map,areas,families}.json",
+    "schema": "schema/{question,questionset}.schema.json"
+  },
+  "terminals": [
+    "stop_not_applicable",
+    "stop_not_relevant",
+    "stop_precondition_unmet",
+    "stop_false_positive",
+    "request_missing_evidence",
+    "request_scope_decision",
+    "goto_technique_questions",
+    "report",
+    "done"
+  ]
+}

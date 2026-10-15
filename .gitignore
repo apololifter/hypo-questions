@@ -1,0 +1,14 @@
+# WPTA es un input de build, no se versiona aqui
+third_party/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editores / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,106 @@
+schema_version: '1.0'
+node_type: family
+id: F-C03
+title: Integridad de sesion y token
+description: Fijacion de sesion y manipulacion de cabeceras JWT.
+area: C
+area_title: Sesiones, cookies y tokens
+family_id: F-C03
+family_name: Integridad de sesion y token
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0073
+- TEC-0074
+- TEC-0121
+- TEC-0122
+- TEC-0130
+- TEC-0131
+- TEC-0139
+- TEC-0152
+- TEC-0171
+- TEC-0172
+- TEC-0267
+- TEC-0286
+- TEC-0299
+- TEC-0318
+- TEC-0319
+- TEC-0439
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-C03
+generated: true
+questions:
+- id: Q-F-C03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Integridad
+    de sesion y token'? Fijacion de sesion y manipulacion de cabeceras JWT.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-C03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-C03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0073 (Fijacion
+    de sesion (no rotacion)), TEC-0074 (Inyeccion en cabeceras JWT (jku/kid/x5u)), TEC-0121 (Cookie bomb
+    (agotamiento por cookies)), TEC-0122 (Bypass de SameSite (top-level GET)), TEC-0130 (Session puzzling
+    (reutilizacion de variable de sesion)), TEC-0131 (Fuga de token por URL o Referer), TEC-0139 (Sesion
+    no invalidada en logout), TEC-0152 (Remember-me token predecible), TEC-0171 (Bypass de prefijos de
+    cookie (__Host-/__Secure-)), TEC-0172 (Reuso de token de un solo uso (replay)), TEC-0267 (Cookie sin
+    HttpOnly/Secure (auditoria de sesion)), TEC-0286 (Entropia predecible del token de sesion), TEC-0299
+    (Token de reset debil (entropia/predictibilidad)), TEC-0318 (Ausencia de expiracion de sesion (timeout)),
+    TEC-0319 (Sesiones concurrentes no acotadas), TEC-0439 (Robo de token via postMessage + reconexion
+    WebSocket).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-C03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-C03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-C03-01
+  source_fields:
+  - objective.not_applicable

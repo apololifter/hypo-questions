@@ -1,0 +1,92 @@
+schema_version: '1.0'
+node_type: area
+id: Q
+title: Errores, canales laterales y observabilidad
+description: Preguntas de encuadre para el area Q (Errores, canales laterales y observabilidad).
+area: Q
+area_title: Errores, canales laterales y observabilidad
+subfamilies:
+- Diferencias de respuesta
+- Mensajes de error
+- Codigos de estado
+- Longitud/estructura
+- Temporizacion
+- Entradas limite
+- Exito aparente vs persistencia
+- Filtracion via logs/diagnosticos
+- Senales indirectas
+- Comportamiento en fallo
+attacker_state_requirements: []
+techniques:
+- TEC-0012
+- TEC-0028
+- TEC-0138
+- TEC-0335
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/Q
+generated: true
+questions:
+- id: Q-AREA-Q-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Errores, canales laterales y observabilidad''?
+    Subfamilias consideradas por el WPTA: Diferencias de respuesta; Mensajes de error; Codigos de estado;
+    Longitud/estructura; Temporizacion; Entradas limite; Exito aparente vs persistencia; Filtracion via
+    logs/diagnosticos; Senales indirectas; Comportamiento en fallo.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-Q-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-Q-02
+  type: structure
+  question: '¿Cuales de las familias del area Q aplican al contexto observado y por que? Familias: F-Q01
+    (Canales laterales y errores), F-Q02 (Criptografia y oraculos).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-Q-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-Q-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-Q-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-Q-02
+  source_fields:
+  - coverage.json

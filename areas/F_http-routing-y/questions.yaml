@@ -1,0 +1,109 @@
+schema_version: '1.0'
+node_type: area
+id: F
+title: HTTP, routing y cabeceras
+description: Preguntas de encuadre para el area F (HTTP, routing y cabeceras).
+area: F
+area_title: HTTP, routing y cabeceras
+subfamilies:
+- Metodos HTTP
+- Cabeceras duplicadas/orden
+- Content-Length vs Transfer-Encoding
+- Routing por Host/proxy headers
+- Method override
+- Content-Type/Accept
+- Redirecciones
+- Rutas absolutas/relativas/normalizadas
+- HTTP/1.1 vs 2 vs 3
+- Divergencia CDN/WAF/proxy/app
+- Manejo de errores
+attacker_state_requirements: []
+techniques:
+- TEC-0004
+- TEC-0019
+- TEC-0018
+- TEC-0007
+- TEC-0022
+- TEC-0123
+- TEC-0146
+- TEC-0176
+- TEC-0274
+- TEC-0345
+- TEC-0059
+- TEC-0378
+- TEC-0068
+- TEC-0102
+- TEC-0177
+- TEC-0346
+- TEC-0109
+- TEC-0110
+- TEC-0410
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/F
+generated: true
+questions:
+- id: Q-AREA-F-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''HTTP, routing y cabeceras''? Subfamilias
+    consideradas por el WPTA: Metodos HTTP; Cabeceras duplicadas/orden; Content-Length vs Transfer-Encoding;
+    Routing por Host/proxy headers; Method override; Content-Type/Accept; Redirecciones; Rutas absolutas/relativas/normalizadas;
+    HTTP/1.1 vs 2 vs 3; Divergencia CDN/WAF/proxy/app; Manejo de errores.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-F-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-F-02
+  type: structure
+  question: '¿Cuales de las familias del area F aplican al contexto observado y por que? Familias: F-F01
+    (Metodos y routing HTTP), F-F02 (Inyeccion en cabeceras), F-F03 (Desincronizacion HTTP), F-F04 (Negociacion
+    de contenido y abuso de cabeceras).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-F-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-F-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-F-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-F-02
+  source_fields:
+  - coverage.json

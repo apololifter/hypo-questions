@@ -1,0 +1,143 @@
+schema_version: '1.0'
+node_type: area
+id: J
+title: Navegador, DOM y frontend
+description: Preguntas de encuadre para el area J (Navegador, DOM y frontend).
+area: J
+area_title: Navegador, DOM y frontend
+subfamilies:
+- DOM XSS fuente-destino
+- URL/fragmento/parametros
+- postMessage y origen
+- LocalStorage/SessionStorage
+- Service workers y cache
+- CORS y politicas de origen
+- CSP
+- iframes/ventanas/subdominios
+- Estado de UI
+- Controles visuales vs backend
+- Filtracion en bundles/source maps
+- Restricciones solo en JS
+attacker_state_requirements: []
+techniques:
+- TEC-0035
+- TEC-0036
+- TEC-0049
+- TEC-0051
+- TEC-0058
+- TEC-0092
+- TEC-0093
+- TEC-0124
+- TEC-0132
+- TEC-0144
+- TEC-0168
+- TEC-0170
+- TEC-0288
+- TEC-0297
+- TEC-0342
+- TEC-0359
+- TEC-0360
+- TEC-0361
+- TEC-0362
+- TEC-0363
+- TEC-0364
+- TEC-0065
+- TEC-0066
+- TEC-0067
+- TEC-0094
+- TEC-0095
+- TEC-0096
+- TEC-0133
+- TEC-0145
+- TEC-0147
+- TEC-0160
+- TEC-0169
+- TEC-0252
+- TEC-0307
+- TEC-0308
+- TEC-0343
+- TEC-0365
+- TEC-0148
+- TEC-0289
+- TEC-0309
+- TEC-0320
+- TEC-0334
+- TEC-0350
+- TEC-0351
+- TEC-0352
+- TEC-0353
+- TEC-0354
+- TEC-0355
+- TEC-0356
+- TEC-0357
+- TEC-0358
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/J
+generated: true
+questions:
+- id: Q-AREA-J-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Navegador, DOM y frontend''? Subfamilias
+    consideradas por el WPTA: DOM XSS fuente-destino; URL/fragmento/parametros; postMessage y origen;
+    LocalStorage/SessionStorage; Service workers y cache; CORS y politicas de origen; CSP; iframes/ventanas/subdominios;
+    Estado de UI; Controles visuales vs backend; Filtracion en bundles/source maps; Restricciones solo
+    en JS.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-J-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-J-02
+  type: structure
+  question: '¿Cuales de las familias del area J aplican al contexto observado y por que? Familias: F-J01
+    (Navegador y DOM), F-J02 (XSS e inyeccion en cliente), F-J03 (Cliente avanzado), F-J04 (Service workers
+    y cache del navegador), F-J05 (XS-Leaks y fugas entre sitios), F-J06 (XSS por APIs de render inseguras).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-J-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-J-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-J-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-J-02
+  source_fields:
+  - coverage.json

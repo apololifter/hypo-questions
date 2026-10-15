@@ -1,0 +1,98 @@
+schema_version: '1.0'
+node_type: family
+id: F-F01
+title: Metodos y routing HTTP
+description: Metodos HTTP, overrides y confianza en cabeceras de host/reenvio.
+area: F
+area_title: HTTP, routing y cabeceras
+family_id: F-F01
+family_name: Metodos y routing HTTP
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0004
+- TEC-0007
+- TEC-0018
+- TEC-0019
+- TEC-0022
+- TEC-0123
+- TEC-0146
+- TEC-0176
+- TEC-0274
+- TEC-0345
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-F01
+generated: true
+questions:
+- id: Q-F-F01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Metodos
+    y routing HTTP'? Metodos HTTP, overrides y confianza en cabeceras de host/reenvio.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-F01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-F01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0004 (Prueba
+    de control de acceso mediante metodo HTTP alternativo (verb tampering)), TEC-0007 (Inyeccion/abuso
+    de cabecera Host y de cabeceras de reenvio), TEC-0018 (Alcanzar una operacion protegida usando un
+    metodo HTTP alternativo), TEC-0019 (Usar X-HTTP-Method-Override o _method para alcanzar la operacion),
+    TEC-0022 (Disparar un flujo con enlace absoluto y comprobar si respeta la cabecera Host controlada),
+    TEC-0123 (Redireccion abierta (open redirect)), TEC-0146 (Cross-Site Tracing (XST via TRACE)), TEC-0176
+    (Metodos WebDAV habilitados (PUT/DELETE)), TEC-0274 (Abuso de cabeceras hop-by-hop), TEC-0345 (Abuso
+    del metodo CONNECT y request-line absoluto).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-F01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-F01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-F01-01
+  source_fields:
+  - objective.not_applicable

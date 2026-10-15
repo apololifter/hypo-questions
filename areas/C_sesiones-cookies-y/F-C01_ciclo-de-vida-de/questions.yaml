@@ -1,0 +1,98 @@
+schema_version: '1.0'
+node_type: family
+id: F-C01
+title: Ciclo de vida de sesiones y tokens
+description: Creacion, transporte, validacion y revocacion de sesiones y tokens (cookies, JWT).
+area: C
+area_title: Sesiones, cookies y tokens
+family_id: F-C01
+family_name: Ciclo de vida de sesiones y tokens
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0005
+- TEC-0011
+- TEC-0020
+- TEC-0026
+- TEC-0027
+- TEC-0101
+- TEC-0126
+- TEC-0246
+- TEC-0316
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-C01
+generated: true
+questions:
+- id: Q-F-C01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Ciclo
+    de vida de sesiones y tokens'? Creacion, transporte, validacion y revocacion de sesiones y tokens
+    (cookies, JWT).
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-C01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-C01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0005 (Confusion
+    de alcance y precedencia de cookies (cookie tossing / shadowing)), TEC-0011 (Sondeo de fallos de verificacion
+    de firma y claims en JWT), TEC-0020 (Inyectar una cookie de sesion homonima desde un scope mas amplio
+    y ver cual usa el backend), TEC-0026 (Presentar un JWT con firma invalida o alg:none y comprobar si
+    el servidor lo acepta), TEC-0027 (Modificar una claim (rol/sub/exp) y comprobar si el servidor la
+    revalida), TEC-0101 (Secreto debil en JWT (HS256 crackeable)), TEC-0126 (JWT sin validacion de claims
+    (exp/aud/iss)), TEC-0246 (Confusion de algoritmo en JWT (RS256 -> HS256)), TEC-0316 (JWT kid injection
+    (path/SQLi/command)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-C01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-C01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-C01-01
+  source_fields:
+  - objective.not_applicable

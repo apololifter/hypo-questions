@@ -1,0 +1,150 @@
+schema_version: '1.0'
+node_type: family
+id: F-I02
+title: Contrato y exposicion de API
+description: Introspeccion y asignacion masiva.
+area: I
+area_title: APIs, GraphQL y protocolos
+family_id: F-I02
+family_name: Contrato y exposicion de API
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0076
+- TEC-0077
+- TEC-0183
+- TEC-0184
+- TEC-0185
+- TEC-0186
+- TEC-0187
+- TEC-0188
+- TEC-0189
+- TEC-0190
+- TEC-0198
+- TEC-0199
+- TEC-0200
+- TEC-0201
+- TEC-0202
+- TEC-0203
+- TEC-0204
+- TEC-0205
+- TEC-0206
+- TEC-0207
+- TEC-0210
+- TEC-0213
+- TEC-0214
+- TEC-0215
+- TEC-0216
+- TEC-0217
+- TEC-0218
+- TEC-0219
+- TEC-0220
+- TEC-0221
+- TEC-0222
+- TEC-0225
+- TEC-0226
+- TEC-0227
+- TEC-0229
+- TEC-0230
+- TEC-0232
+- TEC-0234
+- TEC-0235
+- TEC-0236
+- TEC-0240
+- TEC-0241
+- TEC-0344
+- TEC-0391
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-I02
+generated: true
+questions:
+- id: Q-F-I02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Contrato
+    y exposicion de API'? Introspeccion y asignacion masiva.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-I02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-I02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0076 (Introspeccion
+    GraphQL habilitada), TEC-0077 (Asignacion masiva (mass assignment)), TEC-0183 (Mass assignment por
+    form-urlencoded), TEC-0184 (Mass assignment por multipart), TEC-0185 (Mass assignment en GraphQL (input
+    objects)), TEC-0186 (Mass assignment anidado (segundo nivel)), TEC-0187 (Bypass de allowlist por variacion
+    de nombre), TEC-0188 (Over-posting via PATCH parcial), TEC-0189 (Over-posting para cambiar owner/tenant),
+    TEC-0190 (Mass assignment en registro (rol en signup)), TEC-0198 (Mass assignment via JSON Merge Patch
+    / JSON Patch), TEC-0199 (Mass assignment via parametros de query), TEC-0200 (Mass assignment via notacion
+    de formularios anidados), TEC-0201 (Bypass por claves duplicadas en JSON), TEC-0202 (Over-posting
+    de claves primarias/foraneas (id/FK)), TEC-0203 (Over-posting de flags de estado (emailVerified/enabled)),
+    TEC-0204 (Over-posting de asociaciones (_ids / relations)), TEC-0205 (Over-posting en endpoints bulk/batch
+    (createMany)), TEC-0206 (Over-posting en importacion masiva (CSV/Excel)), TEC-0207 (Bypass de allowlist
+    por conversion de nombres (snake/camel)), TEC-0210 (Over-posting via PUT (reemplazo total)), TEC-0213
+    (Mass assignment via cuerpo XML), TEC-0214 (Mass assignment en GraphQL via variables), TEC-0215 (Mass
+    assignment via JSON:API / HAL (attributes/links)), TEC-0216 (Mass assignment por campo de tipo polimorfico
+    (type/discriminator)), TEC-0217 (Mass assignment via JSON-LD (@type/@context)), TEC-0218 (Mass assignment
+    en settings clave-valor generico), TEC-0219 (Mass assignment via mapa de permisos anidado), TEC-0220
+    (Over-posting via arrays de checkbox (role[])), TEC-0221 (Mass assignment via notacion de punto (dot-notation)),
+    TEC-0222 (Mass assignment por mismatch de id (URL vs body)), TEC-0225 (Over-posting de campos auto
+    (createdBy/updatedAt)), TEC-0226 (Mass assignment en endpoints de clonado/duplicado), TEC-0227 (Mass
+    assignment en endpoint de invitacion (role/invite)), TEC-0229 (Over-posting via clave alterna (update
+    por email/username)), TEC-0230 (Reuso de endpoint admin (binding de rol) desde rol bajo), TEC-0232
+    (Over-posting via endpoint de relaciones (JSON:API relationships)), TEC-0234 (Over-posting en endpoints
+    de aprobacion/verificacion), TEC-0235 (Over-posting en custom_fields/metadata genericos), TEC-0236
+    (Over-posting en permisos de comparticion (share/ACL)), TEC-0240 (Over-posting en endpoint de asignacion
+    de roles), TEC-0241 (Over-posting en endpoints bulk update (ids + fields)), TEC-0344 (GraphQL sobre
+    GET (CSRF/cache)), TEC-0391 (Enumeracion de mutaciones GraphQL via introspeccion).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-I02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-I02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-I02-01
+  source_fields:
+  - objective.not_applicable

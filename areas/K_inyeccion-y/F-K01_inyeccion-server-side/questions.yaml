@@ -1,0 +1,105 @@
+schema_version: '1.0'
+node_type: family
+id: F-K01
+title: Inyeccion server-side
+description: 'SQL, plantillas y XML: interpretacion de datos por el servidor.'
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K01
+family_name: Inyeccion server-side
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0037
+- TEC-0038
+- TEC-0039
+- TEC-0087
+- TEC-0088
+- TEC-0089
+- TEC-0125
+- TEC-0143
+- TEC-0163
+- TEC-0254
+- TEC-0255
+- TEC-0261
+- TEC-0311
+- TEC-0312
+- TEC-0369
+- TEC-0419
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-K01
+generated: true
+questions:
+- id: Q-F-K01-01
+  type: context
+  question: '¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia ''Inyeccion
+    server-side''? SQL, plantillas y XML: interpretacion de datos por el servidor.'
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-K01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-K01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0037 (Inyeccion
+    SQL por concatenacion de parametros), TEC-0038 (Server-Side Template Injection (SSTI) en parametro
+    reflejado), TEC-0039 (XXE en carga de XML), TEC-0087 (SQL injection ciega (booleana/temporal)), TEC-0088
+    (SQL injection de segundo orden), TEC-0089 (XXE ciega (out-of-band)), TEC-0125 (Bypass de WAF en SQLi),
+    TEC-0143 (XXE a traves de carga de archivos (docx/svg)), TEC-0163 (Inyeccion ORM/HQL), TEC-0254 (SSTI
+    en motor especifico (Freemarker/Velocity)), TEC-0255 (SSTI en plantillas de correo / notificaciones),
+    TEC-0261 (XXE via SAML/SOAP), TEC-0311 (SQL injection out-of-band (DNS/HTTP)), TEC-0312 (Inyeccion
+    LaTeX / procesadores de documentos), TEC-0369 (SSTI en motor Mako (Python)), TEC-0419 (SQLi con sentencias
+    apiladas (stacked queries)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-K01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-K01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-K01-01
+  source_fields:
+  - objective.not_applicable

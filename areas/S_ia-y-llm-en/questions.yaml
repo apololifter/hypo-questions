@@ -1,0 +1,95 @@
+schema_version: '1.0'
+node_type: area
+id: S
+title: IA y LLM en aplicaciones web
+description: Preguntas de encuadre para el area S (IA y LLM en aplicaciones web).
+area: S
+area_title: IA y LLM en aplicaciones web
+subfamilies:
+- Prompt injection (directa/indirecta)
+- Excessive agency
+- Insecure output handling
+- Tool/function-call abuse
+- RAG y poisoning de contexto
+- Exposicion de system prompt
+- Guardrail bypass
+- Cross-plugin/tenant leakage en LLM apps
+attacker_state_requirements: []
+techniques:
+- TEC-0045
+- TEC-0161
+- TEC-0081
+- TEC-0111
+- TEC-0112
+- TEC-0113
+- TEC-0179
+- TEC-0277
+- TEC-0278
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/S
+generated: true
+questions:
+- id: Q-AREA-S-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''IA y LLM en aplicaciones web''? Subfamilias
+    consideradas por el WPTA: Prompt injection (directa/indirecta); Excessive agency; Insecure output
+    handling; Tool/function-call abuse; RAG y poisoning de contexto; Exposicion de system prompt; Guardrail
+    bypass; Cross-plugin/tenant leakage en LLM apps.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-S-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-S-02
+  type: structure
+  question: '¿Cuales de las familias del area S aplican al contexto observado y por que? Familias: F-S01
+    (IA y LLM), F-S02 (Abuso de agentes LLM).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-S-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-S-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-S-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-S-02
+  source_fields:
+  - coverage.json

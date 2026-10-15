@@ -1,0 +1,41 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Read pinned WPTA commit from manifest
+        id: pin
+        run: |
+          echo "commit=$(python -c "import json;print(json.load(open('manifest.json'))['wpta']['commit'])")" >> "$GITHUB_OUTPUT"
+
+      - name: Clone WPTA at pinned commit
+        run: |
+          git clone https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-.git third_party/wpta
+          git -C third_party/wpta checkout "${{ steps.pin.outputs.commit }}"
+
+      - name: Validate coverage + traceability
+        run: python tools/validate_coverage.py
+
+      - name: Verify generated tree is up to date with WPTA
+        run: |
+          python tools/generate_tree.py
+          if [ -n "$(git status --porcelain areas indexes manifest.json)" ]; then
+            echo "::error::El arbol de preguntas no coincide con el WPTA fijado. Regenera con tools/generate_tree.py"
+            git --no-pager diff --stat areas indexes manifest.json
+            exit 1
+          fi

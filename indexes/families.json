@@ -1,0 +1,990 @@
+[
+  {
+    "family_id": "F-A01",
+    "name": "Reconocimiento de superficie",
+    "area": "A",
+    "questions_file": "areas/A_reconocimiento-y/F-A01_reconocimiento-de/questions.yaml",
+    "techniques": [
+      "TEC-0029",
+      "TEC-0030"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-A02",
+    "name": "Activos y secretos en recon",
+    "area": "A",
+    "questions_file": "areas/A_reconocimiento-y/F-A02_activos-y-secretos-en/questions.yaml",
+    "techniques": [
+      "TEC-0078",
+      "TEC-0079",
+      "TEC-0157",
+      "TEC-0158",
+      "TEC-0180",
+      "TEC-0181",
+      "TEC-0269",
+      "TEC-0270",
+      "TEC-0271",
+      "TEC-0302",
+      "TEC-0303",
+      "TEC-0304",
+      "TEC-0404",
+      "TEC-0405",
+      "TEC-0416"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-B01",
+    "name": "Autenticacion y cuentas",
+    "area": "B",
+    "questions_file": "areas/B_autenticacion-e/F-B01_autenticacion-y-cuentas/questions.yaml",
+    "techniques": [
+      "TEC-0031",
+      "TEC-0032",
+      "TEC-0099",
+      "TEC-0100",
+      "TEC-0150",
+      "TEC-0173",
+      "TEC-0174",
+      "TEC-0259",
+      "TEC-0266",
+      "TEC-0285",
+      "TEC-0287",
+      "TEC-0393",
+      "TEC-0394",
+      "TEC-0425",
+      "TEC-0426",
+      "TEC-0427"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-B02",
+    "name": "OAuth y fuerza bruta",
+    "area": "B",
+    "questions_file": "areas/B_autenticacion-e/F-B02_oauth-y-fuerza-bruta/questions.yaml",
+    "techniques": [
+      "TEC-0056",
+      "TEC-0057",
+      "TEC-0103",
+      "TEC-0127",
+      "TEC-0233",
+      "TEC-0242",
+      "TEC-0258",
+      "TEC-0265",
+      "TEC-0317",
+      "TEC-0428",
+      "TEC-0429",
+      "TEC-0430",
+      "TEC-0431"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-B03",
+    "name": "OAuth avanzado",
+    "area": "B",
+    "questions_file": "areas/B_autenticacion-e/F-B03_oauth-avanzado/questions.yaml",
+    "techniques": [
+      "TEC-0075",
+      "TEC-0151",
+      "TEC-0175",
+      "TEC-0243",
+      "TEC-0244",
+      "TEC-0314",
+      "TEC-0406",
+      "TEC-0432"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-B04",
+    "name": "SAML y federacion",
+    "area": "B",
+    "questions_file": "areas/B_autenticacion-e/F-B04_saml-y-federacion/questions.yaml",
+    "techniques": [
+      "TEC-0104",
+      "TEC-0105",
+      "TEC-0245",
+      "TEC-0315",
+      "TEC-0433",
+      "TEC-0434"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-B05",
+    "name": "MFA y ciclo de vida de factores",
+    "area": "B",
+    "questions_file": "areas/B_autenticacion-e/F-B05_mfa-y-ciclo-de-vida-de/questions.yaml",
+    "techniques": [
+      "TEC-0322",
+      "TEC-0323",
+      "TEC-0324",
+      "TEC-0325",
+      "TEC-0326",
+      "TEC-0327",
+      "TEC-0328",
+      "TEC-0329",
+      "TEC-0330",
+      "TEC-0331",
+      "TEC-0332",
+      "TEC-0333",
+      "TEC-0420",
+      "TEC-0421",
+      "TEC-0422",
+      "TEC-0423",
+      "TEC-0424"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-C01",
+    "name": "Ciclo de vida de sesiones y tokens",
+    "area": "C",
+    "questions_file": "areas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/questions.yaml",
+    "techniques": [
+      "TEC-0005",
+      "TEC-0011",
+      "TEC-0020",
+      "TEC-0026",
+      "TEC-0027",
+      "TEC-0101",
+      "TEC-0126",
+      "TEC-0246",
+      "TEC-0316"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-C02",
+    "name": "CSRF y estado de peticion",
+    "area": "C",
+    "questions_file": "areas/C_sesiones-cookies-y/F-C02_csrf-y-estado-de/questions.yaml",
+    "techniques": [
+      "TEC-0050",
+      "TEC-0149",
+      "TEC-0284"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-C03",
+    "name": "Integridad de sesion y token",
+    "area": "C",
+    "questions_file": "areas/C_sesiones-cookies-y/F-C03_integridad-de-sesion-y/questions.yaml",
+    "techniques": [
+      "TEC-0073",
+      "TEC-0074",
+      "TEC-0121",
+      "TEC-0122",
+      "TEC-0130",
+      "TEC-0131",
+      "TEC-0139",
+      "TEC-0152",
+      "TEC-0171",
+      "TEC-0172",
+      "TEC-0267",
+      "TEC-0286",
+      "TEC-0299",
+      "TEC-0318",
+      "TEC-0319",
+      "TEC-0439"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-D01",
+    "name": "Control de acceso a objetos y funciones",
+    "area": "D",
+    "questions_file": "areas/D_autorizacion-y/F-D01_control-de-acceso-a/questions.yaml",
+    "techniques": [
+      "TEC-0002",
+      "TEC-0003",
+      "TEC-0015",
+      "TEC-0016",
+      "TEC-0017",
+      "TEC-0128",
+      "TEC-0129",
+      "TEC-0140",
+      "TEC-0197",
+      "TEC-0260",
+      "TEC-0300",
+      "TEC-0389",
+      "TEC-0436",
+      "TEC-0437"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-E01",
+    "name": "Resolucion de parametros y precedencia",
+    "area": "E",
+    "questions_file": "areas/E_entradas-parsers-y/F-E01_resolucion-de/questions.yaml",
+    "techniques": [
+      "TEC-0001",
+      "TEC-0013",
+      "TEC-0014",
+      "TEC-0282",
+      "TEC-0306",
+      "TEC-0390",
+      "TEC-0417"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-F01",
+    "name": "Metodos y routing HTTP",
+    "area": "F",
+    "questions_file": "areas/F_http-routing-y/F-F01_metodos-y-routing-http/questions.yaml",
+    "techniques": [
+      "TEC-0004",
+      "TEC-0007",
+      "TEC-0018",
+      "TEC-0019",
+      "TEC-0022",
+      "TEC-0123",
+      "TEC-0146",
+      "TEC-0176",
+      "TEC-0274",
+      "TEC-0345"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-F02",
+    "name": "Inyeccion en cabeceras",
+    "area": "F",
+    "questions_file": "areas/F_http-routing-y/F-F02_inyeccion-en-cabeceras/questions.yaml",
+    "techniques": [
+      "TEC-0059",
+      "TEC-0378"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-F03",
+    "name": "Desincronizacion HTTP",
+    "area": "F",
+    "questions_file": "areas/F_http-routing-y/F-F03_desincronizacion-http/questions.yaml",
+    "techniques": [
+      "TEC-0068",
+      "TEC-0102",
+      "TEC-0177",
+      "TEC-0346"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-F04",
+    "name": "Negociacion de contenido y abuso de cabeceras",
+    "area": "F",
+    "questions_file": "areas/F_http-routing-y/F-F04_negociacion-de/questions.yaml",
+    "techniques": [
+      "TEC-0109",
+      "TEC-0110",
+      "TEC-0410"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-G01",
+    "name": "Logica de negocio",
+    "area": "G",
+    "questions_file": "areas/G_logica-de-negocio-y/F-G01_logica-de-negocio/questions.yaml",
+    "techniques": [
+      "TEC-0033",
+      "TEC-0034"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-G02",
+    "name": "Abuso de promociones y precios",
+    "area": "G",
+    "questions_file": "areas/G_logica-de-negocio-y/F-G02_abuso-de-promociones-y/questions.yaml",
+    "techniques": [
+      "TEC-0106",
+      "TEC-0107",
+      "TEC-0108",
+      "TEC-0155",
+      "TEC-0156",
+      "TEC-0211",
+      "TEC-0239",
+      "TEC-0257",
+      "TEC-0298"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-H01",
+    "name": "Concurrencia y condiciones de carrera",
+    "area": "H",
+    "questions_file": "areas/H_concurrencia-y/F-H01_concurrencia-y/questions.yaml",
+    "techniques": [
+      "TEC-0009",
+      "TEC-0024",
+      "TEC-0292",
+      "TEC-0301",
+      "TEC-0392"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-I01",
+    "name": "Contrato de API y GraphQL",
+    "area": "I",
+    "questions_file": "areas/I_apis-graphql-y/F-I01_contrato-de-api-y/questions.yaml",
+    "techniques": [
+      "TEC-0010",
+      "TEC-0025",
+      "TEC-0134",
+      "TEC-0262",
+      "TEC-0268",
+      "TEC-0293",
+      "TEC-0294",
+      "TEC-0305",
+      "TEC-0341",
+      "TEC-0413"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-I02",
+    "name": "Contrato y exposicion de API",
+    "area": "I",
+    "questions_file": "areas/I_apis-graphql-y/F-I02_contrato-y-exposicion/questions.yaml",
+    "techniques": [
+      "TEC-0076",
+      "TEC-0077",
+      "TEC-0183",
+      "TEC-0184",
+      "TEC-0185",
+      "TEC-0186",
+      "TEC-0187",
+      "TEC-0188",
+      "TEC-0189",
+      "TEC-0190",
+      "TEC-0198",
+      "TEC-0199",
+      "TEC-0200",
+      "TEC-0201",
+      "TEC-0202",
+      "TEC-0203",
+      "TEC-0204",
+      "TEC-0205",
+      "TEC-0206",
+      "TEC-0207",
+      "TEC-0210",
+      "TEC-0213",
+      "TEC-0214",
+      "TEC-0215",
+      "TEC-0216",
+      "TEC-0217",
+      "TEC-0218",
+      "TEC-0219",
+      "TEC-0220",
+      "TEC-0221",
+      "TEC-0222",
+      "TEC-0225",
+      "TEC-0226",
+      "TEC-0227",
+      "TEC-0229",
+      "TEC-0230",
+      "TEC-0232",
+      "TEC-0234",
+      "TEC-0235",
+      "TEC-0236",
+      "TEC-0240",
+      "TEC-0241",
+      "TEC-0344",
+      "TEC-0391"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-I03",
+    "name": "Mass assignment / over-posting",
+    "area": "I",
+    "questions_file": "areas/I_apis-graphql-y/F-I03_mass-assignment-over/questions.yaml",
+    "techniques": [
+      "TEC-0191",
+      "TEC-0192",
+      "TEC-0193",
+      "TEC-0194",
+      "TEC-0195",
+      "TEC-0196",
+      "TEC-0208",
+      "TEC-0209",
+      "TEC-0212",
+      "TEC-0223",
+      "TEC-0224",
+      "TEC-0228",
+      "TEC-0231",
+      "TEC-0237",
+      "TEC-0238",
+      "TEC-0339"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J01",
+    "name": "Navegador y DOM",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J01_navegador-y-dom/questions.yaml",
+    "techniques": [
+      "TEC-0035",
+      "TEC-0036"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J02",
+    "name": "XSS e inyeccion en cliente",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J02_xss-e-inyeccion-en/questions.yaml",
+    "techniques": [
+      "TEC-0049",
+      "TEC-0051",
+      "TEC-0058",
+      "TEC-0092",
+      "TEC-0093",
+      "TEC-0124",
+      "TEC-0132",
+      "TEC-0144",
+      "TEC-0168",
+      "TEC-0170",
+      "TEC-0288",
+      "TEC-0297",
+      "TEC-0342",
+      "TEC-0359",
+      "TEC-0360",
+      "TEC-0361",
+      "TEC-0362",
+      "TEC-0363",
+      "TEC-0364"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J03",
+    "name": "Cliente avanzado",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J03_cliente-avanzado/questions.yaml",
+    "techniques": [
+      "TEC-0065",
+      "TEC-0066",
+      "TEC-0067",
+      "TEC-0094",
+      "TEC-0095",
+      "TEC-0096",
+      "TEC-0133",
+      "TEC-0145",
+      "TEC-0147",
+      "TEC-0160",
+      "TEC-0169",
+      "TEC-0252",
+      "TEC-0307",
+      "TEC-0308",
+      "TEC-0343",
+      "TEC-0365"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J04",
+    "name": "Service workers y cache del navegador",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J04_service-workers-y-cache/questions.yaml",
+    "techniques": [
+      "TEC-0148",
+      "TEC-0289",
+      "TEC-0309",
+      "TEC-0320"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J05",
+    "name": "XS-Leaks y fugas entre sitios",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J05_xs-leaks-y-fugas-entre/questions.yaml",
+    "techniques": [
+      "TEC-0334"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-J06",
+    "name": "XSS por APIs de render inseguras",
+    "area": "J",
+    "questions_file": "areas/J_navegador-dom-y/F-J06_xss-por-apis-de-render/questions.yaml",
+    "techniques": [
+      "TEC-0350",
+      "TEC-0351",
+      "TEC-0352",
+      "TEC-0353",
+      "TEC-0354",
+      "TEC-0355",
+      "TEC-0356",
+      "TEC-0357",
+      "TEC-0358"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K01",
+    "name": "Inyeccion server-side",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K01_inyeccion-server-side/questions.yaml",
+    "techniques": [
+      "TEC-0037",
+      "TEC-0038",
+      "TEC-0039",
+      "TEC-0087",
+      "TEC-0088",
+      "TEC-0089",
+      "TEC-0125",
+      "TEC-0143",
+      "TEC-0163",
+      "TEC-0254",
+      "TEC-0255",
+      "TEC-0261",
+      "TEC-0311",
+      "TEC-0312",
+      "TEC-0369",
+      "TEC-0419"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K02",
+    "name": "Ejecucion de codigo",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K02_ejecucion-de-codigo/questions.yaml",
+    "techniques": [
+      "TEC-0053",
+      "TEC-0054",
+      "TEC-0055",
+      "TEC-0136",
+      "TEC-0247",
+      "TEC-0248",
+      "TEC-0249",
+      "TEC-0250",
+      "TEC-0253",
+      "TEC-0263",
+      "TEC-0264",
+      "TEC-0296",
+      "TEC-0366",
+      "TEC-0367",
+      "TEC-0368",
+      "TEC-0376",
+      "TEC-0377",
+      "TEC-0418"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K03",
+    "name": "Inyeccion en lenguajes alternativos",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K03_inyeccion-en-lenguajes/questions.yaml",
+    "techniques": [
+      "TEC-0063",
+      "TEC-0064",
+      "TEC-0083",
+      "TEC-0084",
+      "TEC-0085",
+      "TEC-0340",
+      "TEC-0411"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K04",
+    "name": "Inyeccion en exportaciones",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K04_inyeccion-en/questions.yaml",
+    "techniques": [
+      "TEC-0086"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K05",
+    "name": "Inyeccion en procesamiento y logs",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K05_inyeccion-en/questions.yaml",
+    "techniques": [
+      "TEC-0164",
+      "TEC-0165",
+      "TEC-0166",
+      "TEC-0251"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K07",
+    "name": "Generacion de caracteres para evadir filtros",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K07_generacion-de/questions.yaml",
+    "techniques": [
+      "TEC-0370",
+      "TEC-0371",
+      "TEC-0372",
+      "TEC-0373",
+      "TEC-0414",
+      "TEC-0415"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-K08",
+    "name": "SQLi por motor de base de datos",
+    "area": "K",
+    "questions_file": "areas/K_inyeccion-y/F-K08_sqli-por-motor-de-base/questions.yaml",
+    "techniques": [
+      "TEC-0395",
+      "TEC-0396",
+      "TEC-0397",
+      "TEC-0398",
+      "TEC-0399",
+      "TEC-0400",
+      "TEC-0401",
+      "TEC-0402",
+      "TEC-0403"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-L01",
+    "name": "Resolucion de rutas y archivos",
+    "area": "L",
+    "questions_file": "areas/L_archivos-rutas-y/F-L01_resolucion-de-rutas-y/questions.yaml",
+    "techniques": [
+      "TEC-0008",
+      "TEC-0023"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-L02",
+    "name": "Inclusion de archivos",
+    "area": "L",
+    "questions_file": "areas/L_archivos-rutas-y/F-L02_inclusion-de-archivos/questions.yaml",
+    "techniques": [
+      "TEC-0052",
+      "TEC-0090",
+      "TEC-0167",
+      "TEC-0283",
+      "TEC-0375",
+      "TEC-0412"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-L03",
+    "name": "Carga de archivos",
+    "area": "L",
+    "questions_file": "areas/L_archivos-rutas-y/F-L03_carga-de-archivos/questions.yaml",
+    "techniques": [
+      "TEC-0060",
+      "TEC-0313",
+      "TEC-0383",
+      "TEC-0384",
+      "TEC-0385",
+      "TEC-0386",
+      "TEC-0387",
+      "TEC-0388"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-L04",
+    "name": "Archivos y compresion",
+    "area": "L",
+    "questions_file": "areas/L_archivos-rutas-y/F-L04_archivos-y-compresion/questions.yaml",
+    "techniques": [
+      "TEC-0091",
+      "TEC-0291"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-M01",
+    "name": "SSRF",
+    "area": "M",
+    "questions_file": "areas/M_ssrf-y-comunicacion/F-M01_ssrf/questions.yaml",
+    "techniques": [
+      "TEC-0040",
+      "TEC-0070",
+      "TEC-0071",
+      "TEC-0097",
+      "TEC-0154",
+      "TEC-0272"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-M02",
+    "name": "SSRF avanzada",
+    "area": "M",
+    "questions_file": "areas/M_ssrf-y-comunicacion/F-M02_ssrf-avanzada/questions.yaml",
+    "techniques": [
+      "TEC-0072",
+      "TEC-0098",
+      "TEC-0153",
+      "TEC-0290",
+      "TEC-0348",
+      "TEC-0374",
+      "TEC-0408",
+      "TEC-0409"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-N01",
+    "name": "Caches y consistencia",
+    "area": "N",
+    "questions_file": "areas/N_caches-y/F-N01_caches-y-consistencia/questions.yaml",
+    "techniques": [
+      "TEC-0006",
+      "TEC-0021",
+      "TEC-0407"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-N02",
+    "name": "Envenenamiento de cache",
+    "area": "N",
+    "questions_file": "areas/N_caches-y/F-N02_envenenamiento-de-cache/questions.yaml",
+    "techniques": [
+      "TEC-0069",
+      "TEC-0120",
+      "TEC-0256",
+      "TEC-0273",
+      "TEC-0295",
+      "TEC-0321",
+      "TEC-0347"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-O01",
+    "name": "Configuracion e infraestructura",
+    "area": "O",
+    "questions_file": "areas/O_configuracion/F-O01_configuracion-e/questions.yaml",
+    "techniques": [
+      "TEC-0041",
+      "TEC-0042",
+      "TEC-0142"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-O02",
+    "name": "Codigo y secretos expuestos",
+    "area": "O",
+    "questions_file": "areas/O_configuracion/F-O02_codigo-y-secretos/questions.yaml",
+    "techniques": [
+      "TEC-0080",
+      "TEC-0159"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-O03",
+    "name": "Endurecimiento por defecto",
+    "area": "O",
+    "questions_file": "areas/O_configuracion/F-O03_endurecimiento-por/questions.yaml",
+    "techniques": [
+      "TEC-0117",
+      "TEC-0118",
+      "TEC-0119",
+      "TEC-0135",
+      "TEC-0141",
+      "TEC-0182",
+      "TEC-0310"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-O04",
+    "name": "Bypass de codigos de error HTTP (403/401)",
+    "area": "O",
+    "questions_file": "areas/O_configuracion/F-O04_bypass-de-codigos-de/questions.yaml",
+    "techniques": [
+      "TEC-0379",
+      "TEC-0380",
+      "TEC-0381",
+      "TEC-0382"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-P01",
+    "name": "Confianza entre componentes",
+    "area": "P",
+    "questions_file": "areas/P_confianza/F-P01_confianza-entre/questions.yaml",
+    "techniques": [
+      "TEC-0043",
+      "TEC-0435",
+      "TEC-0438"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-Q01",
+    "name": "Canales laterales y errores",
+    "area": "Q",
+    "questions_file": "areas/Q_errores-canales/F-Q01_canales-laterales-y/questions.yaml",
+    "techniques": [
+      "TEC-0012",
+      "TEC-0028"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-Q02",
+    "name": "Criptografia y oraculos",
+    "area": "Q",
+    "questions_file": "areas/Q_errores-canales/F-Q02_criptografia-y-oraculos/questions.yaml",
+    "techniques": [
+      "TEC-0138",
+      "TEC-0335"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-R01",
+    "name": "Tecnicas transversales",
+    "area": "R",
+    "questions_file": "areas/R_tecnicas/F-R01_tecnicas-transversales/questions.yaml",
+    "techniques": [
+      "TEC-0044"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-S01",
+    "name": "IA y LLM",
+    "area": "S",
+    "questions_file": "areas/S_ia-y-llm-en/F-S01_ia-y-llm/questions.yaml",
+    "techniques": [
+      "TEC-0045",
+      "TEC-0161"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-S02",
+    "name": "Abuso de agentes LLM",
+    "area": "S",
+    "questions_file": "areas/S_ia-y-llm-en/F-S02_abuso-de-agentes-llm/questions.yaml",
+    "techniques": [
+      "TEC-0081",
+      "TEC-0111",
+      "TEC-0112",
+      "TEC-0113",
+      "TEC-0179",
+      "TEC-0277",
+      "TEC-0278"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-T01",
+    "name": "Dependencias con vulnerabilidades (SCA)",
+    "area": "T",
+    "questions_file": "areas/T_cadena-de/F-T01_dependencias-con/questions.yaml",
+    "techniques": [
+      "TEC-0046"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-T02",
+    "name": "Ataques a la cadena de suministro (CI/CD)",
+    "area": "T",
+    "questions_file": "areas/T_cadena-de/F-T02_ataques-a-la-cadena-de/questions.yaml",
+    "techniques": [
+      "TEC-0114",
+      "TEC-0115",
+      "TEC-0275",
+      "TEC-0276",
+      "TEC-0338"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-U01",
+    "name": "DNS y dominio",
+    "area": "U",
+    "questions_file": "areas/U_dns-correo-y/F-U01_dns-y-dominio/questions.yaml",
+    "techniques": [
+      "TEC-0047"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-U02",
+    "name": "Correo y verificacion de dominio",
+    "area": "U",
+    "questions_file": "areas/U_dns-correo-y/F-U02_correo-y-verificacion/questions.yaml",
+    "techniques": [
+      "TEC-0062",
+      "TEC-0137"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-U03",
+    "name": "Autenticacion de correo",
+    "area": "U",
+    "questions_file": "areas/U_dns-correo-y/F-U03_autenticacion-de-correo/questions.yaml",
+    "techniques": [
+      "TEC-0082"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-U04",
+    "name": "DNS operacional",
+    "area": "U",
+    "questions_file": "areas/U_dns-correo-y/F-U04_dns-operacional/questions.yaml",
+    "techniques": [
+      "TEC-0116",
+      "TEC-0279"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-V01",
+    "name": "Agotamiento de recursos",
+    "area": "V",
+    "questions_file": "areas/V_disponibilidad-y/F-V01_agotamiento-de-recursos/questions.yaml",
+    "techniques": [
+      "TEC-0061",
+      "TEC-0162",
+      "TEC-0178",
+      "TEC-0280",
+      "TEC-0281",
+      "TEC-0336",
+      "TEC-0337",
+      "TEC-0349"
+    ],
+    "question_count": 3
+  },
+  {
+    "family_id": "F-W01",
+    "name": "WebAssembly",
+    "area": "W",
+    "questions_file": "areas/W_webassembly-y/F-W01_webassembly/questions.yaml",
+    "techniques": [
+      "TEC-0048"
+    ],
+    "question_count": 3
+  }
+]

@@ -1,0 +1,109 @@
+schema_version: '1.0'
+node_type: family
+id: F-I03
+title: Mass assignment / over-posting
+description: Vinculacion automatica de cuerpo de peticion a objetos internos; subtipos por transporte,
+  anidamiento y framework.
+area: I
+area_title: APIs, GraphQL y protocolos
+family_id: F-I03
+family_name: Mass assignment / over-posting
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0191
+- TEC-0192
+- TEC-0193
+- TEC-0194
+- TEC-0195
+- TEC-0196
+- TEC-0208
+- TEC-0209
+- TEC-0212
+- TEC-0223
+- TEC-0224
+- TEC-0228
+- TEC-0231
+- TEC-0237
+- TEC-0238
+- TEC-0339
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-I03
+generated: true
+questions:
+- id: Q-F-I03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Mass
+    assignment / over-posting'? Vinculacion automatica de cuerpo de peticion a objetos internos; subtipos
+    por transporte, anidamiento y framework.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-I03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-I03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0191 (Mass
+    assignment en Ruby on Rails (strong params ausentes)), TEC-0192 (Mass assignment en Django REST Framework
+    (serializer fields)), TEC-0193 (Mass assignment en Spring MVC (@ModelAttribute)), TEC-0194 (Over-posting
+    en ASP.NET (model binding)), TEC-0195 (Mass assignment en Laravel ($fillable/$guarded)), TEC-0196
+    (Mass assignment con persistencia en segundo orden), TEC-0208 (Mass assignment en Flask/FastAPI (Pydantic)),
+    TEC-0209 (Mass assignment en Symfony/CakePHP), TEC-0212 (Mass assignment via cabeceras mapeadas a
+    objeto), TEC-0223 (Mass assignment via cuerpo YAML), TEC-0224 (Mass assignment via campos desconocidos
+    en gRPC/Protobuf), TEC-0228 (Mass assignment en Rails nested attributes / remote_attr), TEC-0231 (Mass
+    assignment via sesion/objeto de request serializado), TEC-0237 (Over-posting en creacion de webhooks),
+    TEC-0238 (Over-posting en creacion de API keys (scopes)), TEC-0339 (Bypass/replay de firma de webhook
+    (HMAC)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-I03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-I03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-I03-01
+  source_fields:
+  - objective.not_applicable

@@ -1,0 +1,105 @@
+schema_version: '1.0'
+node_type: area
+id: D
+title: Autorizacion y control de acceso
+description: Preguntas de encuadre para el area D (Autorizacion y control de acceso).
+area: D
+area_title: Autorizacion y control de acceso
+subfamilies:
+- IDOR/BOLA horizontal
+- Escalada vertical
+- Funciones admin directas
+- UI vs backend
+- Autorizacion por objeto/funcion/campo/accion
+- Aislamiento multi-tenant
+- Variantes de ruta/extension
+- Metodos HTTP alternativos
+- Negociacion de contenido
+- Versionado de API
+- Mass assignment
+- Revocacion/cambio de rol/propietario
+attacker_state_requirements: []
+techniques:
+- TEC-0002
+- TEC-0015
+- TEC-0003
+- TEC-0017
+- TEC-0016
+- TEC-0128
+- TEC-0129
+- TEC-0140
+- TEC-0197
+- TEC-0260
+- TEC-0300
+- TEC-0389
+- TEC-0436
+- TEC-0437
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/D
+generated: true
+questions:
+- id: Q-AREA-D-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Autorizacion y control de acceso''? Subfamilias
+    consideradas por el WPTA: IDOR/BOLA horizontal; Escalada vertical; Funciones admin directas; UI vs
+    backend; Autorizacion por objeto/funcion/campo/accion; Aislamiento multi-tenant; Variantes de ruta/extension;
+    Metodos HTTP alternativos; Negociacion de contenido; Versionado de API; Mass assignment; Revocacion/cambio
+    de rol/propietario.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-D-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-D-02
+  type: structure
+  question: '¿Cuales de las familias del area D aplican al contexto observado y por que? Familias: F-D01
+    (Control de acceso a objetos y funciones).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-D-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-D-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-D-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-D-02
+  source_fields:
+  - coverage.json

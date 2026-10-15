@@ -1,0 +1,109 @@
+schema_version: '1.0'
+node_type: family
+id: F-K02
+title: Ejecucion de codigo
+description: Ejecucion de comandos, deserializacion y RCE.
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K02
+family_name: Ejecucion de codigo
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0053
+- TEC-0054
+- TEC-0055
+- TEC-0136
+- TEC-0247
+- TEC-0248
+- TEC-0249
+- TEC-0250
+- TEC-0253
+- TEC-0263
+- TEC-0264
+- TEC-0296
+- TEC-0366
+- TEC-0367
+- TEC-0368
+- TEC-0376
+- TEC-0377
+- TEC-0418
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-K02
+generated: true
+questions:
+- id: Q-F-K02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Ejecucion
+    de codigo'? Ejecucion de comandos, deserializacion y RCE.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-K02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-K02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0053 (Ejecucion
+    remota de codigo (RCE) por comando inyectado), TEC-0054 (Deserializacion insegura), TEC-0055 (RCE
+    en procesamiento de imagenes (ImageTragick)), TEC-0136 (Billion laughs / XML bomb), TEC-0247 (Deserializacion
+    insegura en Java), TEC-0248 (Deserializacion PHP / object injection (phar)), TEC-0249 (Deserializacion
+    insegura en .NET), TEC-0250 (Deserializacion/eval insegura en Node.js), TEC-0253 (Command injection
+    ciega (tiempo / out-of-band)), TEC-0263 (Inyeccion JNDI / Log4Shell (lookups)), TEC-0264 (Spring4Shell
+    / manipulacion de class loader), TEC-0296 (Inyeccion/ejecucion de JS de lado servidor (eval)), TEC-0366
+    (Inyeccion de codigo via eval() en Python), TEC-0367 (Inyeccion de codigo via eval()/assert() en PHP),
+    TEC-0368 (Inyeccion de codigo via eval() en Ruby), TEC-0376 (Deteccion de deserializacion por fingerprint
+    de formato), TEC-0377 (PHP object injection con magic methods (gadget __destruct/__wakeup)), TEC-0418
+    (Deserializacion en runtimes Go/Rust/Node (gob/serde/node-serialize)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-K02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-K02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-K02-01
+  source_fields:
+  - objective.not_applicable

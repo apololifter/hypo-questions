@@ -1,0 +1,224 @@
+schema_version: '1.0'
+node_type: technique
+id: TEC-0370
+title: Generacion de caracteres para evadir filtros de comandos
+description: El shell evalua expansiones (${VAR:o:l}, %VAR:~o,l%, $()), permitiendo reconstruir caracteres
+  prohibidos sin escribirlos.
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K07
+family_name: Generacion de caracteres para evadir filtros
+technique_id: TEC-0370
+variant_of: null
+hypothesis: El shell evalua expansiones (${VAR:o:l}, %VAR:~o,l%, $()), permitiendo reconstruir caracteres
+  prohibidos sin escribirlos.
+behavior: Filtros que bloquean / ; | \ & pueden evadirse generando esos caracteres en runtime desde variables/ASCII.
+patterns:
+- 'CWE-94: Improper Control of Generation of Code'
+related_techniques: []
+attacker_state_requirements:
+- Ejecucion de comandos con filtrado de caracteres.
+missing_catalog_fields:
+- objective.not_applicable
+- procedure.action
+- procedure.variable_to_change
+- procedure.variables_to_hold_constant
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/K_inyeccion-y/F-K07_generacion-de/TEC-0370_generacion-de-caracteres-para/tecnica.json
+generated: true
+questions:
+- id: Q-TEC-0370-01
+  type: context
+  question: '¿Esta aplicacion presenta el contexto que activa la tecnica ''Generacion de caracteres para
+    evadir filtros de comandos''? Contexto canonico WPTA: Aplicacion que ejecuta un comando con input
+    del usuario y bloquea ciertos simbolos.'
+  purpose: Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.
+  required_evidence:
+  - endpoint_or_route
+  - resource_model
+  - operation
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-TEC-0370-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  applicability_conditions:
+  - Aplicacion que ejecuta un comando con input del usuario y bloquea ciertos simbolos.
+  source_fields:
+  - objective.contexts
+  - objective.behavior
+- id: Q-TEC-0370-02
+  type: preconditions
+  question: '¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad?
+    Requisitos WPTA: Ejecucion de comandos con filtrado de caracteres. No aplica si: (el WPTA no declara
+    condicion de no aplicabilidad)'
+  purpose: Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la
+    tecnica.
+  required_evidence:
+  - accounts_or_roles
+  - environment
+  - concurrency_if_any
+  answer_type: structured
+  possible_outcomes:
+  - satisfied
+  - not_satisfied
+  - unknown
+  next:
+    satisfied: Q-TEC-0370-03
+    not_satisfied: stop_precondition_unmet
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-01
+  attacker_state_requirements:
+  - Ejecucion de comandos con filtrado de caracteres.
+  source_fields:
+  - replication.requirements
+  - objective.not_applicable
+- id: Q-TEC-0370-03
+  type: structure
+  question: '¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado?
+    Hipotesis a falsar: El shell evalua expansiones (${VAR:o:l}, %VAR:~o,l%, $()), permitiendo reconstruir
+    caracteres prohibidos sin escribirlos.'
+  purpose: Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.
+  required_evidence:
+  - call_graph
+  - state_or_flow
+  - component_inventory
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - partial
+  - unknown
+  next:
+    identified: Q-TEC-0370-04
+    partial: request_missing_evidence
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-02
+  source_fields:
+  - objective.hypothesis
+  - procedure.steps
+- id: Q-TEC-0370-04
+  type: controls
+  question: '¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento
+    a revisar: Filtros que bloquean / ; | \ & pueden evadirse generando esos caracteres en runtime desde
+    variables/ASCII.'
+  purpose: Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.
+  required_evidence:
+  - middleware_or_policy
+  - alternative_routes
+  - effective_guard
+  answer_type: structured
+  possible_outcomes:
+  - located
+  - not_located
+  - unknown
+  next:
+    located: Q-TEC-0370-05
+    not_located: Q-TEC-0370-05
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-03
+  source_fields:
+  - objective.behavior
+- id: Q-TEC-0370-05
+  type: differentiation
+  question: '¿Qué observacion distingue una implementacion segura de una insegura? Seguro: El filtro normaliza/deniega
+    la expansion. Anomalo: El comando se ejecuta con el caracter reconstruido. Senal: El caracter generado
+    aparece en el comando ejecutado (salida/error lo confirma).'
+  purpose: Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.
+  required_evidence:
+  - expected_response
+  - anomalous_response
+  - signal_with_reference
+  answer_type: structured
+  possible_outcomes:
+  - discriminates
+  - ambiguous
+  - unknown
+  next:
+    discriminates: Q-TEC-0370-06
+    ambiguous: Q-TEC-0370-07
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-04
+  source_fields:
+  - procedure.expected_secure_result
+  - procedure.anomalous_result
+  - replication.signal
+- id: Q-TEC-0370-06
+  type: validation
+  question: '¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Cambia SOLO: Constante:
+    Criterio: Ejecucion con caracter generado.'
+  purpose: Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento
+    minimo.
+  required_evidence:
+  - reproducible_request
+  - baseline
+  - differential_response
+  answer_type: evidence_ref
+  possible_outcomes:
+  - confirmed
+  - refuted
+  - inconclusive
+  - blocked
+  next:
+    confirmed: Q-TEC-0370-08
+    refuted: Q-TEC-0370-08
+    inconclusive: Q-TEC-0370-07
+    blocked: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-05
+  source_fields:
+  - procedure.action
+  - procedure.confirmation_criteria
+  notes: La ejecucion requiere aprobacion del CEO por ser accion intrusiva.
+- id: Q-TEC-0370-07
+  type: interpretation
+  question: ¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir
+    el mismo resultado y como se descartan?
+  purpose: Separar violacion real de falso positivo antes de concluir.
+  required_evidence:
+  - alternative_hypotheses
+  - control_comparison
+  answer_type: structured
+  possible_outcomes:
+  - explained
+  - unresolved
+  - unknown
+  next:
+    explained: stop_false_positive
+    unresolved: Q-TEC-0370-06
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0370-05
+  source_fields:
+  - relations.detects_pattern
+- id: Q-TEC-0370-08
+  type: next
+  question: '¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-94: Improper
+    Control of Generation of Code. Tecnicas relacionadas: (sin tecnicas relacionadas).'
+  purpose: Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.
+  required_evidence:
+  - confirmed_or_refuted_evidence
+  - finding_ref
+  answer_type: structured
+  possible_outcomes:
+  - confirmed_finding
+  - refuted_close
+  - follow_related
+  next:
+    confirmed_finding: report
+    refuted_close: done
+    follow_related: goto_technique_questions
+  depends_on:
+  - Q-TEC-0370-06
+  source_fields:
+  - relations.detects_pattern
+  - relations.related_to

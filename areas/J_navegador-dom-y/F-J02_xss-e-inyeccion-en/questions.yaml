@@ -1,0 +1,110 @@
+schema_version: '1.0'
+node_type: family
+id: F-J02
+title: XSS e inyeccion en cliente
+description: Ejecucion de script en el navegador y limites entre origenes.
+area: J
+area_title: Navegador, DOM y frontend
+family_id: F-J02
+family_name: XSS e inyeccion en cliente
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0049
+- TEC-0051
+- TEC-0058
+- TEC-0092
+- TEC-0093
+- TEC-0124
+- TEC-0132
+- TEC-0144
+- TEC-0168
+- TEC-0170
+- TEC-0288
+- TEC-0297
+- TEC-0342
+- TEC-0359
+- TEC-0360
+- TEC-0361
+- TEC-0362
+- TEC-0363
+- TEC-0364
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-J02
+generated: true
+questions:
+- id: Q-F-J02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'XSS
+    e inyeccion en cliente'? Ejecucion de script en el navegador y limites entre origenes.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-J02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-J02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0049 (Cross-Site
+    Scripting reflejado y almacenado), TEC-0051 (Clickjacking (falta de proteccion de framing)), TEC-0058
+    (Cross-Site Script Inclusion (XSSI)), TEC-0092 (Blind XSS (almacenado, se dispara en otro contexto)),
+    TEC-0093 (Mutation XSS (mXSS)), TEC-0124 (Bypass de filtros XSS (ofuscacion)), TEC-0132 (Inyeccion
+    de HTML (content spoofing)), TEC-0144 (XSS via SVG), TEC-0168 (Dangling markup injection), TEC-0170
+    (XSS via drag-and-drop), TEC-0288 (HTML injection en correos/notificaciones), TEC-0297 (Self-XSS (autoinyeccion
+    y escalada social)), TEC-0342 (Bypass de frame busting (double framing)), TEC-0359 (XSS en la etiqueta
+    link rel=canonical por inyeccion de atributos), TEC-0360 (XSS por escape inconsistente de barra invertida
+    en JSON embebido en script), TEC-0361 (XSS por interpolacion en template literal (backtick) de JS),
+    TEC-0362 (XSS via esquema javascript: ofuscado en href), TEC-0363 (XSS via iframe con evento autonomo
+    (resize/load)), TEC-0364 (Exfiltracion de datos via XSS (beacon a servidor del atacante)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-J02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-J02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-J02-01
+  source_fields:
+  - objective.not_applicable

@@ -1,0 +1,94 @@
+schema_version: '1.0'
+node_type: family
+id: F-B03
+title: OAuth avanzado
+description: Faltas de estado/CSRF en flujos OAuth.
+area: B
+area_title: Autenticacion e identidad
+family_id: F-B03
+family_name: OAuth avanzado
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0075
+- TEC-0151
+- TEC-0175
+- TEC-0243
+- TEC-0244
+- TEC-0314
+- TEC-0406
+- TEC-0432
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-B03
+generated: true
+questions:
+- id: Q-F-B03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'OAuth
+    avanzado'? Faltas de estado/CSRF en flujos OAuth.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-B03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-B03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0075 (Falta
+    de parametro state en OAuth (CSRF)), TEC-0151 (Vinculacion de cuentas por email no verificado (OIDC)),
+    TEC-0175 (Abuso del device flow de OAuth), TEC-0243 (Ataque mix-up de OAuth), TEC-0244 (Downgrade
+    de PKCE en OAuth), TEC-0314 (OIDC: reuso/prediccion de nonce), TEC-0406 (Confusion de identidad por
+    variaciones del username (case/espacios/encoding)), TEC-0432 (OAuth/OIDC: robo de nonce o codigo de
+    respuesta).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-B03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-B03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-B03-01
+  source_fields:
+  - objective.not_applicable

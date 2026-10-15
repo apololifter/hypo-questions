@@ -1,0 +1,87 @@
+schema_version: '1.0'
+node_type: family
+id: F-N01
+title: Caches y consistencia
+description: Claves de cache, aislamiento y contenido personalizado.
+area: N
+area_title: Caches y consistencia
+family_id: F-N01
+family_name: Caches y consistencia
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0006
+- TEC-0021
+- TEC-0407
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-N01
+generated: true
+questions:
+- id: Q-F-N01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Caches
+    y consistencia'? Claves de cache, aislamiento y contenido personalizado.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-N01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-N01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0006 (Cache
+    deception por divergencia de extension/normalizacion de ruta), TEC-0021 (Anadir una extension estatica
+    a una ruta autenticada y comprobar si el contenido personalizado queda cacheado), TEC-0407 (Forzar
+    respuesta fresca retirando cabeceras condicionales (If-None-Match)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-N01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-N01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-N01-01
+  source_fields:
+  - objective.not_applicable

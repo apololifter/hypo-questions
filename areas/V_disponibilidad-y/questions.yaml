@@ -1,0 +1,88 @@
+schema_version: '1.0'
+node_type: area
+id: V
+title: Disponibilidad y agotamiento de recursos
+description: Preguntas de encuadre para el area V (Disponibilidad y agotamiento de recursos).
+area: V
+area_title: Disponibilidad y agotamiento de recursos
+subfamilies:
+- DoS algoritmico
+- Agotamiento de recursos
+- Amplificacion
+- ReDoS
+attacker_state_requirements: []
+techniques:
+- TEC-0061
+- TEC-0162
+- TEC-0178
+- TEC-0280
+- TEC-0281
+- TEC-0336
+- TEC-0337
+- TEC-0349
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/V
+generated: true
+questions:
+- id: Q-AREA-V-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Disponibilidad y agotamiento de recursos''?
+    Subfamilias consideradas por el WPTA: DoS algoritmico; Agotamiento de recursos; Amplificacion; ReDoS.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-V-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-V-02
+  type: structure
+  question: '¿Cuales de las familias del area V aplican al contexto observado y por que? Familias: F-V01
+    (Agotamiento de recursos).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-V-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-V-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-V-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-V-02
+  source_fields:
+  - coverage.json

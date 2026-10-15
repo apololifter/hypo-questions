@@ -1,0 +1,105 @@
+schema_version: '1.0'
+node_type: family
+id: F-A02
+title: Activos y secretos en recon
+description: Subdominios y secretos en el front.
+area: A
+area_title: Reconocimiento y modelado de superficie
+family_id: F-A02
+family_name: Activos y secretos en recon
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0078
+- TEC-0079
+- TEC-0157
+- TEC-0158
+- TEC-0180
+- TEC-0181
+- TEC-0269
+- TEC-0270
+- TEC-0271
+- TEC-0302
+- TEC-0303
+- TEC-0304
+- TEC-0404
+- TEC-0405
+- TEC-0416
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-A02
+generated: true
+questions:
+- id: Q-F-A02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Activos
+    y secretos en recon'? Subdominios y secretos en el front.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-A02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-A02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0078 (Enumeracion
+    de subdominios), TEC-0079 (Secretos en JavaScript y source maps), TEC-0157 (Descubrimiento de parametros
+    ocultos), TEC-0158 (Documentacion de API expuesta (Swagger/OpenAPI)), TEC-0180 (Fingerprint por favicon
+    hash), TEC-0181 (Enumeracion de .well-known / security.txt), TEC-0269 (Enumeracion de subdominios
+    por Certificate Transparency), TEC-0270 (Descubrimiento de URLs historicas (Wayback/GAU)), TEC-0271
+    (Enumeracion de virtual hosts (Host)), TEC-0302 (Revision de metafiles del servidor (robots.txt, sitemap)),
+    TEC-0303 (Recoleccion de empleados/correos (OSINT)), TEC-0304 (Secretos en repositorios publicos (OSINT
+    de codigo)), TEC-0404 (Dorks de buscador para descubrir superficie (bug bounty)), TEC-0405 (Reconstruir
+    endpoints y funciones ocultas desde el JS del front), TEC-0416 (Fuerza bruta de modulos/shares en
+    servicios de infraestructura).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-A02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-A02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-A02-01
+  source_fields:
+  - objective.not_applicable

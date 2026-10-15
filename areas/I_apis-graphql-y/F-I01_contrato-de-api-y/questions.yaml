@@ -1,0 +1,97 @@
+schema_version: '1.0'
+node_type: family
+id: F-I01
+title: Contrato de API y GraphQL
+description: Autorizacion por campo, alias y limites en APIs estructuradas.
+area: I
+area_title: APIs, GraphQL y protocolos
+family_id: F-I01
+family_name: Contrato de API y GraphQL
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0010
+- TEC-0025
+- TEC-0134
+- TEC-0262
+- TEC-0268
+- TEC-0293
+- TEC-0294
+- TEC-0305
+- TEC-0341
+- TEC-0413
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-I01
+generated: true
+questions:
+- id: Q-F-I01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Contrato
+    de API y GraphQL'? Autorizacion por campo, alias y limites en APIs estructuradas.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-I01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-I01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0010 (Explotacion
+    de autorizacion GraphQL via alias y campos anidados), TEC-0025 (Repetir un campo GraphQL con alias
+    para superar su rate limit o multiplicar el efecto), TEC-0134 (Exposicion excesiva de datos en API),
+    TEC-0262 (GraphQL injection (argumentos/inyeccion en resolvers)), TEC-0268 (Bypass por version de
+    API antigua), TEC-0293 (Abuso de batching en GraphQL (DoS/evasion de limite)), TEC-0294 (Abuso de
+    paginacion (extraccion masiva / DoS)), TEC-0305 (Enumeracion y ataque de WSDL/SOAP), TEC-0341 (gRPC
+    reflection habilitada), TEC-0413 (GraphQL: inferir permisos/esquema por mensajes de error).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-I01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-I01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-I01-01
+  source_fields:
+  - objective.not_applicable

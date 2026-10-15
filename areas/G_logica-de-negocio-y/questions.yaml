@@ -1,0 +1,103 @@
+schema_version: '1.0'
+node_type: area
+id: G
+title: Logica de negocio y flujos
+description: Preguntas de encuadre para el area G (Logica de negocio y flujos).
+area: G
+area_title: Logica de negocio y flujos
+subfamilies:
+- Saltos de paso
+- Repeticion de operaciones
+- Cambio de orden
+- Reutilizacion de tokens
+- Estados imposibles
+- Precondiciones vs efectos
+- Validacion solo cliente
+- Cuotas/limites/saldos/descuentos
+- Flujos de aprobacion
+- Cancelaciones/reembolsos
+- Operaciones parciales
+- Preview vs resultado
+- Invariantes de unicidad/propiedad
+attacker_state_requirements: []
+techniques:
+- TEC-0033
+- TEC-0034
+- TEC-0106
+- TEC-0107
+- TEC-0108
+- TEC-0155
+- TEC-0156
+- TEC-0211
+- TEC-0239
+- TEC-0257
+- TEC-0298
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/G
+generated: true
+questions:
+- id: Q-AREA-G-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Logica de negocio y flujos''? Subfamilias
+    consideradas por el WPTA: Saltos de paso; Repeticion de operaciones; Cambio de orden; Reutilizacion
+    de tokens; Estados imposibles; Precondiciones vs efectos; Validacion solo cliente; Cuotas/limites/saldos/descuentos;
+    Flujos de aprobacion; Cancelaciones/reembolsos; Operaciones parciales; Preview vs resultado; Invariantes
+    de unicidad/propiedad.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-G-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-G-02
+  type: structure
+  question: '¿Cuales de las familias del area G aplican al contexto observado y por que? Familias: F-G01
+    (Logica de negocio), F-G02 (Abuso de promociones y precios).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-G-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-G-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-G-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-G-02
+  source_fields:
+  - coverage.json

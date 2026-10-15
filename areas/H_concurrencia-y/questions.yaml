@@ -1,0 +1,94 @@
+schema_version: '1.0'
+node_type: area
+id: H
+title: Concurrencia y condiciones de carrera
+description: Preguntas de encuadre para el area H (Concurrencia y condiciones de carrera).
+area: H
+area_title: Concurrencia y condiciones de carrera
+subfamilies:
+- Race conditions
+- TOCTOU
+- Ejecucion concurrente
+- Doble gasto
+- Idempotencia
+- Colisiones de creacion/actualizacion
+- Actualizaciones perdidas
+- Conflictos entre sesiones
+- Desincronizacion entre servicios
+- Estados intermedios
+- Dependencia temporal
+attacker_state_requirements: []
+techniques:
+- TEC-0009
+- TEC-0024
+- TEC-0292
+- TEC-0301
+- TEC-0392
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/H
+generated: true
+questions:
+- id: Q-AREA-H-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Concurrencia y condiciones de carrera''?
+    Subfamilias consideradas por el WPTA: Race conditions; TOCTOU; Ejecucion concurrente; Doble gasto;
+    Idempotencia; Colisiones de creacion/actualizacion; Actualizaciones perdidas; Conflictos entre sesiones;
+    Desincronizacion entre servicios; Estados intermedios; Dependencia temporal.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-H-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-H-02
+  type: structure
+  question: '¿Cuales de las familias del area H aplican al contexto observado y por que? Familias: F-H01
+    (Concurrencia y condiciones de carrera).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-H-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-H-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-H-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-H-02
+  source_fields:
+  - coverage.json

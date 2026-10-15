@@ -1,0 +1,89 @@
+schema_version: '1.0'
+node_type: family
+id: F-O04
+title: Bypass de codigos de error HTTP (403/401)
+description: Evasion de bloqueos 403/401 manipulando cabeceras, metodo, codificacion de ruta o extension.
+area: O
+area_title: Configuracion, despliegue e infraestructura web
+family_id: F-O04
+family_name: Bypass de codigos de error HTTP (403/401)
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0379
+- TEC-0380
+- TEC-0381
+- TEC-0382
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-O04
+generated: true
+questions:
+- id: Q-F-O04-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Bypass
+    de codigos de error HTTP (403/401)'? Evasion de bloqueos 403/401 manipulando cabeceras, metodo, codificacion
+    de ruta o extension.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-O04-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-O04-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0379 (Bypass
+    de bloqueos HTTP 403/401 (acceso denegado)), TEC-0380 (Bypass de 403/401 por manipulacion de cabeceras),
+    TEC-0381 (Bypass de 403/401 por metodo HTTP alternativo), TEC-0382 (Bypass de 403 por codificacion/confusion
+    de ruta).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-O04-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-O04-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-O04-01
+  source_fields:
+  - objective.not_applicable

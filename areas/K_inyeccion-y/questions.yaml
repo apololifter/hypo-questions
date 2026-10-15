@@ -1,0 +1,150 @@
+schema_version: '1.0'
+node_type: area
+id: K
+title: Inyeccion y ejecucion
+description: Preguntas de encuadre para el area K (Inyeccion y ejecucion).
+area: K
+area_title: Inyeccion y ejecucion
+subfamilies:
+- SQL/consultas
+- NoSQL
+- OS command
+- Template (SSTI)
+- XSS y contextos
+- XPath/LDAP
+- Expression Language
+- Inyeccion en cabeceras/logs/formatos
+- Deserializacion insegura
+- Confusion de contexto/parser
+attacker_state_requirements: []
+techniques:
+- TEC-0037
+- TEC-0038
+- TEC-0039
+- TEC-0087
+- TEC-0088
+- TEC-0089
+- TEC-0125
+- TEC-0143
+- TEC-0163
+- TEC-0254
+- TEC-0255
+- TEC-0261
+- TEC-0311
+- TEC-0312
+- TEC-0369
+- TEC-0419
+- TEC-0053
+- TEC-0054
+- TEC-0055
+- TEC-0136
+- TEC-0247
+- TEC-0248
+- TEC-0249
+- TEC-0250
+- TEC-0253
+- TEC-0263
+- TEC-0264
+- TEC-0296
+- TEC-0366
+- TEC-0367
+- TEC-0368
+- TEC-0376
+- TEC-0377
+- TEC-0418
+- TEC-0063
+- TEC-0064
+- TEC-0083
+- TEC-0084
+- TEC-0085
+- TEC-0340
+- TEC-0411
+- TEC-0086
+- TEC-0164
+- TEC-0165
+- TEC-0166
+- TEC-0251
+- TEC-0370
+- TEC-0371
+- TEC-0372
+- TEC-0373
+- TEC-0414
+- TEC-0415
+- TEC-0395
+- TEC-0396
+- TEC-0397
+- TEC-0398
+- TEC-0399
+- TEC-0400
+- TEC-0401
+- TEC-0402
+- TEC-0403
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/K
+generated: true
+questions:
+- id: Q-AREA-K-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Inyeccion y ejecucion''? Subfamilias consideradas
+    por el WPTA: SQL/consultas; NoSQL; OS command; Template (SSTI); XSS y contextos; XPath/LDAP; Expression
+    Language; Inyeccion en cabeceras/logs/formatos; Deserializacion insegura; Confusion de contexto/parser.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-K-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-K-02
+  type: structure
+  question: '¿Cuales de las familias del area K aplican al contexto observado y por que? Familias: F-K01
+    (Inyeccion server-side), F-K02 (Ejecucion de codigo), F-K03 (Inyeccion en lenguajes alternativos),
+    F-K04 (Inyeccion en exportaciones), F-K05 (Inyeccion en procesamiento y logs), F-K07 (Generacion de
+    caracteres para evadir filtros), F-K08 (SQLi por motor de base de datos).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-K-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-K-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-K-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-K-02
+  source_fields:
+  - coverage.json

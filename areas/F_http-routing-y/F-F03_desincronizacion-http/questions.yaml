@@ -1,0 +1,87 @@
+schema_version: '1.0'
+node_type: family
+id: F-F03
+title: Desincronizacion HTTP
+description: Contrabando de peticiones entre fronteras.
+area: F
+area_title: HTTP, routing y cabeceras
+family_id: F-F03
+family_name: Desincronizacion HTTP
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0068
+- TEC-0102
+- TEC-0177
+- TEC-0346
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-F03
+generated: true
+questions:
+- id: Q-F-F03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Desincronizacion
+    HTTP'? Contrabando de peticiones entre fronteras.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-F03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-F03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0068 (Contrabando
+    de peticiones HTTP (request smuggling)), TEC-0102 (Contrabando HTTP/2 downgrade (H2.CL/H2.TE)), TEC-0177
+    (Desincronizacion de lado cliente (CSD)), TEC-0346 (HTTP/0.9 y request-line para desincronizacion).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-F03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-F03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-F03-01
+  source_fields:
+  - objective.not_applicable

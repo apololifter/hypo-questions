@@ -1,0 +1,102 @@
+schema_version: '1.0'
+node_type: area
+id: M
+title: SSRF y comunicacion servidor a servidor
+description: Preguntas de encuadre para el area M (SSRF y comunicacion servidor a servidor).
+area: M
+area_title: SSRF y comunicacion servidor a servidor
+subfamilies:
+- URLs controladas por usuario
+- Validacion/normalizacion de destino
+- Redirecciones
+- DNS y cambio de destino
+- Validacion vs conexion real
+- Servicios internos
+- Metadatos de nube
+- Esquemas de URL alternativos
+- Proxies/clientes HTTP
+- Webhooks
+attacker_state_requirements: []
+techniques:
+- TEC-0040
+- TEC-0070
+- TEC-0071
+- TEC-0097
+- TEC-0154
+- TEC-0272
+- TEC-0072
+- TEC-0098
+- TEC-0153
+- TEC-0290
+- TEC-0348
+- TEC-0374
+- TEC-0408
+- TEC-0409
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/M
+generated: true
+questions:
+- id: Q-AREA-M-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''SSRF y comunicacion servidor a servidor''?
+    Subfamilias consideradas por el WPTA: URLs controladas por usuario; Validacion/normalizacion de destino;
+    Redirecciones; DNS y cambio de destino; Validacion vs conexion real; Servicios internos; Metadatos
+    de nube; Esquemas de URL alternativos; Proxies/clientes HTTP; Webhooks.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-M-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-M-02
+  type: structure
+  question: '¿Cuales de las familias del area M aplican al contexto observado y por que? Familias: F-M01
+    (SSRF), F-M02 (SSRF avanzada).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-M-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-M-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-M-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-M-02
+  source_fields:
+  - coverage.json

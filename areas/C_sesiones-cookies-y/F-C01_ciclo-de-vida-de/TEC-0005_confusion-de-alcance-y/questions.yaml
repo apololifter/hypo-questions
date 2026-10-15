@@ -1,0 +1,228 @@
+schema_version: '1.0'
+node_type: technique
+id: TEC-0005
+title: Confusion de alcance y precedencia de cookies (cookie tossing / shadowing)
+description: Un atacante con control de un subdominio (o de un path) puede inyectar una cookie que el
+  backend prefiera sobre la legitima, fijando o corrompiendo la sesion.
+area: C
+area_title: Sesiones, cookies y tokens
+family_id: F-C01
+family_name: Ciclo de vida de sesiones y tokens
+technique_id: TEC-0005
+variant_of: null
+hypothesis: Un atacante con control de un subdominio (o de un path) puede inyectar una cookie que el backend
+  prefiera sobre la legitima, fijando o corrompiendo la sesion.
+behavior: Cual de varias cookies con el mismo nombre prevalece cuando difieren en Domain/Path, y si el
+  servidor elige una distinta de la que cree.
+patterns:
+- CWE-565
+- CWE-346
+related_techniques:
+- TEC-0006
+- TEC-0011
+attacker_state_requirements:
+- 1 sesion; control de un subdominio o capacidad de setear cookie en el scope.
+missing_catalog_fields: []
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/C_sesiones-cookies-y/F-C01_ciclo-de-vida-de/TEC-0005_confusion-de-alcance-y/tecnica.json
+generated: true
+questions:
+- id: Q-TEC-0005-01
+  type: context
+  question: '¿Esta aplicacion presenta el contexto que activa la tecnica ''Confusion de alcance y precedencia
+    de cookies (cookie tossing / shadowing)''? Contexto canonico WPTA: App con cookies de sesion y subdominios
+    controlables o paths compartidos.'
+  purpose: Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.
+  required_evidence:
+  - endpoint_or_route
+  - resource_model
+  - operation
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-TEC-0005-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  applicability_conditions:
+  - App con cookies de sesion y subdominios controlables o paths compartidos.
+  source_fields:
+  - objective.contexts
+  - objective.behavior
+- id: Q-TEC-0005-02
+  type: preconditions
+  question: '¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad?
+    Requisitos WPTA: 1 sesion; control de un subdominio o capacidad de setear cookie en el scope. No aplica
+    si: Sin subdominios ni paths compartidos, o con prefijos __Host-/__Secure- correctamente aplicados.'
+  purpose: Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la
+    tecnica.
+  required_evidence:
+  - accounts_or_roles
+  - environment
+  - concurrency_if_any
+  answer_type: structured
+  possible_outcomes:
+  - satisfied
+  - not_satisfied
+  - unknown
+  next:
+    satisfied: Q-TEC-0005-03
+    not_satisfied: stop_precondition_unmet
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-01
+  attacker_state_requirements:
+  - 1 sesion; control de un subdominio o capacidad de setear cookie en el scope.
+  source_fields:
+  - replication.requirements
+  - objective.not_applicable
+- id: Q-TEC-0005-03
+  type: structure
+  question: '¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado?
+    Hipotesis a falsar: Un atacante con control de un subdominio (o de un path) puede inyectar una cookie
+    que el backend prefiera sobre la legitima, fijando o corrompiendo la sesion.'
+  purpose: Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.
+  required_evidence:
+  - call_graph
+  - state_or_flow
+  - component_inventory
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - partial
+  - unknown
+  next:
+    identified: Q-TEC-0005-04
+    partial: request_missing_evidence
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-02
+  source_fields:
+  - objective.hypothesis
+  - procedure.steps
+- id: Q-TEC-0005-04
+  type: controls
+  question: '¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento
+    a revisar: Cual de varias cookies con el mismo nombre prevalece cuando difieren en Domain/Path, y
+    si el servidor elige una distinta de la que cree.'
+  purpose: Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.
+  required_evidence:
+  - middleware_or_policy
+  - alternative_routes
+  - effective_guard
+  answer_type: structured
+  possible_outcomes:
+  - located
+  - not_located
+  - unknown
+  next:
+    located: Q-TEC-0005-05
+    not_located: Q-TEC-0005-05
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-03
+  source_fields:
+  - objective.behavior
+- id: Q-TEC-0005-05
+  type: differentiation
+  question: '¿Qué observacion distingue una implementacion segura de una insegura? Seguro: El servidor
+    solo acepta cookies del scope confiable; los prefijos e invariantes impiden el shadowing. Anomalo:
+    El servidor honra la cookie inyectada del scope mas amplio. Senal: El servidor honra la cookie inyectada
+    del scope mas amplio.'
+  purpose: Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.
+  required_evidence:
+  - expected_response
+  - anomalous_response
+  - signal_with_reference
+  answer_type: structured
+  possible_outcomes:
+  - discriminates
+  - ambiguous
+  - unknown
+  next:
+    discriminates: Q-TEC-0005-06
+    ambiguous: Q-TEC-0005-07
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-04
+  source_fields:
+  - procedure.expected_secure_result
+  - procedure.anomalous_result
+  - replication.signal
+- id: Q-TEC-0005-06
+  type: validation
+  question: '¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Fijar una cookie del mismo
+    nombre en un scope mas amplio y observar cual usa el servidor. Cambia SOLO: Domain/Path de la cookie
+    inyectada (scope mas amplio o mas especifico). Constante: Nombre de cookie, valor legitimo, resto
+    de la peticion. Criterio: Confirmada si el backend actua segun la cookie inyectada (p.ej. acepta una
+    sesion fijada).'
+  purpose: Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento
+    minimo.
+  required_evidence:
+  - reproducible_request
+  - baseline
+  - differential_response
+  answer_type: evidence_ref
+  possible_outcomes:
+  - confirmed
+  - refuted
+  - inconclusive
+  - blocked
+  next:
+    confirmed: Q-TEC-0005-08
+    refuted: Q-TEC-0005-08
+    inconclusive: Q-TEC-0005-07
+    blocked: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-05
+  source_fields:
+  - procedure.action
+  - procedure.confirmation_criteria
+  notes: La ejecucion requiere aprobacion del CEO por ser accion intrusiva.
+- id: Q-TEC-0005-07
+  type: interpretation
+  question: ¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir
+    el mismo resultado y como se descartan?
+  purpose: Separar violacion real de falso positivo antes de concluir.
+  required_evidence:
+  - alternative_hypotheses
+  - control_comparison
+  answer_type: structured
+  possible_outcomes:
+  - explained
+  - unresolved
+  - unknown
+  next:
+    explained: stop_false_positive
+    unresolved: Q-TEC-0005-06
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0005-05
+  source_fields:
+  - relations.detects_pattern
+- id: Q-TEC-0005-08
+  type: next
+  question: '¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-565, CWE-346.
+    Tecnicas relacionadas: TEC-0006, TEC-0011.'
+  purpose: Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.
+  required_evidence:
+  - confirmed_or_refuted_evidence
+  - finding_ref
+  answer_type: structured
+  possible_outcomes:
+  - confirmed_finding
+  - refuted_close
+  - follow_related
+  next:
+    confirmed_finding: report
+    refuted_close: done
+    follow_related: goto_technique_questions
+  depends_on:
+  - Q-TEC-0005-06
+  source_fields:
+  - relations.detects_pattern
+  - relations.related_to

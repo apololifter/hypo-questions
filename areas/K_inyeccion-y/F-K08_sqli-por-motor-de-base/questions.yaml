@@ -1,0 +1,98 @@
+schema_version: '1.0'
+node_type: family
+id: F-K08
+title: SQLi por motor de base de datos
+description: Funciones, vistas y sintaxis especificas de cada SGBD (PostgreSQL, MySQL, Oracle, SQL Server,
+  SQLite) para extraccion en SQLi.
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K08
+family_name: SQLi por motor de base de datos
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0395
+- TEC-0396
+- TEC-0397
+- TEC-0398
+- TEC-0399
+- TEC-0400
+- TEC-0401
+- TEC-0402
+- TEC-0403
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-K08
+generated: true
+questions:
+- id: Q-F-K08-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'SQLi
+    por motor de base de datos'? Funciones, vistas y sintaxis especificas de cada SGBD (PostgreSQL, MySQL,
+    Oracle, SQL Server, SQLite) para extraccion en SQLi.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-K08-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-K08-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0395 (SQLi:
+    enumeracion y extraccion de datos por motor), TEC-0396 (SQLi en PostgreSQL (pg_sleep, information_schema,
+    pg_user)), TEC-0397 (SQLi en MySQL/MariaDB (SLEEP, updatexml/extractvalue, information_schema)), TEC-0398
+    (SQLi en Oracle (DBMS_LOCK.SLEEP, DUAL, ALL_TABLES, v$version)), TEC-0399 (SQLi en SQL Server / MSSQL
+    (WAITFOR DELAY, @@version, xp_cmdshell)), TEC-0400 (SQLi en SQLite (sqlite_master, sqlite_version)),
+    TEC-0401 (SQLi UNION SELECT segun motor (DUAL/ROWNUM/LIMIT)), TEC-0402 (SQLi error-based condicional
+    por motor (CASE WHEN + division por cero)), TEC-0403 (SQLi: evasion de filtros con comentarios y codificacion).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-K08-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-K08-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-K08-01
+  source_fields:
+  - objective.not_applicable

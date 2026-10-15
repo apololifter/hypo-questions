@@ -1,0 +1,90 @@
+schema_version: '1.0'
+node_type: family
+id: F-M01
+title: SSRF
+description: Peticiones del servidor a URLs controladas por el usuario.
+area: M
+area_title: SSRF y comunicacion servidor a servidor
+family_id: F-M01
+family_name: SSRF
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0040
+- TEC-0070
+- TEC-0071
+- TEC-0097
+- TEC-0154
+- TEC-0272
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-M01
+generated: true
+questions:
+- id: Q-F-M01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'SSRF'?
+    Peticiones del servidor a URLs controladas por el usuario.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-M01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-M01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0040 (SSRF
+    por URL controlada por el usuario), TEC-0070 (SSRF ciega (out-of-band)), TEC-0071 (SSRF via redireccion
+    abierta), TEC-0097 (SSRF a metadata de nube), TEC-0154 (SSRF via cabecera Referer), TEC-0272 (SSRF
+    via render de PDF/HTML (headless)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-M01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-M01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-M01-01
+  source_fields:
+  - objective.not_applicable

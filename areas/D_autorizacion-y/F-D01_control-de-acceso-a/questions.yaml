@@ -1,0 +1,106 @@
+schema_version: '1.0'
+node_type: family
+id: F-D01
+title: Control de acceso a objetos y funciones
+description: Autorizacion por objeto (IDOR/BOLA) y por funcion (acceso directo a rutas privilegiadas).
+area: D
+area_title: Autorizacion y control de acceso
+family_id: F-D01
+family_name: Control de acceso a objetos y funciones
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0002
+- TEC-0003
+- TEC-0015
+- TEC-0016
+- TEC-0017
+- TEC-0128
+- TEC-0129
+- TEC-0140
+- TEC-0197
+- TEC-0260
+- TEC-0300
+- TEC-0389
+- TEC-0436
+- TEC-0437
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-D01
+generated: true
+questions:
+- id: Q-F-D01-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Control
+    de acceso a objetos y funciones'? Autorizacion por objeto (IDOR/BOLA) y por funcion (acceso directo
+    a rutas privilegiadas).
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-D01-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-D01-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0002 (Acceso
+    directo a ruta/funcion privilegiada por navegacion forzada), TEC-0003 (Sustitucion de referencia de
+    objeto manteniendo contexto (IDOR horizontal)), TEC-0015 (Solicitar directamente una ruta/funcion
+    de administracion sin el rol requerido), TEC-0016 (Leer un objeto ajeno cambiando solo su identificador
+    con la sesion propia), TEC-0017 (Mantener el ID y cambiar su formato (string/decimal/base64) para
+    evadir la autorizacion), TEC-0128 (Parametro magico (debug/auth bypass)), TEC-0129 (Fail-open en control
+    de acceso), TEC-0140 (Control de acceso basado en Referer), TEC-0197 (Escalada de privilegios por
+    mass assignment (chain)), TEC-0260 (Bypass de autenticacion via normalizacion de ruta), TEC-0300 (Referencias
+    predecibles (ID/UUID secuencial)), TEC-0389 (Control de acceso por valor controlable por el cliente
+    (cookie/hidden/query)), TEC-0436 (IDOR via canal WebSocket (sin revalidar ownership)), TEC-0437 (IDOR/autorizacion
+    en API heredada (actuar en nombre de cualquier usuario)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-D01-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-D01-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-D01-01
+  source_fields:
+  - objective.not_applicable

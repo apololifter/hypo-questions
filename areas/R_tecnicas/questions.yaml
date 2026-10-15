@@ -1,0 +1,96 @@
+schema_version: '1.0'
+node_type: area
+id: R
+title: Tecnicas transversales de investigacion
+description: Preguntas de encuadre para el area R (Tecnicas transversales de investigacion).
+area: R
+area_title: Tecnicas transversales de investigacion
+subfamilies:
+- Differential testing
+- Fuzzing dirigido por gramaticas
+- Fuzzing de parametros/estructuras
+- Property-based testing
+- Metamorphic testing
+- Analisis de invariantes
+- Transiciones de estado
+- Comparacion entre roles/contextos
+- Analisis de interfaces
+- Hipotesis y falsificacion
+- Una sola variable
+- Minimizacion de caso
+- Analisis causal/contraejemplos
+- Rutas de datos fuente-destino
+- Inferencia de implementacion
+attacker_state_requirements: []
+techniques:
+- TEC-0044
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/R
+generated: true
+questions:
+- id: Q-AREA-R-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Tecnicas transversales de investigacion''?
+    Subfamilias consideradas por el WPTA: Differential testing; Fuzzing dirigido por gramaticas; Fuzzing
+    de parametros/estructuras; Property-based testing; Metamorphic testing; Analisis de invariantes; Transiciones
+    de estado; Comparacion entre roles/contextos; Analisis de interfaces; Hipotesis y falsificacion; Una
+    sola variable; Minimizacion de caso; Analisis causal/contraejemplos; Rutas de datos fuente-destino;
+    Inferencia de implementacion.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-R-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-R-02
+  type: structure
+  question: '¿Cuales de las familias del area R aplican al contexto observado y por que? Familias: F-R01
+    (Tecnicas transversales).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-R-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-R-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-R-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-R-02
+  source_fields:
+  - coverage.json

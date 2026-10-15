@@ -1,0 +1,161 @@
+schema_version: '1.0'
+node_type: area
+id: I
+title: APIs, GraphQL y protocolos
+description: Preguntas de encuadre para el area I (APIs, GraphQL y protocolos).
+area: I
+area_title: APIs, GraphQL y protocolos
+subfamilies:
+- REST y variantes
+- GraphQL (operaciones/campos/authz/limites)
+- Webhooks y validacion de eventos
+- APIs internas/externas
+- gRPC/esquemas
+- Serializacion/deserializacion
+- Versionado
+- Mass assignment/over-posting
+- Exposicion de propiedades
+- Paginacion/filtros/orden/agregaciones
+- Autenticacion servicio-a-servicio
+- Reintentos/firmas/replay
+attacker_state_requirements: []
+techniques:
+- TEC-0010
+- TEC-0025
+- TEC-0134
+- TEC-0262
+- TEC-0268
+- TEC-0293
+- TEC-0294
+- TEC-0305
+- TEC-0341
+- TEC-0413
+- TEC-0076
+- TEC-0077
+- TEC-0183
+- TEC-0184
+- TEC-0185
+- TEC-0186
+- TEC-0187
+- TEC-0188
+- TEC-0189
+- TEC-0190
+- TEC-0198
+- TEC-0199
+- TEC-0200
+- TEC-0201
+- TEC-0202
+- TEC-0203
+- TEC-0204
+- TEC-0205
+- TEC-0206
+- TEC-0207
+- TEC-0210
+- TEC-0213
+- TEC-0214
+- TEC-0215
+- TEC-0216
+- TEC-0217
+- TEC-0218
+- TEC-0219
+- TEC-0220
+- TEC-0221
+- TEC-0222
+- TEC-0225
+- TEC-0226
+- TEC-0227
+- TEC-0229
+- TEC-0230
+- TEC-0232
+- TEC-0234
+- TEC-0235
+- TEC-0236
+- TEC-0240
+- TEC-0241
+- TEC-0344
+- TEC-0391
+- TEC-0191
+- TEC-0192
+- TEC-0193
+- TEC-0194
+- TEC-0195
+- TEC-0196
+- TEC-0208
+- TEC-0209
+- TEC-0212
+- TEC-0223
+- TEC-0224
+- TEC-0228
+- TEC-0231
+- TEC-0237
+- TEC-0238
+- TEC-0339
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/I
+generated: true
+questions:
+- id: Q-AREA-I-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''APIs, GraphQL y protocolos''? Subfamilias
+    consideradas por el WPTA: REST y variantes; GraphQL (operaciones/campos/authz/limites); Webhooks y
+    validacion de eventos; APIs internas/externas; gRPC/esquemas; Serializacion/deserializacion; Versionado;
+    Mass assignment/over-posting; Exposicion de propiedades; Paginacion/filtros/orden/agregaciones; Autenticacion
+    servicio-a-servicio; Reintentos/firmas/replay.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-I-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-I-02
+  type: structure
+  question: '¿Cuales de las familias del area I aplican al contexto observado y por que? Familias: F-I01
+    (Contrato de API y GraphQL), F-I02 (Contrato y exposicion de API), F-I03 (Mass assignment / over-posting).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-I-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-I-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-I-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-I-02
+  source_fields:
+  - coverage.json

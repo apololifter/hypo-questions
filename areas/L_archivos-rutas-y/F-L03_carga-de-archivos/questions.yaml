@@ -1,0 +1,94 @@
+schema_version: '1.0'
+node_type: family
+id: F-L03
+title: Carga de archivos
+description: Subida de archivos sin restricciones efectivas.
+area: L
+area_title: Archivos, rutas y recursos
+family_id: F-L03
+family_name: Carga de archivos
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0060
+- TEC-0313
+- TEC-0383
+- TEC-0384
+- TEC-0385
+- TEC-0386
+- TEC-0387
+- TEC-0388
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-L03
+generated: true
+questions:
+- id: Q-F-L03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Carga
+    de archivos'? Subida de archivos sin restricciones efectivas.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-L03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-L03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0060 (Carga
+    de archivos sin restriccion efectiva), TEC-0313 (Archivo polyglot en la subida), TEC-0383 (Upload
+    de .htaccess para forzar ejecucion de extension benigna), TEC-0384 (Spoof de magic bytes / firma de
+    archivo para evadir validacion de contenido), TEC-0385 (Upload con extensiones ejecutables alternativas),
+    TEC-0386 (Upload con doble extension / case bypass), TEC-0387 (Upload con MIME spoof (Content-Type)
+    interceptando la peticion), TEC-0388 (Upload con path traversal en el nombre de archivo).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-L03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-L03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-L03-01
+  source_fields:
+  - objective.not_applicable

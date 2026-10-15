@@ -1,0 +1,230 @@
+schema_version: '1.0'
+node_type: technique
+id: TEC-0003
+title: Sustitucion de referencia de objeto manteniendo contexto (IDOR horizontal)
+description: El backend devuelve/permite operar sobre un objeto cuyo propietario es otro usuario, porque
+  no revalida la propiedad del objeto referenciado.
+area: D
+area_title: Autorizacion y control de acceso
+family_id: F-D01
+family_name: Control de acceso a objetos y funciones
+technique_id: TEC-0003
+variant_of: null
+hypothesis: El backend devuelve/permite operar sobre un objeto cuyo propietario es otro usuario, porque
+  no revalida la propiedad del objeto referenciado.
+behavior: Si la autorizacion se verifica sobre el usuario/contexto o simplemente se asume por conocer
+  el identificador.
+patterns:
+- CWE-639
+- CWE-284
+related_techniques:
+- TEC-0002
+- TEC-0010
+attacker_state_requirements:
+- 2 cuentas (A y B); un objeto/recurso propio de referencia.
+missing_catalog_fields: []
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/D_autorizacion-y/F-D01_control-de-acceso-a/TEC-0003_sustitucion-de-referencia-de/tecnica.json
+generated: true
+questions:
+- id: Q-TEC-0003-01
+  type: context
+  question: '¿Esta aplicacion presenta el contexto que activa la tecnica ''Sustitucion de referencia de
+    objeto manteniendo contexto (IDOR horizontal)''? Contexto canonico WPTA: Endpoints que reciben un
+    identificador de objeto (id, uuid, order_id, file) y devuelven o modifican datos: /users/{id}, /orders/{id},
+    descargas, APIs REST y GraphQL. Cualquier recurso con clave controlable es candidato.'
+  purpose: Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.
+  required_evidence:
+  - endpoint_or_route
+  - resource_model
+  - operation
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-TEC-0003-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  applicability_conditions:
+  - 'Endpoints que reciben un identificador de objeto (id, uuid, order_id, file) y devuelven o modifican
+    datos: /users/{id}, /orders/{id}, descargas, APIs REST y GraphQL. Cualquier recurso con clave controlable
+    es candidato.'
+  source_fields:
+  - objective.contexts
+  - objective.behavior
+- id: Q-TEC-0003-02
+  type: preconditions
+  question: '¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad?
+    Requisitos WPTA: 2 cuentas (A y B); un objeto/recurso propio de referencia. No aplica si: Cuando cada
+    objeto se referencia por un token no adivinable y ademas se verifica la propiedad.'
+  purpose: Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la
+    tecnica.
+  required_evidence:
+  - accounts_or_roles
+  - environment
+  - concurrency_if_any
+  answer_type: structured
+  possible_outcomes:
+  - satisfied
+  - not_satisfied
+  - unknown
+  next:
+    satisfied: Q-TEC-0003-03
+    not_satisfied: stop_precondition_unmet
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-01
+  attacker_state_requirements:
+  - 2 cuentas (A y B); un objeto/recurso propio de referencia.
+  source_fields:
+  - replication.requirements
+  - objective.not_applicable
+- id: Q-TEC-0003-03
+  type: structure
+  question: '¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado?
+    Hipotesis a falsar: El backend devuelve/permite operar sobre un objeto cuyo propietario es otro usuario,
+    porque no revalida la propiedad del objeto referenciado.'
+  purpose: Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.
+  required_evidence:
+  - call_graph
+  - state_or_flow
+  - component_inventory
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - partial
+  - unknown
+  next:
+    identified: Q-TEC-0003-04
+    partial: request_missing_evidence
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-02
+  source_fields:
+  - objective.hypothesis
+  - procedure.steps
+- id: Q-TEC-0003-04
+  type: controls
+  question: '¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento
+    a revisar: Si la autorizacion se verifica sobre el usuario/contexto o simplemente se asume por conocer
+    el identificador.'
+  purpose: Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.
+  required_evidence:
+  - middleware_or_policy
+  - alternative_routes
+  - effective_guard
+  answer_type: structured
+  possible_outcomes:
+  - located
+  - not_located
+  - unknown
+  next:
+    located: Q-TEC-0003-05
+    not_located: Q-TEC-0003-05
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-03
+  source_fields:
+  - objective.behavior
+- id: Q-TEC-0003-05
+  type: differentiation
+  question: '¿Qué observacion distingue una implementacion segura de una insegura? Seguro: La respuesta
+    deniega el acceso al objeto ajeno (403/404) con independencia del ID. Anomalo: Se obtienen datos de
+    B o se modifica su objeto usando la sesion de A. Senal: Se obtienen datos de B o se modifica su objeto
+    usando la sesion de A.'
+  purpose: Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.
+  required_evidence:
+  - expected_response
+  - anomalous_response
+  - signal_with_reference
+  answer_type: structured
+  possible_outcomes:
+  - discriminates
+  - ambiguous
+  - unknown
+  next:
+    discriminates: Q-TEC-0003-06
+    ambiguous: Q-TEC-0003-07
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-04
+  source_fields:
+  - procedure.expected_secure_result
+  - procedure.anomalous_result
+  - replication.signal
+- id: Q-TEC-0003-06
+  type: validation
+  question: '¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Repetir la peticion cambiando
+    SOLO el identificador del objeto por el de otro propietario. Cambia SOLO: El identificador del objeto.
+    Constante: Sesion (la de A), metodo, ruta, cabeceras, cuerpo. Criterio: Confirmada si con la sesion
+    de A se accede/opera sobre un objeto cuyo propietario es B.'
+  purpose: Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento
+    minimo.
+  required_evidence:
+  - reproducible_request
+  - baseline
+  - differential_response
+  answer_type: evidence_ref
+  possible_outcomes:
+  - confirmed
+  - refuted
+  - inconclusive
+  - blocked
+  next:
+    confirmed: Q-TEC-0003-08
+    refuted: Q-TEC-0003-08
+    inconclusive: Q-TEC-0003-07
+    blocked: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-05
+  source_fields:
+  - procedure.action
+  - procedure.confirmation_criteria
+  notes: La ejecucion requiere aprobacion del CEO por ser accion intrusiva.
+- id: Q-TEC-0003-07
+  type: interpretation
+  question: ¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir
+    el mismo resultado y como se descartan?
+  purpose: Separar violacion real de falso positivo antes de concluir.
+  required_evidence:
+  - alternative_hypotheses
+  - control_comparison
+  answer_type: structured
+  possible_outcomes:
+  - explained
+  - unresolved
+  - unknown
+  next:
+    explained: stop_false_positive
+    unresolved: Q-TEC-0003-06
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0003-05
+  source_fields:
+  - relations.detects_pattern
+- id: Q-TEC-0003-08
+  type: next
+  question: '¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-639, CWE-284.
+    Tecnicas relacionadas: TEC-0002, TEC-0010.'
+  purpose: Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.
+  required_evidence:
+  - confirmed_or_refuted_evidence
+  - finding_ref
+  answer_type: structured
+  possible_outcomes:
+  - confirmed_finding
+  - refuted_close
+  - follow_related
+  next:
+    confirmed_finding: report
+    refuted_close: done
+    follow_related: goto_technique_questions
+  depends_on:
+  - Q-TEC-0003-06
+  source_fields:
+  - relations.detects_pattern
+  - relations.related_to

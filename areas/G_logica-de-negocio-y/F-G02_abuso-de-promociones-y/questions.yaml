@@ -1,0 +1,95 @@
+schema_version: '1.0'
+node_type: family
+id: F-G02
+title: Abuso de promociones y precios
+description: Cupones, redondeo y cantidades manipulables.
+area: G
+area_title: Logica de negocio y flujos
+family_id: F-G02
+family_name: Abuso de promociones y precios
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0106
+- TEC-0107
+- TEC-0108
+- TEC-0155
+- TEC-0156
+- TEC-0211
+- TEC-0239
+- TEC-0257
+- TEC-0298
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-G02
+generated: true
+questions:
+- id: Q-F-G02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Abuso
+    de promociones y precios'? Cupones, redondeo y cantidades manipulables.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-G02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-G02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0106 (Abuso
+    de cupones y descuentos), TEC-0107 (Abuso de redondeo y moneda), TEC-0108 (Cantidad negativa o envio
+    sin minimo), TEC-0155 (Abuso de prueba gratuita / referidos), TEC-0156 (Manipulacion de estado de
+    pedido), TEC-0211 (Over-posting de campos de negocio (price/discount/tier)), TEC-0239 (Over-posting
+    de plan/suscripcion (plan/status/trial)), TEC-0257 (Idempotencia ausente / doble ejecucion secuencial),
+    TEC-0298 (Overflow / limites de enteros en logica).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-G02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-G02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-G02-01
+  source_fields:
+  - objective.not_applicable

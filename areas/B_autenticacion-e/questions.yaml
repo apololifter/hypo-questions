@@ -1,0 +1,149 @@
+schema_version: '1.0'
+node_type: area
+id: B
+title: Autenticacion e identidad
+description: Preguntas de encuadre para el area B (Autenticacion e identidad).
+area: B
+area_title: Autenticacion e identidad
+subfamilies:
+- Login y flujos alternativos
+- Normalizacion de identificadores
+- Enumeracion de usuarios
+- Password reset/recovery
+- MFA y su recuperacion
+- SSO/OAuth/OIDC/SAML
+- Federacion y enlace de cuentas
+- Registro/invitacion/activacion
+- Rate limit y bloqueo
+- Identidad derivada de cabeceras/claims
+attacker_state_requirements: []
+techniques:
+- TEC-0031
+- TEC-0032
+- TEC-0099
+- TEC-0100
+- TEC-0150
+- TEC-0173
+- TEC-0174
+- TEC-0259
+- TEC-0266
+- TEC-0285
+- TEC-0287
+- TEC-0393
+- TEC-0394
+- TEC-0425
+- TEC-0426
+- TEC-0427
+- TEC-0056
+- TEC-0057
+- TEC-0103
+- TEC-0127
+- TEC-0233
+- TEC-0242
+- TEC-0258
+- TEC-0265
+- TEC-0317
+- TEC-0428
+- TEC-0429
+- TEC-0430
+- TEC-0431
+- TEC-0075
+- TEC-0151
+- TEC-0175
+- TEC-0243
+- TEC-0244
+- TEC-0314
+- TEC-0406
+- TEC-0432
+- TEC-0104
+- TEC-0105
+- TEC-0245
+- TEC-0315
+- TEC-0433
+- TEC-0434
+- TEC-0322
+- TEC-0323
+- TEC-0324
+- TEC-0325
+- TEC-0326
+- TEC-0327
+- TEC-0328
+- TEC-0329
+- TEC-0330
+- TEC-0331
+- TEC-0332
+- TEC-0333
+- TEC-0420
+- TEC-0421
+- TEC-0422
+- TEC-0423
+- TEC-0424
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/B
+generated: true
+questions:
+- id: Q-AREA-B-01
+  type: context
+  question: '¿Esta aplicacion expone o utiliza la dimension ''Autenticacion e identidad''? Subfamilias
+    consideradas por el WPTA: Login y flujos alternativos; Normalizacion de identificadores; Enumeracion
+    de usuarios; Password reset/recovery; MFA y su recuperacion; SSO/OAuth/OIDC/SAML; Federacion y enlace
+    de cuentas; Registro/invitacion/activacion; Rate limit y bloqueo; Identidad derivada de cabeceras/claims.'
+  purpose: Determinar si el area debe explorarse para esta aplicacion antes de abrir sus familias.
+  required_evidence:
+  - app_surface
+  - tech_stack
+  - observed_flows
+  answer_type: structured
+  possible_outcomes:
+  - relevant
+  - not_relevant
+  - unknown
+  next:
+    relevant: Q-AREA-B-02
+    not_relevant: stop_not_relevant
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/taxonomy.json:categories
+- id: Q-AREA-B-02
+  type: structure
+  question: '¿Cuales de las familias del area B aplican al contexto observado y por que? Familias: F-B01
+    (Autenticacion y cuentas), F-B02 (OAuth y fuerza bruta), F-B03 (OAuth avanzado), F-B04 (SAML y federacion),
+    F-B05 (MFA y ciclo de vida de factores).'
+  purpose: Priorizar familias aplicables en lugar de recorrer el area completa a ciegas.
+  required_evidence:
+  - module_or_function
+  - mechanism
+  - observed_signal
+  answer_type: structured
+  possible_outcomes:
+  - some_apply
+  - none_apply
+  - unknown
+  next:
+    some_apply: Q-AREA-B-03
+    none_apply: stop_not_relevant
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-AREA-B-01
+  source_fields:
+  - _meta/checklist/families.json
+- id: Q-AREA-B-03
+  type: next
+  question: ¿Qué familias quedaron sin evaluar (not_reviewed) y qué evidencia puntual las desbloquearia?
+  purpose: Cerrar huecos de cobertura del area sin afirmar cobertura completa.
+  required_evidence:
+  - coverage_state
+  - missing_evidence
+  answer_type: structured
+  possible_outcomes:
+  - covered
+  - gaps_remain
+  next:
+    covered: done
+    gaps_remain: request_missing_evidence
+  depends_on:
+  - Q-AREA-B-02
+  source_fields:
+  - coverage.json

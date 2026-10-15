@@ -1,0 +1,105 @@
+schema_version: '1.0'
+node_type: family
+id: F-J03
+title: Cliente avanzado
+description: Plantillas de cliente, prototype pollution, DOM clobbering y dangling markup.
+area: J
+area_title: Navegador, DOM y frontend
+family_id: F-J03
+family_name: Cliente avanzado
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0065
+- TEC-0066
+- TEC-0067
+- TEC-0094
+- TEC-0095
+- TEC-0096
+- TEC-0133
+- TEC-0145
+- TEC-0147
+- TEC-0160
+- TEC-0169
+- TEC-0252
+- TEC-0307
+- TEC-0308
+- TEC-0343
+- TEC-0365
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-J03
+generated: true
+questions:
+- id: Q-F-J03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Cliente
+    avanzado'? Plantillas de cliente, prototype pollution, DOM clobbering y dangling markup.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-J03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-J03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0065 (Client-side
+    Template Injection (CSTI)), TEC-0066 (Prototype pollution), TEC-0067 (DOM clobbering), TEC-0094 (Inyeccion
+    CSS para exfiltracion), TEC-0095 (Secuestro de JSONP (callback)), TEC-0096 (Reverse tabnabbing (window.opener)),
+    TEC-0133 (Relative Path Overwrite (RPO)), TEC-0145 (CSP bypass via JSONP/script-gadget en allowlist),
+    TEC-0147 (Envenenamiento de almacenamiento (localStorage/sessionStorage)), TEC-0160 (Politica cross-domain
+    permisiva (crossdomain.xml)), TEC-0169 (Redireccion abierta de lado cliente (javascript:)), TEC-0252
+    (Prototype pollution de cliente a gadget (DOM XSS)), TEC-0307 (Bypass de sanitizador HTML (DOMPurify
+    y similares)), TEC-0308 (Bypass de Trusted Types), TEC-0343 (postMessage con origen null), TEC-0365
+    (DOM XSS via sink de selector jQuery alimentado por location.hash).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-J03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-J03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-J03-01
+  source_fields:
+  - objective.not_applicable

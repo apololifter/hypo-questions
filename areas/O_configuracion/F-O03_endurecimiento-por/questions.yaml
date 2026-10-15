@@ -1,0 +1,92 @@
+schema_version: '1.0'
+node_type: family
+id: F-O03
+title: Endurecimiento por defecto
+description: Credenciales, errores verbosos y listados.
+area: O
+area_title: Configuracion, despliegue e infraestructura web
+family_id: F-O03
+family_name: Endurecimiento por defecto
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0117
+- TEC-0118
+- TEC-0119
+- TEC-0135
+- TEC-0141
+- TEC-0182
+- TEC-0310
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-O03
+generated: true
+questions:
+- id: Q-F-O03-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Endurecimiento
+    por defecto'? Credenciales, errores verbosos y listados.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-O03-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-O03-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0117 (Credenciales
+    por defecto), TEC-0118 (Errores verbosos y stack traces), TEC-0119 (Listado de directorios habilitado),
+    TEC-0135 (Endpoints de gestion expuestos (actuator/grafana)), TEC-0141 (Cabeceras de seguridad ausentes
+    (HSTS/CSP)), TEC-0182 (Protocolos TLS debiles permitidos), TEC-0310 (Bypass de HSTS (primer contacto
+    HTTP)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-O03-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-O03-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-O03-01
+  source_fields:
+  - objective.not_applicable

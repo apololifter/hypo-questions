@@ -1,0 +1,94 @@
+schema_version: '1.0'
+node_type: family
+id: F-K07
+title: Generacion de caracteres para evadir filtros
+description: Reconstruir caracteres bloqueados en tiempo de ejecucion (expansion de variables/ASCII) en
+  inyeccion de comandos.
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K07
+family_name: Generacion de caracteres para evadir filtros
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0370
+- TEC-0371
+- TEC-0372
+- TEC-0373
+- TEC-0414
+- TEC-0415
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-K07
+generated: true
+questions:
+- id: Q-F-K07-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Generacion
+    de caracteres para evadir filtros'? Reconstruir caracteres bloqueados en tiempo de ejecucion (expansion
+    de variables/ASCII) en inyeccion de comandos.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-K07-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-K07-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0370 (Generacion
+    de caracteres para evadir filtros de comandos), TEC-0371 (Linux: expansion de parametros y `tr` para
+    caracteres bloqueados), TEC-0372 (Windows CMD: substring de variable de entorno (`%VAR:~o,l%`)), TEC-0373
+    (PowerShell: `[char]N` y concatenacion para caracteres bloqueados), TEC-0414 (Ofuscacion de comandos/palabras
+    clave para evadir filtros (case/rev/base64/printf)), TEC-0415 (Bypass de espacios en command injection
+    (IFS, llaves, tab)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-K07-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-K07-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-K07-01
+  source_fields:
+  - objective.not_applicable

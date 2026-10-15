@@ -1,0 +1,89 @@
+schema_version: '1.0'
+node_type: family
+id: F-T02
+title: Ataques a la cadena de suministro (CI/CD)
+description: Dependencias y secretos de build.
+area: T
+area_title: Cadena de suministro y artefactos de despliegue
+family_id: F-T02
+family_name: Ataques a la cadena de suministro (CI/CD)
+technique_id: null
+variant_of: null
+hypothesis: null
+behavior: null
+patterns: []
+attacker_state_requirements: []
+techniques:
+- TEC-0114
+- TEC-0115
+- TEC-0275
+- TEC-0276
+- TEC-0338
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: familia F-T02
+generated: true
+questions:
+- id: Q-F-T02-01
+  type: context
+  question: ¿Qué funcionalidad, mecanismo o condicion de la aplicacion hace pertinente la familia 'Ataques
+    a la cadena de suministro (CI/CD)'? Dependencias y secretos de build.
+  purpose: Decidir si la familia aplica al sistema observado.
+  required_evidence:
+  - functionality
+  - mechanism
+  - precondition
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-F-T02-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  source_fields:
+  - _meta/checklist/families.json:description
+- id: Q-F-T02-02
+  type: structure
+  question: '¿Cuales de las tecnicas de la familia aplican al contexto observado? Tecnicas: TEC-0114 (Confusion
+    de dependencias (dependency confusion)), TEC-0115 (Secretos en artefactos de CI/CD), TEC-0275 (Typosquatting
+    / paquete malicioso en dependencias), TEC-0276 (Componente desactualizado con CVE (firma en bundle)),
+    TEC-0338 (Paquete malicioso con postinstall (supply chain)).'
+  purpose: Abrir solo las tecnicas pertinentes; conservar trazabilidad de las descartadas.
+  required_evidence:
+  - endpoint_or_module
+  - observed_signal
+  - preconditions
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - none
+  - unknown
+  next:
+    identified: goto_technique_questions
+    none: stop_not_applicable
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-F-T02-01
+  source_fields:
+  - _meta/checklist/families.json:techniques
+- id: Q-F-T02-03
+  type: differentiation
+  question: ¿Qué evidencia permitiria descartar la familia completa sin dejar huecos (precondicion ausente
+    comprobada)?
+  purpose: 'Evitar descartes por ''no vi senal'': exigir evidencia positiva de no aplicabilidad.'
+  required_evidence:
+  - positive_absence_evidence
+  answer_type: structured
+  possible_outcomes:
+  - discardable
+  - keep
+  next:
+    discardable: stop_not_applicable
+    keep: goto_technique_questions
+  depends_on:
+  - Q-F-T02-01
+  source_fields:
+  - objective.not_applicable

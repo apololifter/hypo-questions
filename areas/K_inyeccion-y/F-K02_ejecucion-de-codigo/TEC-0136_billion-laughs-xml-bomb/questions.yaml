@@ -1,0 +1,219 @@
+schema_version: '1.0'
+node_type: technique
+id: TEC-0136
+title: Billion laughs / XML bomb
+description: Las entidades internas se expanden sin limite.
+area: K
+area_title: Inyeccion y ejecucion
+family_id: F-K02
+family_name: Ejecucion de codigo
+technique_id: TEC-0136
+variant_of: null
+hypothesis: Las entidades internas se expanden sin limite.
+behavior: Comprobar si el parser XML expande entidades anidadas (agotamiento).
+patterns:
+- CWE-776
+related_techniques: []
+attacker_state_requirements:
+- Endpoint que parsea XML; laboratorio.
+missing_catalog_fields:
+- objective.not_applicable
+- procedure.action
+- procedure.variable_to_change
+- procedure.variables_to_hold_constant
+wpta:
+  repo: https://github.com/apololifter/Web-Pentesting-Technique-Atlas-WPTA-
+  commit: d6f986e9f97c9046aa721512210aef4158be9fff
+  source: atlas/K_inyeccion-y/F-K02_ejecucion-de-codigo/TEC-0136_billion-laughs-xml-bomb/tecnica.json
+generated: true
+questions:
+- id: Q-TEC-0136-01
+  type: context
+  question: '¿Esta aplicacion presenta el contexto que activa la tecnica ''Billion laughs / XML bomb''?
+    Contexto canonico WPTA: Entidades anidadas.'
+  purpose: Decidir si la tecnica es aplicable ANTES de disenar cualquier prueba. Sin contexto no hay hipotesis.
+  required_evidence:
+  - endpoint_or_route
+  - resource_model
+  - operation
+  answer_type: structured
+  possible_outcomes:
+  - applicable
+  - not_applicable
+  - unknown
+  next:
+    applicable: Q-TEC-0136-02
+    not_applicable: stop_not_applicable
+    unknown: request_missing_evidence
+  applicability_conditions:
+  - Entidades anidadas.
+  source_fields:
+  - objective.contexts
+  - objective.behavior
+- id: Q-TEC-0136-02
+  type: preconditions
+  question: '¿Se cumplen las precondiciones de replicacion y NO se cumple la condicion de no aplicabilidad?
+    Requisitos WPTA: Endpoint que parsea XML; laboratorio. No aplica si: (el WPTA no declara condicion
+    de no aplicabilidad)'
+  purpose: Verificar cuentas/roles/entorno antes de probar; comprobar la condicion que descartaria la
+    tecnica.
+  required_evidence:
+  - accounts_or_roles
+  - environment
+  - concurrency_if_any
+  answer_type: structured
+  possible_outcomes:
+  - satisfied
+  - not_satisfied
+  - unknown
+  next:
+    satisfied: Q-TEC-0136-03
+    not_satisfied: stop_precondition_unmet
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-01
+  attacker_state_requirements:
+  - Endpoint que parsea XML; laboratorio.
+  source_fields:
+  - replication.requirements
+  - objective.not_applicable
+- id: Q-TEC-0136-03
+  type: structure
+  question: '¿Qué rutas, funciones, estados o componentes intervienen en el comportamiento observado?
+    Hipotesis a falsar: Las entidades internas se expanden sin limite.'
+  purpose: Reconstruir el flujo real (fuente -> transformacion -> efecto) que la tecnica pondria a prueba.
+  required_evidence:
+  - call_graph
+  - state_or_flow
+  - component_inventory
+  answer_type: structured
+  possible_outcomes:
+  - identified
+  - partial
+  - unknown
+  next:
+    identified: Q-TEC-0136-04
+    partial: request_missing_evidence
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-02
+  source_fields:
+  - objective.hypothesis
+  - procedure.steps
+- id: Q-TEC-0136-04
+  type: controls
+  question: '¿Dónde se valida la condicion de seguridad y en qué caminos/capas se aplica? Comportamiento
+    a revisar: Comprobar si el parser XML expande entidades anidadas (agotamiento).'
+  purpose: Localizar la guarda que DEBERIA impedir el fallo y comprobar si cubre todos los caminos.
+  required_evidence:
+  - middleware_or_policy
+  - alternative_routes
+  - effective_guard
+  answer_type: structured
+  possible_outcomes:
+  - located
+  - not_located
+  - unknown
+  next:
+    located: Q-TEC-0136-05
+    not_located: Q-TEC-0136-05
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-03
+  source_fields:
+  - objective.behavior
+- id: Q-TEC-0136-05
+  type: differentiation
+  question: '¿Qué observacion distingue una implementacion segura de una insegura? Seguro: Entidades internas
+    deshabilitadas/limitadas. Anomalo: Se expanden sin limite. Senal: El tiempo/memoria crece exponencialmente
+    (timeout/500 por recursos).'
+  purpose: Definir el discriminante observable ANTES de ejecutar; sin el, la prueba no es falsable.
+  required_evidence:
+  - expected_response
+  - anomalous_response
+  - signal_with_reference
+  answer_type: structured
+  possible_outcomes:
+  - discriminates
+  - ambiguous
+  - unknown
+  next:
+    discriminates: Q-TEC-0136-06
+    ambiguous: Q-TEC-0136-07
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-04
+  source_fields:
+  - procedure.expected_secure_result
+  - procedure.anomalous_result
+  - replication.signal
+- id: Q-TEC-0136-06
+  type: validation
+  question: '¿Qué prueba minima confirmaria o refutaria la hipotesis? Accion: Cambia SOLO: Constante:
+    Criterio: Confirmada si el parser se agota.'
+  purpose: Producir evidencia reproducible con minima modificacion (una variable). Genera el instrumento
+    minimo.
+  required_evidence:
+  - reproducible_request
+  - baseline
+  - differential_response
+  answer_type: evidence_ref
+  possible_outcomes:
+  - confirmed
+  - refuted
+  - inconclusive
+  - blocked
+  next:
+    confirmed: Q-TEC-0136-08
+    refuted: Q-TEC-0136-08
+    inconclusive: Q-TEC-0136-07
+    blocked: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-05
+  source_fields:
+  - procedure.action
+  - procedure.confirmation_criteria
+  notes: La ejecucion requiere aprobacion del CEO por ser accion intrusiva.
+- id: Q-TEC-0136-07
+  type: interpretation
+  question: ¿Qué otras explicaciones (cache, rol, tenant, entorno, dato preexistente) podrian producir
+    el mismo resultado y como se descartan?
+  purpose: Separar violacion real de falso positivo antes de concluir.
+  required_evidence:
+  - alternative_hypotheses
+  - control_comparison
+  answer_type: structured
+  possible_outcomes:
+  - explained
+  - unresolved
+  - unknown
+  next:
+    explained: stop_false_positive
+    unresolved: Q-TEC-0136-06
+    unknown: request_missing_evidence
+  depends_on:
+  - Q-TEC-0136-05
+  source_fields:
+  - relations.detects_pattern
+- id: Q-TEC-0136-08
+  type: next
+  question: '¿Qué pregunta o patron corresponde tras la evidencia? Patrones detectados: CWE-776. Tecnicas
+    relacionadas: (sin tecnicas relacionadas).'
+  purpose: Decidir el siguiente paso (reportar, cerrar, o abrir una tecnica relacionada) preservando trazabilidad.
+  required_evidence:
+  - confirmed_or_refuted_evidence
+  - finding_ref
+  answer_type: structured
+  possible_outcomes:
+  - confirmed_finding
+  - refuted_close
+  - follow_related
+  next:
+    confirmed_finding: report
+    refuted_close: done
+    follow_related: goto_technique_questions
+  depends_on:
+  - Q-TEC-0136-06
+  source_fields:
+  - relations.detects_pattern
+  - relations.related_to
