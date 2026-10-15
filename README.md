@@ -13,43 +13,128 @@ qué prueba mínima la resuelve**.
 
 ---
 
-## Prompt principal — cómo construir las preguntas
+## Prompt principal — metodología para crear árboles de preguntas por técnica WPTA
 
 > Este es el **prompt principal** del repositorio: la metodología que gobierna a quien autora las
-> preguntas, técnica por técnica. El desarrollo operativo (GATES T1-T7, taxonomía de preguntas, checklist)
-> está en [`AUTHORING.md`](AUTHORING.md).
+> preguntas. El desarrollo operativo (GATES T1-T7, taxonomía de preguntas, checklist) está en
+> [`AUTHORING.md`](AUTHORING.md).
 
-Tu tarea es construir una metodología para las preguntas de `hypo-questions` que permita a un agente
-investigar una **aplicación web real**, técnica por técnica del WPTA, y llegar a **hipótesis de
-vulnerabilidad con pruebas formuladas**. No otra lista de dimensiones genéricas.
+### Objetivo
 
-Para **cada técnica del WPTA** debes:
+Para cada técnica del Web Pentesting Technique Atlas (WPTA), construir un **árbol de preguntas** que guíe
+al agente, paso a paso, durante la investigación de una aplicación hasta descubrir si existe una
+vulnerabilidad compatible con el mecanismo de esa técnica.
 
-1. **Descomponer el mecanismo.** Identificar qué condiciones, componentes, controles y comportamientos
-   deben existir para que pueda producirse el fallo.
-2. **Derivar las preguntas necesarias.** Determinar qué necesita averiguar el agente sobre la aplicación
-   para saber si cada condición se cumple. Las preguntas deben ser específicas del mecanismo, no variantes
-   de «¿es vulnerable?».
-3. **Cubrir caminos alternativos.** Investigar las distintas rutas, estados, roles, entradas, validaciones
-   y operaciones que pueden cambiar el resultado de seguridad.
-4. **Construir ramas de investigación.** Cada respuesta debe determinar qué pregunta corresponde después,
-   qué evidencia falta o si una línea de investigación puede descartarse justificadamente.
-5. **Llegar a una hipótesis comprobable.** Las respuestas deben permitir establecer un mecanismo causal
-   concreto, sus precondiciones y el comportamiento de seguridad que podría incumplirse.
-6. **Derivar una prueba discriminante.** Definir la modificación mínima, el estado inicial, las variables
-   constantes, los resultados esperados y los criterios para confirmar, refutar o dejar inconclusa la
-   hipótesis.
-7. **Validar la cobertura.** Comprobar que las preguntas contemplan las condiciones relevantes de la
-   técnica —incluidas variantes de implementación— y que no son redundantes ni dejan ramas sin resolver.
+Las preguntas deben funcionar como una **ruta de investigación**: cada una indica qué necesita averiguar el
+agente, qué evidencia debe buscar y cómo utilizar la respuesta para decidir el siguiente paso.
 
-**Ejemplo — elusión de workflows.** No basta con preguntar si se puede saltar un paso. Hay que identificar
-las precondiciones de cada transición, dónde se aplican, qué caminos alcanzan la operación final, cuáles
-evitan esas comprobaciones, y qué prueba permite distinguir una ruta legítima de una que viola las reglas
-del proceso.
+El resultado no es una descripción de la técnica, una lista de comprobaciones independientes ni un
+cuestionario genérico. Es una **guía de razonamiento** que permite avanzar desde el objetivo funcional de
+la técnica hasta localizar un posible punto de materialización, comprender su mecanismo y llegar a una
+hipótesis verificable.
 
-**El entregable es el estándar de autoría**: un documento que indica cómo analizar cada técnica del WPTA,
-cómo derivar sus preguntas, cómo organizarlas en ramas y cómo verificar que permiten llegar a hipótesis y
-pruebas. Ese estándar es el que debes usar para construir `hypo-questions` de forma sistemática.
+### Procedimiento obligatorio
+
+**1. Comprender cómo se materializa la técnica.** Analizar la ficha de la técnica WPTA para identificar el
+mecanismo que produce la vulnerabilidad, las condiciones necesarias, las propiedades de seguridad afectadas
+y los comportamientos de la aplicación que podrían permitirla. Determinar qué tendría que averiguar un
+pentester para descubrir si ese mecanismo existe en una aplicación concreta.
+
+**2. Convertir el mecanismo en una ruta de investigación.** Traducir el mecanismo en una secuencia lógica
+de preguntas que lleve al agente desde el contexto general hasta los detalles necesarios para identificar
+la vulnerabilidad. La ruta debe investigar progresivamente:
+
+- Qué objetivo funcional puede verse afectado.
+- Qué funcionalidades y operaciones podrían permitir alcanzar ese objetivo.
+- Qué endpoints, entradas, estados, roles, identidades o relaciones intervienen.
+- Cómo procesa la aplicación esas operaciones y qué controles aplica.
+- Qué comportamiento permitiría que el mecanismo de la técnica se materializara.
+- Qué evidencia permitiría confirmar o descartar esa posibilidad.
+
+Esta secuencia es orientativa. Las preguntas concretas deben derivarse del mecanismo de cada técnica, no de
+una plantilla universal.
+
+**3. Formular preguntas que hagan avanzar la investigación.** Cada pregunta debe ayudar a descubrir algo
+que el agente todavía no conoce y que necesita averiguar para avanzar hacia la vulnerabilidad. Una pregunta
+bien formulada debe:
+
+- Investigar un aspecto específico del mecanismo de la técnica.
+- Indicar qué información o evidencia debe obtenerse.
+- Permitir distinguir entre explicaciones relevantes.
+- Conducir a una nueva pregunta o a una decisión de investigación.
+- Evitar asumir endpoints, parámetros, tecnologías, modelos de datos o controles que todavía no se han
+  identificado.
+
+No formular preguntas como «¿existe esta vulnerabilidad?» cuando el agente todavía no ha investigado las
+condiciones que permitirían responderla.
+
+**4. Construir un paso a paso adaptativo.** Las preguntas deben estar conectadas mediante ramas
+condicionales; la siguiente pregunta dependerá de lo que el agente descubra en la anterior.
+
+- Si encuentra una funcionalidad relevante, debe profundizar en sus operaciones, entradas, estados y
+  controles.
+- Si encuentra un parámetro o mecanismo prometedor, debe investigar cómo lo procesa el sistema y qué efecto
+  tiene.
+- Si descubre que el mecanismo esperado no existe, debe determinar si la técnica realmente no aplica o si
+  todavía falta localizar otra ruta de materialización.
+- Si la evidencia es insuficiente, debe preguntar qué necesita averiguar a continuación, en lugar de saltar
+  a una conclusión.
+- Si aparecen varios caminos posibles, debe investigarlos por ramas separadas cuando requieran
+  razonamientos o pruebas diferentes.
+
+Cada rama debe indicar la siguiente pregunta, la evidencia pendiente o una condición justificada para
+cerrar esa línea de investigación.
+
+**5. Conducir las preguntas hasta una hipótesis concreta.** La secuencia debe permitir que el agente reúna
+progresivamente las piezas necesarias para formular una hipótesis causal:
+
+- Qué operación o funcionalidad interviene.
+- Qué precondiciones y estado de atacante se requieren.
+- Qué entrada, secuencia o capacidad puede controlar el atacante.
+- Qué comportamiento de implementación hace posible el fallo.
+- Qué propiedad de seguridad podría incumplirse.
+- Qué resultado observable permitiría comprobarlo.
+
+No es obligatorio que una sola pregunta descubra todos estos elementos; la finalidad del árbol es guiar al
+agente para que los descubra mediante preguntas sucesivas.
+
+**6. Llegar a la verificación del posible fallo.** Cuando las respuestas identifiquen un mecanismo
+plausible, el árbol debe conducir a las preguntas necesarias para establecer cómo comprobarlo. Debe quedar
+claro qué comportamiento normal sirve como referencia, qué variable tendría que modificarse, qué
+condiciones deben mantenerse constantes y qué observación permitiría distinguir entre una ejecución
+legítima y una vulneración de la propiedad de seguridad.
+
+El árbol de preguntas guía la investigación y determina qué se debería comprobar. La ejecución de las
+pruebas, su autorización y el registro de resultados son responsabilidades separadas.
+
+**7. Validar que el árbol realmente guía hacia la vulnerabilidad.** Revisar el recorrido completo y
+comprobar que:
+
+- Cada pregunta contribuye a descubrir o descartar una condición relevante de la técnica.
+- El orden de las preguntas tiene sentido investigativo.
+- Las respuestas determinan cómo continuar.
+- Se consideran rutas alternativas y variantes pertinentes del mecanismo.
+- Las ramas no quedan abandonadas sin una salida definida.
+- No se presupone información que el agente aún necesita descubrir.
+- Las preguntas evitan redundancias y no se limitan a repetir el nombre de la técnica.
+- Existe un recorrido comprensible desde el inicio de la investigación hasta una hipótesis verificable.
+- Si la evidencia no permite continuar, el árbol identifica qué información falta en lugar de inventar una
+  conclusión.
+
+### Resultado esperado
+
+Cada técnica WPTA debe disponer de un **árbol de preguntas** que el agente pueda recorrer durante una
+investigación real. El árbol debe indicarle qué averiguar primero, qué buscar según lo descubierto, qué
+condiciones investigar después y cómo avanzar hasta identificar un mecanismo de vulnerabilidad y establecer
+cómo verificarlo.
+
+No se exige una cantidad fija de preguntas ni una estructura idéntica para todas las técnicas. Se exige que
+cada árbol constituya una guía paso a paso, específica para el mecanismo de la técnica y capaz de adaptarse
+a la evidencia encontrada en la aplicación.
+
+**Criterio fundamental:** si un agente sigue las preguntas y sus ramificaciones, debe poder avanzar
+sistemáticamente en la investigación de la técnica, en lugar de recibir una lista de temas que debe analizar
+por su cuenta.
 
 ---
 
